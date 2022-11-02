@@ -2,28 +2,28 @@ require 'rails_helper'
 
 RSpec.describe "Plots", type: :request do
   describe "GET /show" do
-    it "returns http success" do
+    xit "returns http success" do
       get "/plots/show"
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /new" do
-    it "returns http success" do
+    xit "returns http success" do
       get "/plots/new"
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /create" do
-    it "returns http success" do
+    xit "returns http success" do
       get "/plots/create"
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /destroy" do
-    it "returns http success" do
+    xit "returns http success" do
       get "/plots/destroy"
       expect(response).to have_http_status(:success)
     end

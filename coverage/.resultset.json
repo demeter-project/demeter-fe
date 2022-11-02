@@ -261,6 +261,8 @@
       "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/config/routes.rb": {
         "lines": [
           1,
+          null,
+          null,
           1,
           null,
           1,
@@ -286,6 +288,18 @@
           null
         ]
       },
+      "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/app/helpers/plants_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/app/helpers/plots_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
       "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/app/helpers/sessions_helper.rb": {
         "lines": [
           1,
@@ -293,6 +307,12 @@
         ]
       },
       "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/app/helpers/users_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/app/helpers/welcome_helper.rb": {
         "lines": [
           1,
           null
@@ -327,6 +347,44 @@
         ]
       },
       "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/spec/helpers/gardens_helper_spec.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/spec/helpers/plants_helper_spec.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/spec/helpers/plots_helper_spec.rb": {
         "lines": [
           1,
           null,
@@ -383,6 +441,25 @@
           null
         ]
       },
+      "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/spec/helpers/welcome_helper_spec.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/spec/models/user_spec.rb": {
         "lines": [
           1,
@@ -395,7 +472,6 @@
       "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/app/models/user.rb": {
         "lines": [
           1,
-          null,
           1,
           1,
           1,
@@ -447,6 +523,78 @@
           null
         ]
       },
+      "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/spec/requests/plants_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/spec/requests/plots_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/spec/requests/sessions_spec.rb": {
         "lines": [
           1,
@@ -481,6 +629,21 @@
           null,
           null,
           null,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/spec/requests/welcome_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
           1,
           1,
           0,
@@ -527,6 +690,78 @@
           null
         ]
       },
+      "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/spec/views/plants/create.html.erb_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/spec/views/plants/destroy.html.erb_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/spec/views/plants/new.html.erb_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/spec/views/plants/show.html.erb_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/spec/views/plots/create.html.erb_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/spec/views/plots/destroy.html.erb_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/spec/views/plots/new.html.erb_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/spec/views/plots/show.html.erb_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/spec/views/sessions/login.html.erb_spec.rb": {
         "lines": [
           1,
@@ -563,12 +798,18 @@
           null
         ]
       },
-      "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/app/controllers/users_controller.rb": {
+      "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/spec/views/welcome/index.html.erb_spec.rb": {
         "lines": [
           1,
+          null,
           1,
-          null,
-          null,
+          1,
+          null
+        ]
+      },
+      "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/app/controllers/welcome_controller.rb": {
+        "lines": [
+          1,
           1,
           null,
           null
@@ -601,8 +842,19 @@
           null,
           null
         ]
+      },
+      "/Users/kenl/Turing/3mod/projects/demeter/demeter-fe/app/controllers/users_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1667422716
+    "timestamp": 1667423478
   }
 }
