@@ -1,9 +1,9 @@
 class SessionsController < ApplicationController
-  def omniauth
+  def create # authing via omniauth gem
     user = User.from_omniauth(request.env['omniauth.auth'])
     if user.valid?
       session[:user_id] = user.id 
-      redirect_to users_path(user)
+      redirect_to user_path(user)
       flash[:success] = "Welcome #{user.username}!"
     else
       redirect_to landing_page_path
@@ -11,6 +11,8 @@ class SessionsController < ApplicationController
     end
   end
 
-  def logout
+  def destroy
+    session.delete(:user_id)
+    redirect_to landing_page_path
   end
 end
