@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'plants/new'
-  get 'plants/create'
-  get 'plants/destroy'
-  get 'plants/show'
-  get '/', to: 'users#index', as: :landing_page
+  # get 'welcome/index'
+  get '/', to: 'welcome#index', as: :landing_page
 
   resources :users, only: %i[show]
 
