@@ -26,7 +26,18 @@ RSpec.configure do |config|
     # ...rather than:
     #     # => "be bigger than 2"
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+
+    config.include IntegrationSpecHelper, :type => :request
   end
+
+  Capybara.default_host = 'http://example.org'
+
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.add_mock(:google, {
+    :uid => '12345',
+    :nickname => 'testuser'
+  })
+
 
   # rspec-mocks config goes here. You can use an alternate test double
   # library (such as bogus or mocha) by changing the `mock_with` option here.
