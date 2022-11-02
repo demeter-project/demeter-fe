@@ -1,4 +1,4 @@
-class GardensController < ApplicationController
+class PlotsController < ApplicationController
   def show
   end
 
@@ -10,5 +10,4 @@ class GardensController < ApplicationController
 
   def destroy
   end
-  
 end
