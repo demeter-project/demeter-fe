@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   resources :gardens, only: %i[show new create destroy]
 
-  resources :sessions, only: %i[logout]
+  get '/auth/:provider/callback', to: 'sessions#create'
 
-  get '/auth/:provider/callback', to: 'sessions#omniauth', as: :omniauth
+  delete '/logout', to: 'sessions#destroy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
