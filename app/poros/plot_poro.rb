@@ -5,7 +5,7 @@ class PlotPoro
 
   def initialize(api)
     @id = api[:id]
-    @name = api[:attributes][:name]
-    @garden_id = api[attributes][:garden_id]
+    @name = api[:name]
+    @garden_id = api[:garden_id]
   end
 end
