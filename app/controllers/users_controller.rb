@@ -6,6 +6,5 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @gardens = GardenFacade.gardens_array(@user.id)
   end
 end

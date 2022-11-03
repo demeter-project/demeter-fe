@@ -12,8 +12,8 @@ RSpec.describe 'Navigation Bar' do
   # When I click the log out button I am redirected to the root page and I see a button to log in.
   describe 'As a user, when I visit any page on the app' do
     before :each do
+      @user_1 = create(:user)
       stub_omniauth
-      @user_1 = User.create!(username: "test")
     end
     it 'I see the name and logo for the app.' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
