@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :garden do
+  factory :garden_poro do
     name { Faker::Coffee.blend_name }
     zip_code {Faker::Number.number(digits: 5)}
     state_code {Faker::Address.city_abbr}

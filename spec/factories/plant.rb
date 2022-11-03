@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :plant do
+  factory :plant_poro do
       id {Faker::Number.number(digits: 4)}
       usda_symbol {Faker::Number.number(digits: 5)}
       common_name {Faker::Name.first_name}
