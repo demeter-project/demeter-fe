@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # get 'welcome/index'
   get '/', to: 'welcome#index', as: :landing_page
 
-  resources :users, only: %i[show]
+  get '/dashboard', to: 'users#show'
 
   resources :gardens, only: %i[show new create destroy]
 
