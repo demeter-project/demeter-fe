@@ -1,17 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe DatabaseService, type: :service, do 
-  describe 'send and receives request from backend api' do
+RSpec.describe DatabaseService, type: :service do 
+  describe 'send and receives request from backend api', vcr: { record: :new_episodes } do
     it 'instantiates' do
       expect(DatabaseService.new).to be_a(DatabaseService)
     end
 
     it 'has get one plant endpoint' do
-      json_response = File.read('spec/fixtures/services/get_garden_stub.json')
-      stub_request(:get, "https://demeter-be.herokuapp.com/api/v1/gardens/1").
-      to_return(status: 200, body: json_response)
-      require 'pry'; binding.pry
-
+      response = DatabaseService.get_plant_endpoint(1)
+      
+      expect(response)
     end
   end
 end

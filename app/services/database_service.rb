@@ -27,7 +27,8 @@ class DatabaseService
   end
 
   def self.get_plant_endpoint(plant_id) 
-    response = conn.get("/plants/#{plant_id}")
+    response = conn.get("/api/v1/plants/#{plant_id}")
+    require 'pry'; binding.pry
     parse(response)
   end
 
@@ -52,10 +53,11 @@ class DatabaseService
 
   private
   def self.conn 
-    Faraday.new('https://demeter-be.herokuapp.com/api/v1/')
+    Faraday.new('http://localhost:3000')
   end
 
   def self.parse(api_data)
-    JSON.parse(api_data.body, symbolize_name: true)
+    require 'pry'; binding.pry
+    JSON.parse(api_data.body, symbolize_names: true)
   end
 end
