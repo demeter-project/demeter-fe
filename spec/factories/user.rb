@@ -1,10 +1,9 @@
 FactoryBot.define do
   factory :user do
     username { Faker::Coffee.blend_name }
-    email { Faker::Coffee.blend_name"@gmail.com" }
-    password { Faker::Number.number(digits: 6) }
-    uid { Faker::Number.number(digits: 4) }
-    provider { "google" }
+    email { Faker::Internet.email }
+    uid { Faker::Number.number(digits: 10) }
+    provider { "google_oauth2" }
   end
   
 end
