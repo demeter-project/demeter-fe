@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user
 
-  def require_user 
+  def require_user
     if !current_user
       redirect_to landing_page_path
       flash[:error] = "Must be logged in to access this page"

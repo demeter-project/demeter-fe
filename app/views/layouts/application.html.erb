@@ -16,7 +16,7 @@
   <% if !current_user %>
     <%= button_to "Log in with Google", '/auth/google_oauth2', method: :post %>
   <% else %>
-    <%= button_to 'Return to Dashboard', dashboard_path %>
+    <%= button_to 'Return to Dashboard', dashboard_path, method: :get %>
     <%= button_to "Log Out", logout_path, method: :delete %>
   <% end %>
 

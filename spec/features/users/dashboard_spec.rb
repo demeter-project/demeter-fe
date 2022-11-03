@@ -7,17 +7,18 @@ RSpec.describe 'User Dashboard', type: :feature do
   describe 'As a user' do
     before :each do
       @user_1 = create(:user)
+      stub_omniauth(@user_1)
+      visit landing_page_path
+      click_button "Log in with Google"
       @gardens = create_list(:garden_poro, 4, user_id: @user_1.id)
     end
     it 'when I visit the user dashboard /dashboard I see a button to create a new garden' do
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
       visit dashboard_path
 
       expect(page).to have_button("Create Garden")
     end
 
-    it 'I see my current gardens and each garden name is a link to that gardens dashboard /gardens/:id' do
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
+    xit 'I see my current gardens and each garden name is a link to that gardens dashboard /gardens/:id' do
       visit dashboard_path
 
       @gardens.each do |garden|
