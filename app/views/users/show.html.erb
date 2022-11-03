@@ -1,2 +1,11 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= "#{@user.username}" %>'s Dashboard</h1>
+
+<%= button_to "Create Garden", new_garden_path, method: :get %>
+
+<h3><%= "#{@user.username}" %>'s Gardens</h3>
+
+<% @gardens.each do |garden| %>
+  <p id="#{garden.id}"><%= garden.name %></p>
+<% end %>
+
+

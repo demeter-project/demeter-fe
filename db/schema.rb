@@ -15,26 +15,6 @@ ActiveRecord::Schema.define(version: 2022_11_02_013944) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "pets", force: :cascade do |t|
-    t.boolean "adoptable"
-    t.integer "age"
-    t.string "breed"
-    t.string "name"
-    t.bigint "shelter_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["shelter_id"], name: "index_pets_on_shelter_id"
-  end
-
-  create_table "shelters", force: :cascade do |t|
-    t.boolean "foster_program"
-    t.string "name"
-    t.string "city"
-    t.integer "rank"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
@@ -43,25 +23,5 @@ ActiveRecord::Schema.define(version: 2022_11_02_013944) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "veterinarians", force: :cascade do |t|
-    t.boolean "on_call"
-    t.integer "review_rating"
-    t.string "name"
-    t.bigint "veterinary_office_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["veterinary_office_id"], name: "index_veterinarians_on_veterinary_office_id"
-  end
-
-  create_table "veterinary_offices", force: :cascade do |t|
-    t.boolean "boarding_services"
-    t.integer "max_patient_capacity"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_foreign_key "pets", "shelters"
-  add_foreign_key "veterinarians", "veterinary_offices"
+  
 end
