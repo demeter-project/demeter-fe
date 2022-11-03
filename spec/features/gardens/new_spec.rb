@@ -14,8 +14,9 @@ RSpec.describe 'new garden page' do
 
     expect(page).to have_content("Create New Garden")
     expect(page).to have_content("Name")
-    expect(page).to have_content("Zip Code")
-    expect(page).to have_content("State Code")
+    # save_and_open_page
+    expect(page).to have_content("Zip code")
+    expect(page).to have_content("State code")
   end
 
   xit 'can create new garden' do
