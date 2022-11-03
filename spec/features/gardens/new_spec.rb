@@ -1,6 +1,15 @@
+require 'rails_helper'
+
 RSpec.describe 'new garden page' do
 
-  xit 'has static text for new garden' do
+  before:each do
+    user = create(:user)
+    stub_omniauth(user)
+    visit landing_page_path
+    click_on "Log in with Google"
+  end
+
+  it 'has static text for new garden' do
     visit new_garden_path
 
     expect(page).to have_content("Create New Garden")
@@ -10,7 +19,6 @@ RSpec.describe 'new garden page' do
   end
 
   xit 'can create new garden' do
-    stub_omniauth
     visit new_garden_path
 
     fill_in("Name", with: "Sunflower Patch")
@@ -23,7 +31,6 @@ RSpec.describe 'new garden page' do
   end
 
   xit 'can fail to create new garden' do
-    stub_omniauth
     visit new_garden_path
 
     fill_in("Name", with: "Front Yard Flower Garden")

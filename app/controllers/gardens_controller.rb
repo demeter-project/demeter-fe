@@ -10,8 +10,9 @@ class GardensController < ApplicationController
   end
 
   def destroy
+    
     #send request to backend with garden id, delete associated plots
-
+    redirect_to dashboard_path
   end
 
   private

@@ -1,19 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe 'user show page' do
+  before:each do
+    user = create(:user)
+    stub_omniauth(user)
+    visit landing_page_path
+    click_on "Log in with Google"
+  end
 
   xit 'displays all gardens' do
-    visit user_path
+    visit dashboard_path
 
     expect(page).to have_content("")
   end
 
-  xit 'can use button to go to new garden page' do
-    stub_omniauth
-    visit user_path
+  it 'can use button to go to new garden page' do
+    visit dashboard_path
     click_button "Create New Garden"
 
-    expect(current_path).to eq('new_garden_path')
+    expect(current_path).to eq('/gardens/new')
   end
 
 end
