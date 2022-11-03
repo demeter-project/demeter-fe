@@ -1,8 +1,11 @@
 FactoryBot.define do
   factory :garden_poro do
-    name { Faker::Coffee.blend_name }
+    skip_create
+    initialize_with { new(attributes) }
+    id {Faker::Number.number(digits: 5)}
+    name {Faker::Coffee.blend_name} 
     zip_code {Faker::Number.number(digits: 5)}
-    state_code {Faker::Address.city_abbr}
+    state_code {Faker::Address.state_abbr}
     user_id {Faker::Number.number(digits: 4)}
   end
 
