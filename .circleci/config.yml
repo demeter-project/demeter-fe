@@ -6,7 +6,7 @@ jobs: # a collection of steps
   deploy:
     executor: heroku/default
     steps:
-      - attach_workspac
+      - attach_workspace:
           at: ~/demeter-fe
       - heroku/deploy-via-git:
           force: true # force push when pushing to the heroku remote, see: https://devcenter.heroku.com/articles/git
