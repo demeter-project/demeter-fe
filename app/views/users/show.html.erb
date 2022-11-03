@@ -1,11 +1,5 @@
-<h1>Users#show</h1>
+<h1><%= "#{@user.username}" %>'s Dashboard</h1>
 
+<%= button_to "Create Garden", new_garden_path, method: :get %>
 
-<%= button_to 'Create New Garden', "/gardens/new", method: :get %>
-
-<%# <% @gardens.each do |garden| %>
-  <%# <%= link_to "#{garden.name}", "/gardens/#{garden.id}" %> %>
-  <%# <%= link_to 'Delete This Garden', "/gardens/#{garden.id}", method: :delete %> %>
-<%# <% end %> %> %>
-
-<p>Find me in app/views/users/show.html.erb</p>
+<h3><%= "#{@user.username}" %>'s Gardens</h3>
