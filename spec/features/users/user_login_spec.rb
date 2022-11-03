@@ -7,6 +7,7 @@ RSpec.describe 'user login' do
       visit landing_page_path
       expect(page).to have_button("Log in with Google")
       click_button "Log in with Google"
+      save_and_open_page
     end
   end
 end
