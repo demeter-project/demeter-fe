@@ -1,5 +1,25 @@
 class PlantPoro
-  attr_reader 
+  attr_reader :id,
+              :usda_symbol,
+              :common_name,
+              :scientific_name,
+              :states,
+              :duration,
+              :flower_color,
+              :growth_rate,
+              :toxic,
+              :edible,
+              :temperature_min,
+              :frost_free_days_min,
+              :drought_tolerance,
+              :fire_tolerance,
+              :moisture_use,
+              :ph_minimum,
+              :ph_maximum,
+              :precipitation_maximum,
+              :precipitation_minimum,
+              :salinity_tolerance, 
+              :shade_tolerance
 
   def initialize(api)
     @id = api[:id]
