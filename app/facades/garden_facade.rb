@@ -14,12 +14,6 @@ class GardenFacade < DatabaseService
     json[:data].map { |plot| GardenPlot.new(plot, garden_id) }
   end
 
-
-  def self.get_plot_plants   #get_plot_plants_endpoint
-    json = DatabaseService.get_plot_plants_endpoint
-    json.each {|plant| PlotPlant(plant)}
-  end
-
   def self.get_user_gardens(user_id)    #get_user_gardens_endpoint
     json = DatabaseService.get_user_gardens_endpoint(user_id)
     json[:data].map { |garden| Garden.new(garden[:attributes], garden[:id])}
@@ -31,6 +25,7 @@ class GardenFacade < DatabaseService
     json[:data].map { |plant| PlotPlant.new(plant)  }
   end
 
+#is this necessary? below
   def self.create_garden(name, zip_code, state, user_id)  #create_garden_endpoint(name, zip_code, state, user_id)
     Database.create_garden_endpoint(name, zip_code, state, user_id)
   end
