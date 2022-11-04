@@ -44,5 +44,16 @@ RSpec.describe 'Navigation Bar' do
       click_button("Return to Dashboard")
       expect(current_path).to eq(dashboard_path)
     end
+
+    it 'has sad path and redirect if user is not valid' do
+      visit dashboard_path
+
+      click_button("Log Out")
+      
+      visit dashboard_path
+
+      expect(current_path).to eq(landing_page_path)
+      expect(page).to have_content ("Must be logged in to access this page")
+    end
   end
 end

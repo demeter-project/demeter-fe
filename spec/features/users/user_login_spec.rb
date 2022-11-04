@@ -1,8 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe 'user login' do
-  describe 'using google oauth2' do
-    it 'lets you login' do
+  # As a visitor to the landing page ('/'), I see a button to "Login with Google" and 
+  # when I click this button, I am able to log in with my google credentials and 
+  # then I am redirected to my dashboard ('/dashboard) and I see my username displayed.
+  describe 'As a visitor to the landing page' do
+    it 'I see a button to Login with Google and when I click this button I can log in' do
       user = create(:user)
       stub_omniauth(user)
 
