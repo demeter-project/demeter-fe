@@ -9,6 +9,7 @@ class PlantsController < ApplicationController
   end
 
   def show
+    # @plant = PlantFacade.get_plant(params[:id])
   end
-  
+
 end

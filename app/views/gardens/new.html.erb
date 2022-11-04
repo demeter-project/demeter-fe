@@ -1,2 +1,20 @@
 <h1>Gardens#new</h1>
+<h2>Create New Garden</h2>
+
+  <%= form_with url: gardens_path, method: :post, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, required: true %>
+
+  <%= f.label :zip_code %>
+  <%= f.text_field :zip_code, maxlength: 5, minlength: 5 %>
+
+  <%= f.label :state_code %>
+  <%= f.select :state_code, options_for_select(us_states), required: true %>
+
+  <%= f.label :user_id %>
+  <%= f.hidden_field :state_code, value: session[:user_id] %>
+
+  <%= f.submit "Submit" %>
+  <% end %>
+
 <p>Find me in app/views/gardens/new.html.erb</p>
