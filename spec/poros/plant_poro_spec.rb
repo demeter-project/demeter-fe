@@ -39,11 +39,12 @@ RSpec.describe PlantPoro do
 
     it 'has expected data types' do
       response = PlantPoro.new(@mock_json_data[:data])
-      require 'pry'; binding.pry
+      
       expect(response.id).to be_a(String)
       expect(response.common_name).to be_a(String)
       expect(response.temperature_min).to be_a(Integer)
-      expect(response.precipitation_min).to eq(nil)
+      expect(response.precipitation_max).to be_a(Integer)
+      expect(response.suitable_for_hz).to eq(nil)
     end
   end
 end
