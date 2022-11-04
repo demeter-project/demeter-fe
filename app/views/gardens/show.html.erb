@@ -1,2 +1,14 @@
-<h1>Gardens#show</h1>
-<p>Find me in app/views/gardens/show.html.erb</p>
+<p><%= @garden.name %></p>
+
+<p>Current Forecast: <%= @garden.weather_forecast.first.detailed_forecast %></p>
+<ul>
+  <% @plots.each do |plot| %>
+    <li id="plot-<%= plot.id %>">
+      <p>Name: <%= plot.name %></p>
+      <p>Min Soil PH: <%= plot.soil_ph_min %></p>
+      <p>Max Soil PH: <%= plot.soil_ph_max %></p>
+      <p>Shade Tolerant: <%= plot.shade_tolerant? %></p>
+      <p>Contains Toxic: <%= plot.contains_toxic? %></p>
+    </li>
+  <% end %>
+</ul>
