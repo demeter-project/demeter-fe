@@ -39,7 +39,8 @@ class DatabaseService
                 sort_by: sort_by)
     parse(response)
   end
-  # PATCH/POST 
+
+  #POST 
   def self.create_garden_endpoint(name, zip_code, state, user_id)
     conn.post('/api/v1/gardens', 
       name: name,
@@ -48,7 +49,34 @@ class DatabaseService
       user_id: user_id)
   end
 
-  # DELETE 
+  def self.create_plot_for_garden_endpoint(garden_id, name)
+    conn.post("/gardens/#{garden_id}/plots", name: name)
+  end
+
+  def self.create_plant_for_plot_endpoint(garden_id, plot_id, plant_ids)
+    conn.patch("/gardens/#{garden_id}/plots/#{plot_id}", plant_ids: plant_ids)
+  end
+
+  #PATCH
+  def self.update_plot_plant(garden_id, plot_id, plot_plant_id, date_planted, quantity)
+    response = conn.patch("/gardens/#{garden_id}/plots/#{plot_id}/plot_plants/#{plot_plant_id}",
+                date_planted: date_planted,
+                quantity: quantity)
+    parse(response) # Will we create a facade method => poro method => view for this response?
+  end
+
+  # DELETE
+  def self.delete_garden_endpoint(garden_id)
+    conn.delete("/gardens/#{garden_id}")
+  end
+
+  def self.delete_garden_plot_endpoint(garden_id, plot_id)
+    conn.delete("/gardens/#{garden_id}/plots/#{plot_id}")
+  end
+
+  def self.delete_plot_plant_endpoint(garden_id, plot_id, plot_plant_id)
+    conn.delete("gardens/#{garden_id}/plots/#{plot_id}/plot_plants/#{plot_plant_id}")
+  end
 
   private
   def self.conn
