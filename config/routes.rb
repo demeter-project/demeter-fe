@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'users#show'
 
   resources :gardens, only: %i[show new create destroy]
+  resources :plots, only: %i[new destroy]
 
   get '/auth/:provider/callback', to: 'sessions#create'
 

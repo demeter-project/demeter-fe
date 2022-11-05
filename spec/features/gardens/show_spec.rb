@@ -30,6 +30,8 @@ RSpec.describe 'garden show page' do
       plots.each do |plot|
         within("#plot-#{plot.id}") do
           expect(page).to have_content(plot.name)
+          expect(page).to have_button("Delete #{plot.name}")
+
           # expect(page).to have_content(plot.soil_ph_min)
           # expect(page).to have_content(plot.soil_ph_max)
           # expect(page).to have_content(plot.shade_tolerant?)
@@ -38,6 +40,7 @@ RSpec.describe 'garden show page' do
       end
 
       expect(page).to have_content(garden.weather_forecast.first.detailed_forecast)
+      expect(page).to have_button("Add a new plot")
     end
   end
 end
