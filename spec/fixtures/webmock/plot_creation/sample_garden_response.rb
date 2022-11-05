@@ -233,15 +233,14 @@ module SampleGardenResponse
 
   def garden_with_plot_response 
     {
-    "data": [
-            {
-              "id": "1",
-              "type": "garden",
-              "attributes": {
-                  "name": "Test Garden",
-                  "zip_code": "80023",
-                  "state_code": "CA",
-                  "user_id": 1,
+      "data": {
+          "id": "1",
+          "type": "garden",
+          "attributes": {
+              "name": "Test Garden",
+              "zip_code": "12345",
+              "state_code": "CA",
+              "user_id": 1,
                   "weather_forecast": [
                     {
                     "id": 1,
@@ -454,19 +453,18 @@ module SampleGardenResponse
                     "detailed_forecast": "A slight chance of rain showers after 7pm. Mostly cloudy, with a low around 46. South wind 7 to 10 mph."
                 }
             ]
-            },
-                "relationships": {
-                    "plots": {
-                        "data": [
-                            {
-                                "id": "1",
-                                "type": "plot"
-                            }
-                        ]
-                    }
+        },
+            "relationships": {
+                "plots": {
+                    "data": [
+                        {
+                            "id": "1",
+                            "type": "plot"
+                        }
+                    ]
                 }
             }
-        ]
+        }
     }
   end
 
@@ -478,10 +476,10 @@ module SampleGardenResponse
                 "type": "plot",
                 "attributes": {
                     "name": "Test Plot",
-                    "soil_ph_min": null,
-                    "soil_ph_max": null,
-                    "shade_tolerant?": null,
-                    "contains_toxic?": null
+                    "soil_ph_min": nil,
+                    "soil_ph_max": nil,
+                    "shade_tolerant?": nil,
+                    "contains_toxic?": nil
                 },
                 "relationships": {
                     "plants": {
@@ -496,6 +494,12 @@ module SampleGardenResponse
   def plot_response_no_plots 
     {
         "data": []
+    }
+  end
+
+  def plot_create_request 
+    {
+        "name": "Test Plot"
     }
   end
 end

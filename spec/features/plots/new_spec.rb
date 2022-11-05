@@ -31,12 +31,14 @@ include SampleGardenResponse
 
       expect(current_path).to eq(new_garden_plot_path(garden.id))
 
-      save_and_open_page
-
       fill_in "name", with: "Test Plot"
       click_button "Submit"
 
-      
+      # stub_request(:post, "#{@api_base}/api/v1/gardens/#{garden.id}/plots")
+      # .with(body: plot_create_request.to_json)
+
+      # garden = GardenFacade.get_garden(1)
+      # plots = GardenFacade.get_garden_plots(garden.id)
     end
   end
 end
