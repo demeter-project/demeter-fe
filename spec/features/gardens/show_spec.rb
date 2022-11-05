@@ -1,5 +1,5 @@
 require 'rails_helper'
-require './spec/fixtures/webmock/sample_responses'
+require './spec/fixtures/webmock/sample_response'
 
 RSpec.describe 'garden show page' do
   include SampleResponses
