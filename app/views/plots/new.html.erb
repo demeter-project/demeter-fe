@@ -1,2 +1,9 @@
-<h1>Plots#new</h1>
-<p>Find me in app/views/plots/new.html.erb</p>
+<h2>Create New Plot for <%= @garden.name %></h2>
+
+<%= form_with url: garden_plots_path(@garden.id), method: :post, local: true do |form| %>
+<%= form.label :name %>
+<%= form.text_field :name, required: true  %>
+
+<%= form.submit "Submit"  %>
+<% end  %>
+

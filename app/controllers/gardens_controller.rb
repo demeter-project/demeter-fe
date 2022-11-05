@@ -5,6 +5,7 @@ class GardensController < ApplicationController
   end
 
   def new
+    
   end
 
   def create
