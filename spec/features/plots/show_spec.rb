@@ -1,7 +1,3 @@
-# When I visit a plot's show page ('/gardens/:garden_id/plots/:plot_id')
-# I see a list of all the plants in that plot.
-# Under each plant I see a quantity planted and a date planted.
-# When I click on a link I am taken to a plant show page 'plants/:id' to get information about the plant.
 require 'rails_helper'
 require './spec/fixtures/webmock/sample_responses'
 
@@ -34,15 +30,14 @@ RSpec.describe 'The plot show page' do
       visit garden_plot_path(garden.id, plot.id)
 
       plot_plants.each do |plant|
-        expect(page).to have_content(plant.plant_name)
         expect(page).to have_content(plant.quantity)
         expect(page).to have_content(plant.date_planted)
-      
-        within("#plant-#{plant.id}") do
-          expect(page).to have_link(plant.plant_name)
-          click_link plant.plant_name
-          expect(current_path).to eq(plant_path(plant.id))
-        end
+      end
+
+      plant = plot_plants.first
+      within("#plant-#{plant.id}") do
+        click_link plant.plant_name
+        expect(current_path).to eq(plant_path(plant.id))
       end
     end
   end
