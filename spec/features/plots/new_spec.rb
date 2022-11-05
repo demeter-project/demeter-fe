@@ -1,5 +1,5 @@
 require 'rails_helper'
-require './spec/fixtures/webmock/plot_creation/sample_garden_response'
+require './spec/fixtures/webmock/plots/sample_garden_response'
 
 RSpec.describe 'plot new page' do
 include SampleGardenResponse
