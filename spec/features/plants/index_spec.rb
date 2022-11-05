@@ -23,15 +23,15 @@ RSpec.describe 'plants#index', :vcr do
 
     plots = GardenFacade.get_garden_plots(garden.id)
 
-    stub_request(:get, "#{@api_uri}/api/v1/gardens/#{garden.id}/plots/#{plot.id}")
+    stub_request(:get, "#{@api_uri}/api/v1/gardens/#{garden.id}/plots/#{plots.first.id}")
       .to_return(body: plot_show.to_json)
 
-    plot = PlotFacade.get_plot(garden.id, plot.id)
+    plot = PlotFacade.get_plot(garden.id, plots.first.id)
 
     stub_request(:get, "#{@api_uri}/plants?zip_code=#{garden.zip_code}&state_code=#{garden.state_code}")
       .to_return(body: plants_index.to_json)
 
-    plants = PlantsFacade.get_plants(zip_code: garden.zip_code, state_code: garden.state_code)
+    plants = PlantFacade.get_plants(zip_code: garden.zip_code, state_code: garden.state_code)
 
 
     
