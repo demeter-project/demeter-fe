@@ -29,9 +29,21 @@ RSpec.describe 'The plot show page' do
 
       garden = GardenFacade.get_garden(1)
       plot = PlotFacade.get_plot(garden.id, 1)
-      plot_plant = PlotFacade.get_plot_plants(garden.id, plot.id)
+      plot_plants = PlotFacade.get_plot_plants(garden.id, plot.id)
 
       visit garden_plot_path(garden.id, plot.id)
+
+      plot_plants.each do |plant|
+        expect(page).to have_content(plant.plant_name)
+        expect(page).to have_content(plant.quantity)
+        expect(page).to have_content(plant.date_planted)
+      
+        within("#plant-#{plant.id}") do
+          expect(page).to have_link(plant.plant_name)
+          click_link plant.plant_name
+          expect(current_path).to eq(plant_path(plant.id))
+        end
+      end
     end
   end
 end
