@@ -19,6 +19,7 @@ class PlotsController < ApplicationController
   end
 
   def destroy
+    require 'pry'; binding.pry
   end
 
   private 

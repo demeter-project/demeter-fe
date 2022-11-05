@@ -1,8 +1,8 @@
 require 'rails_helper'
-require './spec/fixtures/webmock/plots/sample_garden_response'
+require './spec/fixtures/webmock/plots/sample_plot_response'
 
 RSpec.describe 'plot new page' do
-include SampleGardenResponse
+include SamplePlotResponse
 
   before :each do
     @api_base = 'https://demeter-be.herokuapp.com'

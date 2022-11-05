@@ -1,4 +1,4 @@
-module SampleGardenResponse 
+module SamplePlotResponse 
   def garden_response
     {
       "data": {
