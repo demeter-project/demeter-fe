@@ -1,11 +1,6 @@
 class PlantsController < ApplicationController
-  def new
-  end
-
-  def create
-  end
-
-  def destroy
+  def index
+    require 'pry'; binding.pry
   end
 
   def show
