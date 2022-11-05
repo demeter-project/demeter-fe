@@ -8,6 +8,8 @@ class GardensController < ApplicationController
   end
 
   def create
+
+    DatabaseService.create_garden_endpoint(params[:name], params[:zip_code], params[:state_code], session[:user_id])
     #send request to create garden backend using garden_params
   end
 

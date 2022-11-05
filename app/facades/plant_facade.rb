@@ -5,6 +5,9 @@ class PlantFacade < DatabaseService
     Plant.new(json[:data])
   end
 
-  
+  def self.get_plants_by_state(state, aip_code, search_name = nil, sort_by = nil)   #get_plants_by_state
+    json = DatabaseService.get_plants_by_state(state, aip_code, search_name = nil, sort_by = nil)
+    json[:data].map { |plant| PlotPlant.new(plant)  }
+  end
 
 end

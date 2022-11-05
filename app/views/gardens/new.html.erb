@@ -12,7 +12,7 @@
   <%= f.select :state_code, options_for_select(us_states), required: true %>
 
   <%= f.label :user_id %>
-  <%= f.hidden_field :state_code, value: session[:user_id] %>
+  <%= f.hidden_field :user_id, value: session[:user_id] %>
 
   <%= f.submit "Submit" %>
   <% end %>
