@@ -4,14 +4,14 @@ class GardenPoro
               :zip_code,
               :state_code,
               :user_id,
-              :weather_forcast
+              :weather_forecast
 
-  def initialize(data, garden_id)
-    @id = garden_id
-    @name = data[:name]
-    @zip_code = data[:zip_code]
-    @state_code = data[:state_code]
-    @user_id = data[:user_id]
-    @weather_forcast = data[:weather_forcast].map { |day| Weather.new(day) }
+  def initialize(data)
+    @id = data[:id]
+    @name = data[:attributes][:name]
+    @zip_code = data[:attributes][:zip_code]
+    @state_code = data[:attributes][:state_code]
+    @user_id = data[:attributes][:user_id]
+    @weather_forecast = data[:attributes][:weather_forecast].map { |day| Weather.new(day) }
   end
 end

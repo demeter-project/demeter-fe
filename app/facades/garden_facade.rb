@@ -6,7 +6,7 @@ class GardenFacade < DatabaseService
 
   def self.get_garden(garden_id)    #get_garden_endpoint
     json = DatabaseService.get_garden_endpoint(garden_id)
-    GardenPoro.new(json[:data][:attributes], json[:data][:id])
+    GardenPoro.new(json[:data])
   end
 
   def self.get_garden_plots(garden_id)    #get_garden_plots_endpoint
@@ -22,7 +22,7 @@ class GardenFacade < DatabaseService
 #Ask about below method
   def self.get_plants_by_state(state, aip_code, search_name = nil, sort_by = nil)   #get_plants_by_state
     json = DatabaseService.get_plants_by_state(state, aip_code, search_name = nil, sort_by = nil)
-    json[:data].map { |plant| PlotPlant.new(plant)  }
+    json[:data].map { |plant| PlotPlantPoro.new(plant)  }
   end
 
 #is this necessary? below
