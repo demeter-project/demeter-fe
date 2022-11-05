@@ -1,4 +1,4 @@
-class PlotPoro
+class Plot
   attr_reader :id,
               :name,
               :garden_id,
@@ -7,7 +7,7 @@ class PlotPoro
               :garden_id
 
   def initialize(data)
-    
+
     @id = data[:id]
     @name = data[:attributes][:name]
     @soil_ph_min = data[:attributes][:soil_ph_min]

@@ -1,4 +1,4 @@
-class PlotPlantPoro
+class PlotPlant
   attr_reader :id,
               :plant_id,
               :plant_name,

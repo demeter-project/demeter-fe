@@ -1,4 +1,4 @@
-class GardenPlotPoro
+class GardenPlot
   attr_reader :id,
               :name,
               :garden_id
