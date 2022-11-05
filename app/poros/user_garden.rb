@@ -1,4 +1,4 @@
-class UserGardenPoro
+class UserGarden
   attr_reader :id,
               :name,
               :zip_code,

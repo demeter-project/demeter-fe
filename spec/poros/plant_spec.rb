@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PlantPoro do 
+RSpec.describe Plant do 
   describe 'instantiates with parsed api json plant data' do
     before :each do
       @mock_json_data = {
@@ -34,11 +34,11 @@ RSpec.describe PlantPoro do
     }
     end
     it 'instantiates' do
-      expect(PlantPoro.new(@mock_json_data[:data])).to be_a(PlantPoro)
+      expect(Plant.new(@mock_json_data[:data])).to be_a(Plant)
     end
 
     it 'has expected data types' do
-      response = PlantPoro.new(@mock_json_data[:data])
+      response = Plant.new(@mock_json_data[:data])
       
       expect(response.id).to be_a(String)
       expect(response.common_name).to be_a(String)

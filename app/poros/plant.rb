@@ -1,4 +1,4 @@
-class PlantPoro
+class Plant
   attr_reader :id,
               :usda_symbol,
               :common_name,

@@ -1,4 +1,4 @@
-class PlotPlantPoro
+class PlotPlant
   attr_reader :id,
               :name,
               :usda_symbol,
