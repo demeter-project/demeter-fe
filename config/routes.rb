@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :plants, only: %i[show]
   
   resources :gardens, only: %i[show new create destroy] do
+
     resources :plots, only: %i[show] do
       get 'plants/discover', to: 'plants#index'
     end
