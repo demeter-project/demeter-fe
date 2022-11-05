@@ -1,2 +1,19 @@
-<h1>Plots#show</h1>
-<p>Find me in app/views/plots/show.html.erb</p>
+<h1><%= @plot.name %></h1>
+<h2>Plants in <%= @plot.name %> Plot</h2>
+<ul>
+  <% @plot_plants.each do |plant| %>
+    <li id="plant-<%=plant.id%>">
+      <h3><%= link_to plant.plant_name, plant_path(plant.id) %></h3>
+      <% if plant.quantity.nil? %>
+        <p>Quantity planted: Not yet planted </p>
+      <% else %>
+        <p>Quantity planted: <%= plant.quantity %></p>
+      <% end %>
+      <% if plant.date_planted.nil? %>
+        <p>Date planted: Not yet planted </p>
+      <% else %>
+        <p>Date planted: <%= plant.date_planted %></p>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

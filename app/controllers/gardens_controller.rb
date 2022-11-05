@@ -1,7 +1,7 @@
 class GardensController < ApplicationController
   def show
-    # @garden = GardenFacade.get_garden(params[:id])
-    # @plots = GardenFacade.get_garden_plots(@garden.id)
+    @garden = GardenFacade.get_garden(params[:id])
+    @plots = GardenFacade.get_garden_plots(@garden.id)
   end
 
   def new
