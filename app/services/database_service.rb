@@ -31,7 +31,7 @@ class DatabaseService
     parse(response)
   end
 
-  def self.get_plants(state_code: nil, zip_code: nil, search_name: nil, sort_by: nil)
+  def self.get_plants_endpoint(state_code: nil, zip_code: nil, search_name: nil, sort_by: nil)
     queries = "state_code=#{state_code}&zip_code=#{zip_code}"
     if !search_name.nil?
       queries = queries + "&search_name=#{search_name}"
