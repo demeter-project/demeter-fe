@@ -1,4 +1,4 @@
-class Garden
+class GardenPoro
   attr_reader :id,
               :name,
               :zip_code,

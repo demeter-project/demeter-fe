@@ -6,12 +6,12 @@ class GardenFacade < DatabaseService
 
   def self.get_garden(garden_id)    #get_garden_endpoint
     json = DatabaseService.get_garden_endpoint(garden_id)
-    Garden.new(json[:data])
+    GardenPoro.new(json[:data])
   end
 
   def self.get_garden_plots(garden_id)    #get_garden_plots_endpoint
     json = DatabaseService.get_garden_plots_endpoint(garden_id)
-    json[:data].map { |plot| Plot.new(plot, garden_id) }
+    json[:data].map { |plot| PlotPoro.new(plot, garden_id) }
   end
 
   def self.get_user_gardens(user_id)    #get_user_gardens_endpoint
