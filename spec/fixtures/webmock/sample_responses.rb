@@ -325,7 +325,7 @@ module SampleResponses
               "plant_id": "15",
               "plant_name": "Common Clover",
               "quantity": 5,
-              "date_planted": 2022-05-18
+              "date_planted": "2022-05-18"
             }
           },
           {
