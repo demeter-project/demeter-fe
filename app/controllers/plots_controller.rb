@@ -8,12 +8,20 @@ class PlotsController < ApplicationController
   end
 
   def new
+    @garden = GardenFacade.get_garden(params[:garden_id])
   end
 
   def create
+    require 'pry'; binding.pry
   end
 
   def destroy
+  end
+
+  private 
+
+  def plot_params
+    params.permit(:name)
   end
 
 end

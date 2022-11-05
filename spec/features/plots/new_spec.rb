@@ -22,9 +22,21 @@ include SampleGardenResponse
 
       visit "/gardens/1?user_id=#{@user.id}"
 
+      garden = GardenFacade.get_garden(1)
+      plots = GardenFacade.get_garden_plots(garden.id)
+      
+      expect(plots).to eq([])
+
       click_button "Add a new plot"
 
-      expect(current_path).to eq(new_plot_path)
+      expect(current_path).to eq(new_garden_plot_path(garden.id))
+
+      save_and_open_page
+
+      fill_in "name", with: "Test Plot"
+      click_button "Submit"
+
+      
     end
   end
 end
