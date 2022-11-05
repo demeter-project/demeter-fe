@@ -1,4 +1,8 @@
 class PlantsController < ApplicationController
+  def index
+
+  end
+  
   def new
   end
 
