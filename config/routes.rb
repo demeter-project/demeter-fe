@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :gardens, only: %i[show new create destroy]
   resources :plots, only: %i[new destroy]
+  resources :plants, only: %i[index]
 
   get '/auth/:provider/callback', to: 'sessions#create'
 
