@@ -1,7 +1,7 @@
 require 'rails_helper'
 require './spec/fixtures/webmock/sample_response'
 
-RSpec.describe 'plants#index', :vcr do
+RSpec.describe 'plants#index' do
   include SampleResponses
 
   before :each do
@@ -28,15 +28,11 @@ RSpec.describe 'plants#index', :vcr do
 
     plot = PlotFacade.get_plot(garden.id, plots.first.id)
 
-    stub_request(:get, "#{@api_uri}/plants?zip_code=#{garden.zip_code}&state_code=#{garden.state_code}")
+    stub_request(:get, "#{@api_uri}/api/v1/plants?state_code=#{garden.state_code}&zip_code=#{garden.zip_code}")
       .to_return(body: plants_index.to_json)
 
-    plants = PlantFacade.get_plants(zip_code: garden.zip_code, state_code: garden.state_code)
+    plants = PlantFacade.get_plants(state_code: garden.state_code, zip_code: garden.zip_code)
 
-
-    
-    
-    
-
+    visit "/plants?state_code=#{garden.state_code}&zip_code=#{garden.zip_code}"
   end
 end
