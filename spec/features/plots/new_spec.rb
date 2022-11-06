@@ -18,27 +18,30 @@ include SamplePlotResponse
       .to_return(body: garden_response.to_json)
 
       stub_request(:get, "#{@api_base}/api/v1/gardens/1/plots")
-      .to_return(body: plot_response_no_plots.to_json)
+      .to_return(body: plots_response_no_plots.to_json)
 
       visit "/gardens/1?user_id=#{@user.id}"
 
       garden = GardenFacade.get_garden(1)
-      plots = GardenFacade.get_garden_plots(garden.id)
-      
-      expect(plots).to eq([])
 
       click_button "Add a new plot"
 
       expect(current_path).to eq(new_garden_plot_path(garden.id))
 
+      stub_request(:post, "#{@api_base}/api/v1/gardens/1/plots")
+      .with(body: plot_create_request.to_json)
+      .to_return(body: plot_response.to_json)
+
       fill_in "name", with: "Test Plot"
       click_button "Submit"
 
-      # stub_request(:post, "#{@api_base}/api/v1/gardens/#{garden.id}/plots")
-      # .with(body: plot_create_request.to_json)
+      stub_request(:get, "#{@api_base}/api/v1/gardens/1/plots")
+      .to_return(body: plots_response.to_json)
 
-      # garden = GardenFacade.get_garden(1)
-      # plots = GardenFacade.get_garden_plots(garden.id)
+      plots = GardenFacade.get_garden_plots(garden.id)
+
+      require 'pry'; binding.pry
+
     end
   end
 end

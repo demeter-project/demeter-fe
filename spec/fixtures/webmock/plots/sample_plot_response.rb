@@ -468,7 +468,7 @@ module SamplePlotResponse
     }
   end
 
-  def plot_response
+  def plots_response
     {
       "data": [
             {
@@ -491,7 +491,28 @@ module SamplePlotResponse
     }
   end
 
-  def plot_response_no_plots 
+  def plot_response
+    {
+        "data": {
+            "id": "2",
+            "type": "plot",
+            "attributes": {
+                "name": "Test Plot",
+                "soil_ph_min": nil,
+                "soil_ph_max": nil,
+                "shade_tolerant?": nil,
+                "contains_toxic?": nil
+            },
+            "relationships": {
+                "plants": {
+                    "data": []
+                }
+            }
+        }
+    }   
+  end
+
+  def plots_response_no_plots 
     {
         "data": []
     }

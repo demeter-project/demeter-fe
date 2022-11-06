@@ -33,8 +33,8 @@ RSpec.describe 'plot delete' do
         end
 
         click_on "Delete #{plots[0].name}"
-
-        expect(page).to have_content()
+        
+        expect(page).to have_content("Are you sure?")
       end
     end
   end
