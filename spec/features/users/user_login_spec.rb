@@ -8,13 +8,13 @@ RSpec.describe 'user login' do
     it 'I see a button to Login with Google and when I click this button I can log in' do
       user = create(:user, id: 1, username: "Major Equinox")
       stub_omniauth(user)
-# require "pry"; binding.pry
+
       visit landing_page_path
 
       expect(page).to have_button("Log in with Google")
 
       click_button "Log in with Google"
-# save_and_open_page
+
       expect(current_path).to eq(dashboard_path)
       expect(page).to have_content('Major Equinox')
     end

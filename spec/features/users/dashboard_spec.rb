@@ -42,13 +42,3 @@ RSpec.describe 'User Dashboard', type: :feature do
 
   end
 end
-
-# require './spec/fixtures/webmock/user/sample_user_gardens_response'
-#
-# config.before :each do
-#   @api_base = 'https://demeter-be.herokuapp.com'
-#
-#   stub_request(:get, "#{@api_base}/api/v1/gardens?user_id=1")
-#   .to_return(body: user_gardens.to_json)
-#
-# end
