@@ -43,12 +43,13 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
+  require './spec/fixtures/webmock/user/sample_user_gardens_response'
 
   config.before :each do
     @api_base = 'https://demeter-be.herokuapp.com'
 
     stub_request(:get, "#{@api_base}/api/v1/gardens?user_id=1")
-    .to_return(body: user_gardens.to_json)
+    .to_return(body: {data: []}.to_json)
 
   end
   # You can uncomment this line to turn off ActiveRecord support entirely.
