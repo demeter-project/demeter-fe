@@ -33,6 +33,16 @@ RSpec.describe 'plants#index' do
 
     plants = PlantFacade.get_plants(state_code: garden.state_code, zip_code: garden.zip_code)
 
-    visit "/plants?state_code=#{garden.state_code}&zip_code=#{garden.zip_code}"
+    visit "/gardens/#{garden.id}/plots/#{plot.id}/plants/discover?state_code=#{garden.state_code}&zip_code=#{garden.zip_code}"
+
+    expect(page).to have_button "Add Selected Plants to Plot"
+
+    plants.each do |plant|
+      within("#plant-#{plant.id}") do
+        expect(page).to have_content(plant.common_name.titleize)
+        expect(page).to have_content(plant.scientific_name.titleize)
+        expect(page).to have_content(plant.suitable_for_hz)
+      end
+    end
   end
 end
