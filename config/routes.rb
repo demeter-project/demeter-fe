@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   
   resources :plants, only: %i[show]
 
-  get '/gardens/:garden_id/plots/:plot_id/plants/discover', to: 'plants#index'
+  get '/gardens/:garden_id/plots/:plot_id/plants/discover', to: 'plants#index', as: :discover_plants
   
   post '/gardens/:garden_id/plots/:plot_id/plot_plants', to: 'plot_plants#create', as: :plot_plants
 
