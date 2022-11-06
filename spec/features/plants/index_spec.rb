@@ -44,5 +44,21 @@ RSpec.describe 'plants#index' do
         expect(page).to have_content(plant.suitable_for_hz)
       end
     end
+    
+    # sampled_plants = plants.sample(3)
+
+    # sampled_plants.each do |plant|
+    #   within("#plant-#{plant.id}") do
+    #     check "plant_ids[]"
+    #   end
+    # end
+
+    # click_on "Add Selected Plants to Plot"
+
+    # expect(current_path).to eq(garden_plot_path(garden, plot))
+
+    # sampled_plants.each do |plant|
+    #   expect(page).to have_content(plant.name)
+    # end
   end
 end
