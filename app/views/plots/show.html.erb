@@ -17,4 +17,4 @@
     </li>
   <% end %>
 </ul>
-<%= button_to "Plant a new plant in #{@plot.name}", garden_plot_plants_discover_path(@garden.id, @plot.id), method: :get %>
+<%= button_to "Plant a new plant in #{@plot.name}", discover_plants_path(@garden.id, @plot.id), method: :get, params: { state_code: @garden.state_code, zip_code: @garden.zip_code } %>
