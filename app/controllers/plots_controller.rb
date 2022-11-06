@@ -12,11 +12,9 @@ class PlotsController < ApplicationController
   end
 
   def create
-    require 'pry'; binding.pry
-    #same question as above, do we restructure plots new/create path? Currently POST gardens/:garden_id/plots
-
-    
+    garden = GardenFacade.get_garden(params[:garden_id])
     DatabaseService.create_plot_for_garden_endpoint(params[:garden_id], plot_params)
+    redirect_to garden_path(garden.id)
   end
 
   def destroy

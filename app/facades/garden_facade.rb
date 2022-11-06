@@ -30,5 +30,4 @@ class GardenFacade < DatabaseService
     Database.create_garden_endpoint(name, zip_code, state, user_id)
   end
 
-
 end
