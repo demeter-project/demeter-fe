@@ -6,7 +6,7 @@ class PlantFacade
       sort_by: query_hash[:sort_by], 
       search_name: query_hash[:search_name]
     )
-    json[:data].map { |plant_data| PlantPoro.new(plant_data)}
+    json[:data].map { |plant_data| Plant.new(plant_data)}
   end
 
   def self.get_plant(plant_id)       #get_plant_endpoint
