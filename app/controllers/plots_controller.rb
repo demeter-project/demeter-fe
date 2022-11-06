@@ -18,7 +18,8 @@ class PlotsController < ApplicationController
   end
 
   def destroy
-    # DatabaseService.delete_garden_plot_endpoint(params[:garden_id], params[:id])
+    require 'pry'; binding.pry
+    DatabaseService.delete_garden_plot_endpoint(params[:garden_id], params[:id])
   end
 
   private 
