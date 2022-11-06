@@ -1,8 +1,23 @@
 <h1>Discover Native Plants in Your State</h1>
-
-<table>
-  <tr>
-    <th>Plant Name</th>
-    <th></th>
-  </tr>
-</table>
+<p><%= form_with url: plot_plants_path(@garden.id, @plot.id), method: :post do |f| %></p>
+  <p><%= f.submit "Add Selected Plants to Plot"%></p>
+    <table>
+      <tr>
+        <th>Add Plant To Garden?</th>
+        <th>Common Name</th>
+        <th>Scientific Name</th>
+        <th>Suitable For Hardiness Zone</th>
+      </tr>
+      <% @plants.each do |plant| %>
+        <tr id="plant-<%= plant.id %>">
+          <td>
+            <%= f.check_box "plant_ids", { multiple: true }, plant.id, nil %>
+          </td>
+          <td><%= plant.common_name.titleize %></td>
+          <td><%= plant.scientific_name.titleize %></td>
+          <td><%= plant.suitable_for_hz %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+  
