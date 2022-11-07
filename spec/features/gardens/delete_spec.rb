@@ -1,6 +1,8 @@
 require 'rails_helper'
+require './spec/fixtures/webmock/gardens/sample_garden_response'
 
 RSpec.describe 'delete garden method' do
+  include SampleGardenResponse
 
     # As a user, when I visit the user dashboard ('/dashboard') and 
     # I click on the 'Remove Garden' link next to a garden in my list, 
@@ -8,6 +10,7 @@ RSpec.describe 'delete garden method' do
     # I am redirected to the user dashboard and I see a message that 
     # the garden has been deleted. When a garden is deleted, all of 
     # that garden's plots and plants should be deleted as well.
+
   describe 'As a user, I click on remove garden next to a garden on my dashboard' do
     before :each do
       @api_base = 'https://demeter-be.herokuapp.com'
@@ -18,8 +21,19 @@ RSpec.describe 'delete garden method' do
     end
 
     it 'and I am redirected to the dashboard where I see a message that the garden has been removed and I no longer see that garden' do
-      stub_request(:get)
+      stub_request(:get, "#{@api_base}/api/v1/gardens/1")
+      .to_return(body: garden_response.to_json)
+
+      stub_request(:get, "#{@api_base}/api/v1/gardens/1/plots")
+      .to_return(body: garden_plots_response.to_json)
+
+      garden = GardenFacade.get_garden(1)
+      plots = GardenFacade.get_garden_plots(garden.id)
+      
+      require 'pry'; binding.pry
     end
+
+
   end
 
 end
