@@ -59,10 +59,8 @@ RSpec.describe 'The plot show page' do
 
         within("#plant-#{plant.id}") do
           click_button "Remove Plant"
-          # accept_alert do
-          #   click_link('Show Alert')
-          # end
         end
+        
         stub_request(:get, "#{@api_uri}/api/v1/gardens/#{@garden.id}/plots/#{@plot.id}/plot_plants")
         .to_return(status: 200, body: plot_plant_index_after_delete.to_json)
 
@@ -84,14 +82,22 @@ RSpec.describe 'The plot show page' do
           expect(page).to have_select("Quantity")
           expect(page).to have_field("Date planted")
 
+          stub_request(:patch, "#{@api_uri}/api/v1/gardens/#{@garden.id}/plots/#{@plot.id}/plot_plants/#{plant.id}")
+          .to_return(status: 200, body: plot_plants_update_request.to_json)
+
           select 2, from: "Quantity"
           click_on "Plant it"
         end
 
+        stub_request(:get, "#{@api_uri}/api/v1/gardens/#{@garden.id}/plots/#{@plot.id}/plot_plants")
+        .to_return(status: 200, body: updated_plot_plant.to_json)
         expect(current_path).to eq(garden_plot_path(@garden.id, @plot.id))
+
+        visit garden_plot_path(@garden.id, @plot.id)
+        
         within("#plant-#{plant.id}") do
           expect(page).to have_content("Quantity: 2")
-          expect(page).to have_content("Date planted: 22/11/07")
+          expect(page).to have_content("Date planted: 2022-11-07")
         end
       end
     end
