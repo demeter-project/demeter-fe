@@ -1,8 +1,8 @@
 require 'rails_helper'
-require './spec/fixtures/webmock/garden_creation/sample_responses'
+require './spec/fixtures/webmock/garden_new.rb'
 
 RSpec.describe 'new garden page' do
-  include SampleResponses
+  include GardenCreateResponse
 
   before :each do
     @api_uri = 'https://demeter-be.herokuapp.com'

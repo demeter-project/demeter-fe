@@ -1,4 +1,4 @@
-module SampleResponses
+module GardenCreateResponse
 
   def new_garden
     {
