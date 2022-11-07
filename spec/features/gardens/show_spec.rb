@@ -1,5 +1,5 @@
 require 'rails_helper'
-require './spec/fixtures/webmock/sample_responses'
+require './spec/fixtures/webmock/sample_response'
 
 RSpec.describe 'garden show page' do
   include SampleResponses
@@ -41,6 +41,9 @@ RSpec.describe 'garden show page' do
 
       expect(page).to have_content(garden.weather_forecast.first.detailed_forecast)
       expect(page).to have_button("Add a new plot")
+
+      click_on "Add a new plot"
+      expect(page).to have_current_path(new_garden_plot_path(garden.id))
     end
   end
 end

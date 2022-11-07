@@ -31,12 +31,14 @@ class DatabaseService
     parse(response)
   end
 
-  def self.get_plants_by_state(state, aip_code, search_name = nil, sort_by = nil)
-    response = conn.get('/api/v1/plants', 
-                state: state,
-                zip_code: zip_code,
-                search_name: search_name,
-                sort_by: sort_by)
+  def self.get_plants_endpoint(state_code: nil, zip_code: nil, search_name: nil, sort_by: nil)
+    queries = "state_code=#{state_code}&zip_code=#{zip_code}"
+    if !search_name.nil?
+      queries = queries + "&search_name=#{search_name}"
+    elsif !sort_by.nil?
+      queries = queries + "&sort_by=#{sort_by}"
+    end
+    response = conn.get("/api/v1/plants?#{queries}")
     parse(response)
   end
 
@@ -53,11 +55,13 @@ class DatabaseService
     conn.post("/api/v1/gardens/#{garden_id}/plots", plot_params.to_json)
   end
 
-  def self.create_plant_for_plot_endpoint(garden_id, plot_id, plant_ids)
-    conn.patch("/api/v1/gardens/#{garden_id}/plots/#{plot_id}", plant_ids: plant_ids)
-  end
-
   #PATCH
+  def self.create_plot_plant_endpoint(garden_id, plot_id, plant_ids)
+    body = { plant_ids: plant_ids.join(',') }
+    response = conn.patch("api/v1/gardens/#{garden_id}/plots/#{plot_id}", body.to_json)
+    parse(response)
+  end
+  
   def self.update_plot_plant(garden_id, plot_id, plot_plant_id, date_planted, quantity)
     response = conn.patch("/api/v1/gardens/#{garden_id}/plots/#{plot_id}/plot_plants/#{plot_plant_id}",
                 date_planted: date_planted,
