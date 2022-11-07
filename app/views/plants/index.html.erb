@@ -1,5 +1,5 @@
 <h1>Discover Native Plants in Your State</h1>
-<p><%= form_with url: plot_plants_path(@garden.id, @plot.id), method: :post do |f| %></p>
+<p><%= form_with url: garden_plot_plants_path(@garden.id, @plot.id), method: :post do |f| %></p>
   <p><%= f.submit "Add Selected Plants to Plot"%></p>
     <table>
       <tr>
