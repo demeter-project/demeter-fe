@@ -3,17 +3,22 @@
 <ul>
   <% @plot_plants.each do |plant| %>
     <li id="plant-<%=plant.id%>">
-      <h3><%= link_to plant.plant_name, plant_path(plant.id) %></h3>
-      <% if plant.quantity.nil? %>
-        <p>Quantity planted: Not yet planted </p>
+      <h3><%= link_to plant.plant_name.titleize, plant_path(plant.id) %></h3>
+      <% if plant.quantity.nil? && plant.date_planted.nil? %>
+        <%= form_with url: garden_plot_plant_path(@garden.id, @plot.id, plant.id), method: :patch, local: true do |f| %>
+          <%= f.label :quantity %>
+          <%= f.select :quantity, (1..100) %>
+          <%= f.label :date_planted %>
+          <%= f.datetime_field :date_planted, value: @date_time_now %>
+          <%= f.submit "Plant it" %>
+        <% end %>
       <% else %>
-        <p>Quantity planted: <%= plant.quantity %></p>
-      <% end %>
-      <% if plant.date_planted.nil? %>
-        <p>Date planted: Not yet planted </p>
-      <% else %>
+        <p>Quantity: <%= plant.quantity %></p>
         <p>Date planted: <%= plant.date_planted %></p>
       <% end %>
+
+      <p><%= button_to "Remove Plant", garden_plot_plant_path(@garden.id, @plot.id, plant.id), method: :delete, params: {garden_id: @garden.id, plot_id: @plot.id, plant_id: plant.id}, data: {confirm: "Are you sure you'd like to delete #{plant.plant_name}?"} %></p>
     </li>
   <% end %>
 </ul>
+<%= button_to "Plant a new plant in #{@plot.name}", discover_plants_path(@garden.id, @plot.id), method: :get, params: { state_code: @garden.state_code, zip_code: @garden.zip_code } %>

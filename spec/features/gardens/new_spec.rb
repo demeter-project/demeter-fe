@@ -1,45 +1,42 @@
 require 'rails_helper'
+require './spec/fixtures/webmock/garden_new.rb'
 
 RSpec.describe 'new garden page' do
+  include GardenCreateResponse
 
-  before:each do
-    user = create(:user, id: 1)
-    stub_omniauth(user)
+  before :each do
+    @api_uri = 'https://demeter-be.herokuapp.com'
+    @user = create(:user, id: 1)
+    stub_omniauth(@user)
     visit landing_page_path
     click_on "Log in with Google"
   end
 
-  it 'has static text for new garden' do
+  it 'creates a new garden' do
+    stub_request(:post, "#{@api_uri}/api/v1/gardens")
+      .with(body: new_garden_request_body.to_json)
+      .to_return(body: new_garden.to_json)
+
+    stub_request(:get, "#{@api_uri}/api/v1/gardens/#{new_garden[:data][:id]}")
+      .to_return(body: garden_show.to_json)
+
+    stub_request(:get, "#{@api_uri}/api/v1/gardens/#{new_garden[:data][:id]}/plots")
+      .to_return(body: plots_index_empty.to_json)
+
     visit new_garden_path
 
     expect(page).to have_content("Create New Garden")
-    expect(page).to have_content("Name")
-    # save_and_open_page
-    expect(page).to have_content("Zip code")
-    expect(page).to have_content("State code")
+
+    fill_in :name, with: new_garden_request_body[:name]
+    select new_garden_request_body[:state_code], from: :state_code
+
+    fill_in :zip_code, with: new_garden_request_body[:zip_code]
+
+    click_button "Create Garden"
+
+    garden = GardenFacade.get_garden(new_garden[:data][:id].to_i)
+
+    expect(current_path).to eq(garden_path(garden.id))
+    expect(page).to have_content(garden.name)
   end
-
-  xit 'can create new garden' do
-    visit new_garden_path
-
-    fill_in("Name", with: "Sunflower Patch")
-    fill_in("Zip Code", with: "94952")
-    select("CA", from: "State Code")
-    click_on 'Submit'
-
-    expect(current_path).to eq(gardens_path)
-    expect(Garden.last.name).to eq("Sunflower Patch")
-  end
-
-  xit 'can fail to create new garden' do
-    visit new_garden_path
-
-    fill_in("Name", with: "Front Yard Flower Garden")
-    select("CA", from: "State Code")
-    click_on 'Submit'
-
-    expect(current_path).to eq(new_gardens_path)
-    expect(Garden.last.name).to_not eq("Sunflower Patch")
-  end
-
 end

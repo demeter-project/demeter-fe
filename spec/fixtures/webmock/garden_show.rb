@@ -1,5 +1,4 @@
-module SampleResponses
-
+module GardenShowResponse
   def garden_show
     { "data": {
       "id": "1",
