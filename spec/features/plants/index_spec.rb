@@ -62,4 +62,28 @@ RSpec.describe 'plants#index' do
       expect(page).to have_content(plant.common_name.titleize)
     end
   end
+
+  it 'has a text field and a button to search plants by name' do
+    expect(page).to have_field :search_name
+    expect(page).to have_button "Search by name (common & scientific)"
+  end
+
+  describe 'when I fill out the search form and click submit' do
+    it 'updates the table to reflect query' do
+      query = 'acer'
+
+      fill_in :search_name, with: query
+
+      stub_request(:get, "#{@api_uri}/api/v1/plants?state_code=#{@garden.state_code}&zip_code=#{@garden.zip_code}&search_name=#{query}").to_return(body: plant_search.to_json)
+
+      searched_plants = PlantFacade.get_plants(state_code: @garden.state_code, zip_code: @garden.zip_code, search_name: query)
+
+      click_on "Search by name (common & scientific)"
+      expect(current_path).to eq(discover_plants_path(@garden.id, @plot.id))
+
+      searched_plants.each do |plant|
+        expect(page).to have_content(plant.common_name.titleize)
+      end
+    end
+  end
 end
