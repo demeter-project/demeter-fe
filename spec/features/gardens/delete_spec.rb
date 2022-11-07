@@ -1,24 +1,40 @@
 require 'rails_helper'
+require './spec/fixtures/webmock/user/sample_user_gardens_response'
 
 RSpec.describe 'delete garden method' do
+  include SampleUserGardensResponse
 
-  before:each do
-    user = create(:user, id: 1)
-    stub_omniauth(user)
+  before :each do
+    @api_base = 'https://demeter-be.herokuapp.com'
+    @user = create(:user, id: 2)
+    stub_request(:get, "#{@api_base}/api/v1/gardens?user_id=2")
+    .to_return(body: user_gardens.to_json)
+    @gardens = GardenFacade.get_user_gardens(@user.id)
+    stub_omniauth(@user)
     visit landing_page_path
     click_on "Log in with Google"
   end
 
-  # xit 'can delete a garden' do
-  #   visit dashboard_path
-  #   click_on 'Delete This Garden'
-  # end
+  describe 'on my user dashboard, when I delete a garden' do
+    it 'takes me back to the dashboard, where I no longer see the garden' do
+      @gardens.each do |garden|
+        expect(page).to have_content(garden.name)
+      end
 
-  # xit 'wont delete a garden if you do not confirm' do
-  #   visit dashboard_path
-  #   click_on 'Delete This Garden'
+      garden_1 = @gardens[0]
+      garden_2 = @gardens[1]
 
+      stub_request(:get, "#{@api_base}/api/v1/gardens?user_id=2")
+        .to_return(body: user_gardens_updated.to_json)
 
-  # end
+      within "#garden-#{garden_1.id}" do
+        click_on "Delete This Garden"
+      end
 
+      expect(current_path).to eq(dashboard_path)
+      
+      expect(page).not_to have_content(garden_1.name)
+      expect(page).to have_content(garden_2.name)
+    end
+  end
 end
