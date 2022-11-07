@@ -33,6 +33,8 @@ RSpec.describe 'plants#index' do
         expect(page).to have_content(plant.common_name.titleize)
         expect(page).to have_content(plant.scientific_name.titleize)
         expect(page).to have_content(plant.suitable_for_hz)
+        expect(page).to have_content(plant.ph_maximum)
+        expect(page).to have_content(plant.ph_minimum)
       end
     end
   end
@@ -79,11 +81,26 @@ RSpec.describe 'plants#index' do
       searched_plants = PlantFacade.get_plants(state_code: @garden.state_code, zip_code: @garden.zip_code, search_name: query)
 
       click_on "Search by name (common & scientific)"
+
       expect(current_path).to eq(discover_plants_path(@garden.id, @plot.id))
 
       searched_plants.each do |plant|
         expect(page).to have_content(plant.common_name.titleize)
       end
     end
+  end
+
+  it 'has a field to select an attribute to sort by' do
+    expect(page).to have_select :sort_by
+
+    stub_request(:get, "#{@api_uri}/api/v1/plants?state_code=#{@garden.state_code}&zip_code=#{@garden.zip_code}&sort_by=ph_minimum").to_return(body: plant_sort_ph_min.to_json)
+
+    sorted_plants = PlantFacade.get_plants(state_code: @garden.state_code, zip_code: @garden.zip_code, sort_by: 'ph_minimum')
+
+    select "pH Min", from: :sort_by
+    click_on "Sort by attribute"
+
+    expect(sorted_plants[0].common_name.titleize).to appear_before(sorted_plants[1].common_name.titleize)
+    expect(sorted_plants[1].common_name.titleize).to appear_before(sorted_plants[2].common_name.titleize)
   end
 end
