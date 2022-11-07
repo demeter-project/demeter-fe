@@ -20,7 +20,7 @@ RSpec.describe 'garden show page' do
       stub_request(:get, "#{@api_uri}/api/v1/gardens/1/plots")
         .to_return(body: plot_index.to_json)
 
-      visit "/gardens/1?user_id=#{@user.id}"
+      visit "/gardens/1"
       
       garden = GardenFacade.get_garden(1)
       plots = GardenFacade.get_garden_plots(garden.id)

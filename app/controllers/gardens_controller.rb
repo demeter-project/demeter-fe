@@ -9,8 +9,9 @@ class GardensController < ApplicationController
   end
 
   def create
-
-    DatabaseService.create_garden_endpoint(params[:name], params[:zip_code], params[:state_code], session[:user_id])
+    params[:user_id] = current_user.id 
+    new_garden = GardenFacade.create(garden_params)
+    redirect_to garden_path(new_garden.id)
   end
 
   def destroy
@@ -22,7 +23,7 @@ class GardensController < ApplicationController
   private
 
   def garden_params
-    params.permit(:name, :zipcode, :state_code)
+    params.permit(:name, :zip_code, :state_code, :user_id)
   end
 
 end
