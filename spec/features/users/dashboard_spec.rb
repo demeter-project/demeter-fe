@@ -32,9 +32,5 @@ RSpec.describe 'User Dashboard', type: :feature do
     #     end
     #   end
     # end
-
-  
-
-
   end
 end
