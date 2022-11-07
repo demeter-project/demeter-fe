@@ -24,8 +24,8 @@ module SampleResponses
   def new_garden_request_body
     {
       "name": "Test Garden",
-      "state_code": "CO",
       "zip_code": "80223",
+      "state_code": "CO",
       "user_id": 1
     }
   end

@@ -17,19 +17,20 @@ RSpec.describe 'new garden page' do
       .with(body: new_garden_request_body.to_json)
       .to_return(body: new_garden.to_json)
 
-    stub_request(:get, "#{@api_uri}/api/v1/gardens/#{new_garden[:data][:id].to_i}")
+    stub_request(:get, "#{@api_uri}/api/v1/gardens/#{new_garden[:data][:id]}")
       .to_return(body: garden_show.to_json)
 
-    stub_request(:get, "#{@api_ur}/api/v1/gardens/#{new_garden[:data][:id].to_i}/plots")
+    stub_request(:get, "#{@api_uri}/api/v1/gardens/#{new_garden[:data][:id]}/plots")
       .to_return(body: plots_index_empty.to_json)
 
     visit new_garden_path
 
-    expect(page).to have_content("Create a New Garden")
+    expect(page).to have_content("Create New Garden")
 
-    fill_in :name, with: new_garden_request_body["name"]
-    fill_in :state_code, with: new_garden_request_body["state_code"]
-    fill_in :zip_code, with: new_garden_request_body["zip_code"]
+    fill_in :name, with: new_garden_request_body[:name]
+    select new_garden_request_body[:state_code], from: :state_code
+
+    fill_in :zip_code, with: new_garden_request_body[:zip_code]
 
     click_button "Create Garden"
 
