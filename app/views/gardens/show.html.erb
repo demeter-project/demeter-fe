@@ -4,11 +4,15 @@
 <ul>
   <% @plots.each do |plot| %>
     <li id="plot-<%= plot.id %>">
-      <p>Name: <%= plot.name %></p>
-      <p>Min Soil PH: <%= plot.soil_ph_min %></p>
-      <p>Max Soil PH: <%= plot.soil_ph_max %></p>
-      <p>Shade Tolerant: <%= plot.shade_tolerant? %></p>
-      <p>Contains Toxic: <%= plot.contains_toxic? %></p>
+      <h2><%= link_to plot.name, garden_plot_path(@garden.id, plot.id) %></h2>
+
+      <% if !plot.soil_ph_min.nil? %>
+        <p>Min Soil pH: <%= plot.soil_ph_min %></p>
+        <p>Max Soil pH: <%= plot.soil_ph_max %></p>
+        <p>Shade Tolerant: <%= plot.shade_tolerant? %></p>
+        <p>Contains Toxic: <%= plot.contains_toxic? %></p>
+      <% end %>
+
       <p><%= button_to "Delete #{plot.name}", garden_plot_path(@garden.id, plot.id), method: :delete, params: {garden_id: @garden.id, plot_id: plot.id}, data: { confirm: "Are you sure you want to remove plot: #{plot.name}?" } %></p>
     </li>
   <% end %>
