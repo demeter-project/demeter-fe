@@ -1,4 +1,14 @@
 <h1>Discover Native Plants in Your State</h1>
+<div id="plant_search">
+  <p>
+    <%= form_with url: discover_plants_path(@garden.id, @plot.id), method: :get, local: :true do |f| %>
+      <%= f.text_field :search_name %>
+      <%= f.hidden_field :state_code, value: @garden.state_code %>
+      <%= f.hidden_field :zip_code, value: @garden.zip_code %>
+      <%= f.submit "Search by name (common & scientific)" %>
+    <% end %>
+  </p>
+</div>
 <p><%= form_with url: garden_plot_plants_path(@garden.id, @plot.id), method: :post do |f| %></p>
   <p><%= f.submit "Add Selected Plants to Plot"%></p>
     <table>

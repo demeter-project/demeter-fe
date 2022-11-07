@@ -13,10 +13,6 @@ Rails.application.routes.draw do
 
   get '/gardens/:garden_id/plots/:plot_id/plants/discover', to: 'plants#index', as: :discover_plants
   
-  # post '/gardens/:garden_id/plots/:plot_id/plot_plants', to: 'plot_plants#create', as: :plot_plants
-  # get '/gardens/:garden_id/plots/:plot_id/plot_plants', to: 'plot_plants#index', as: :plot_plants_index
-
-
   get '/auth/:provider/callback', to: 'sessions#create'
 
   delete '/logout', to: 'sessions#destroy'
