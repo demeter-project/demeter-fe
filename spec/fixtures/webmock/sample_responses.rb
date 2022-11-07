@@ -241,7 +241,7 @@ module SampleResponses
           }
         }
       }
-    }   
+    }
   end
 
   def plot_index
@@ -252,10 +252,10 @@ module SampleResponses
               "type": "plot",
               "attributes": {
                   "name": "Plot 1",
-                  "soil_ph_min": nil,
-                  "soil_ph_max": nil,
-                  "shade_tolerant?": nil,
-                  "contains_toxic?": nil
+                  "soil_ph_min": 111,
+                  "soil_ph_max": 222,
+                  "shade_tolerant?": true,
+                  "contains_toxic?": false
               },
               "relationships": {
                   "plants": {
@@ -268,10 +268,10 @@ module SampleResponses
               "type": "plot",
               "attributes": {
                   "name": "Plot 2",
-                  "soil_ph_min": nil,
-                  "soil_ph_max": nil,
-                  "shade_tolerant?": nil,
-                  "contains_toxic?": nil
+                  "soil_ph_min": 33,
+                  "soil_ph_max": 44,
+                  "shade_tolerant?": false,
+                  "contains_toxic?": true
               },
               "relationships": {
                   "plants": {
@@ -284,10 +284,10 @@ module SampleResponses
               "type": "plot",
               "attributes": {
                   "name": "Plot 3",
-                  "soil_ph_min": nil,
-                  "soil_ph_max": nil,
-                  "shade_tolerant?": nil,
-                  "contains_toxic?": nil
+                  "soil_ph_min": 555,
+                  "soil_ph_max": 666,
+                  "shade_tolerant?": false,
+                  "contains_toxic?": false
               },
               "relationships": {
                   "plants": {
@@ -308,7 +308,7 @@ module SampleResponses
             "name": "Succulents",
             "soil_ph_min": 5.7,
             "soil_ph_max": 7,
-            "shade_tolerant": true,
+            "shade_tolerant?": true,
             "contains_toxic?": true
           }
         }

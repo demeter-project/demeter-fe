@@ -2,6 +2,7 @@ class DatabaseService
 
   # GET
   def self.get_garden_endpoint(garden_id)
+    # require "pry"; binding.pry
     response = conn.get("/api/v1/gardens/#{garden_id}")
     parse(response)
   end
@@ -32,7 +33,7 @@ class DatabaseService
   end
 
   def self.get_plants_by_state(state, aip_code, search_name = nil, sort_by = nil)
-    response = conn.get('/api/v1/plants', 
+    response = conn.get('/api/v1/plants',
                 state: state,
                 zip_code: zip_code,
                 search_name: search_name,

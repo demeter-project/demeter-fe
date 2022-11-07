@@ -4,7 +4,7 @@
 <ul>
   <% @plots.each do |plot| %>
     <li id="plot-<%= plot.id %>">
-      <p>Name: <%= plot.name %></p>
+      <p> Name: <%= link_to "#{plot.name}", garden_plot_path(garden_id: @garden.id, id: plot.id) %></p>
       <p>Min Soil PH: <%= plot.soil_ph_min %></p>
       <p>Max Soil PH: <%= plot.soil_ph_max %></p>
       <p>Shade Tolerant: <%= plot.shade_tolerant? %></p>
