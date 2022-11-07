@@ -1,6 +1,11 @@
 class PlantFacade
+  def self.get_plant(plant_id)       #get_plant_endpoint
+    json = PlantService.get_plant_endpoint(plant_id)
+    Plant.new(json[:data])
+  end
+  
   def self.get_plants(query_hash)
-    json = DatabaseService.get_plants_endpoint(
+    json = PlantService.get_plants_endpoint(
       zip_code: query_hash[:zip_code], 
       state_code: query_hash[:state_code], 
       sort_by: query_hash[:sort_by], 
@@ -9,8 +14,4 @@ class PlantFacade
     json[:data].map { |plant_data| Plant.new(plant_data)}
   end
 
-  def self.get_plant(plant_id)       #get_plant_endpoint
-    json = DatabaseService.get_plant_endpoint(plant_id)
-    Plant.new(json[:data])
-  end
 end
