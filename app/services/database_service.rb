@@ -63,10 +63,9 @@ class DatabaseService
   end
   
   def self.update_plot_plant(garden_id, plot_id, plot_plant_id, date_planted, quantity)
-    response = conn.patch("/api/v1/gardens/#{garden_id}/plots/#{plot_id}/plot_plants/#{plot_plant_id}",
-                date_planted: date_planted,
-                quantity: quantity)
-    parse(response) # Will we create a facade method => poro method => view for this response?
+    body = {date_planted: date_planted, quantity: quantity}
+    response = conn.patch("/api/v1/gardens/#{garden_id}/plots/#{plot_id}/plot_plants/#{plot_plant_id}", body.to_json)
+    parse(response) 
   end
 
   # DELETE

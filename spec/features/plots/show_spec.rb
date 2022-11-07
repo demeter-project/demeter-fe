@@ -92,6 +92,7 @@ RSpec.describe 'The plot show page' do
         within("#plant-#{plant.id}") do
           expect(page).to have_content("Quantity: 2")
           expect(page).to have_content("Date planted: 22/11/07")
+        end
       end
     end
   end
