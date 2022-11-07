@@ -14,6 +14,7 @@
       <% else %>
         <p>Date planted: <%= plant.date_planted %></p>
       <% end %>
+      <p><%= button_to "Remove Plant", garden_plot_plot_plant_path(@garden.id, @plot.id, plant.id), method: :delete, data: {confirm: "Are you sure?"} %></p>
     </li>
   <% end %>
 </ul>
