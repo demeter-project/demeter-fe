@@ -7,6 +7,7 @@ require_relative 'plot_plant_create'
 require_relative 'new_plot_plants'
 require_relative 'plant_search'
 require_relative 'plot_plant_update'
+require_relative 'plant_sort'
 
 module SampleResponses
   include GardenShowResponse
@@ -18,4 +19,5 @@ module SampleResponses
   include NewPlotPlantsResponse
   include PlantSearchResponse
   include PlotPlantUpdateResponse
+  include PlantSortResponse
 end

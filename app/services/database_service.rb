@@ -42,13 +42,10 @@ class DatabaseService
     parse(response)
   end
 
-  #POST
-  def self.create_garden_endpoint(name, zip_code, state, user_id)
-    conn.post('/api/v1/gardens',
-      name: name,
-      zip_code: zip_code,
-      state: state,
-      user_id: user_id)
+  #POST 
+  def self.create_garden_endpoint(garden_params)
+    response = conn.post('/api/v1/gardens', garden_params.to_json)
+    parse(response)
   end
 
   def self.create_plot_for_garden_endpoint(garden_id, plot_params)

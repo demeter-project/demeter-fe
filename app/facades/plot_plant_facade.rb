@@ -6,4 +6,8 @@ class PlotPlantFacade
   def self.delete_plot_plant(garden_id, plot_id, plot_plant_id)
     DatabaseService.delete_plot_plant_endpoint(garden_id, plot_id, plot_plant_id)
   end
+
+  def self.update_plot_plant(garden_id, plot_id, plot_plant_id, date_planted, quantity)
+    DatabaseService.update_plot_plant(garden_id, plot_id, plot_plant_id, date_planted, quantity)
+  end
 end
