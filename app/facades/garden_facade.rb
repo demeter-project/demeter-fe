@@ -1,4 +1,4 @@
-class GardenFacade < DatabaseService
+class GardenFacade
   # def self.garden(user_id)
   #
   #   # GardenPoro.new(garden)
