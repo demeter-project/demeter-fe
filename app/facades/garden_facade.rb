@@ -16,7 +16,7 @@ class GardenFacade < DatabaseService
 
   def self.get_user_gardens(user_id)    #get_user_gardens_endpoint
     json = DatabaseService.get_user_gardens_endpoint(user_id)
-    json[:data].map { |garden| GardenPoro.new(garden[:attributes], garden[:id])}
+    json[:data].map { |garden| Garden.new(garden[:attributes], garden[:id])}
   end
 
 #Ask about below method
