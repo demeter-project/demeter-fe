@@ -38,44 +38,44 @@ RSpec.describe DatabaseService, type: :service do
       expect(response[:data][:attributes][:precipitation_max]).to be_a(Integer)
     end
 
-    xit 'has get garden by :id endpoint' do
-      response = DatabaseService.get_garden_endpoint(1)
+    # xit 'has get garden by :id endpoint' do
+    #   response = DatabaseService.get_garden_endpoint(1)
 
-      expect(response[:data][:id].to_i).to eq(1)
-      expect(response).to be_a(Hash)
-      expect(response[:data]).to be_a(Hash)
-      expect(response[:data][:id]).to be_a(String)
-      expect(response[:data][:name]).to be_a(String)
-      expect(response[:data][:zip_code]).to be_a(Integer)
-      expect(response[:data][:weather_forecast]).to be_a(Array)
-      expect(response[:data][:weather_forecast][0][:name]).to be_a(String)
-      expect(response[:data][:weather_forecast][0][:isDaytime]).to be_in([true, false])
-      expect(response[:data][:weather_forecast][0][:temperature]).to be_a(Integer)
-    end
+    #   expect(response[:data][:id].to_i).to eq(1)
+    #   expect(response).to be_a(Hash)
+    #   expect(response[:data]).to be_a(Hash)
+    #   expect(response[:data][:id]).to be_a(String)
+    #   expect(response[:data][:name]).to be_a(String)
+    #   expect(response[:data][:zip_code]).to be_a(Integer)
+    #   expect(response[:data][:weather_forecast]).to be_a(Array)
+    #   expect(response[:data][:weather_forecast][0][:name]).to be_a(String)
+    #   expect(response[:data][:weather_forecast][0][:isDaytime]).to be_in([true, false])
+    #   expect(response[:data][:weather_forecast][0][:temperature]).to be_a(Integer)
+    # end
 
-    xit 'has get garden plots by :id endpoint' do
-      response = DatabaseService.get_garden_plots_endpoint(1)
+    # xit 'has get garden plots by :id endpoint' do
+    #   response = DatabaseService.get_garden_plots_endpoint(1)
 
-      expect(response).to be_a(Hash)
-      expect(response[:data]).to be_a(Array)
-      expect(response[:data][0][:id]).to be_a(String)
-      expect(response[:data][0][:type]).to be_a(String)
-      expect(response[:data][0][:attributes]).to be_a(Hash)
-      expect(response[:data][0][:attributes][:name]).to be_a(String)
-    end
+    #   expect(response).to be_a(Hash)
+    #   expect(response[:data]).to be_a(Array)
+    #   expect(response[:data][0][:id]).to be_a(String)
+    #   expect(response[:data][0][:type]).to be_a(String)
+    #   expect(response[:data][0][:attributes]).to be_a(Hash)
+    #   expect(response[:data][0][:attributes][:name]).to be_a(String)
+    # end
 
-    xit 'has get plot endpoint by garden :id, plot :id' do
-      response = DatabaseService.get_plot_endpoint(1, 1)
+    # xit 'has get plot endpoint by garden :id, plot :id' do
+    #   response = DatabaseService.get_plot_endpoint(1, 1)
 
-      expect(response).to be_a(Hash)
-      expect(response[:data]).to be_a(Hash)
-      expect(response[:data][:id]).to be_a(String)
-      expect(response[:data][:type]).to be_a(String)
-      expect(response[:data][:attributes]).to be_a(Hash)
-      expect(response[:data][:attributes][:name]).to be_a(String)
-      expect(response[:data][:attributes][:soil_ph_min]).to be_a(Float)
-      expect(response[:data][:attributes][:soil_ph_min]).to be_a(Float)
-      expect(response[:data][:attributes][:shade_tolerant]).to be_in([true, false])
-    end
+    #   expect(response).to be_a(Hash)
+    #   expect(response[:data]).to be_a(Hash)
+    #   expect(response[:data][:id]).to be_a(String)
+    #   expect(response[:data][:type]).to be_a(String)
+    #   expect(response[:data][:attributes]).to be_a(Hash)
+    #   expect(response[:data][:attributes][:name]).to be_a(String)
+    #   expect(response[:data][:attributes][:soil_ph_min]).to be_a(Float)
+    #   expect(response[:data][:attributes][:soil_ph_min]).to be_a(Float)
+    #   expect(response[:data][:attributes][:shade_tolerant]).to be_in([true, false])
+    # end
   end
 end

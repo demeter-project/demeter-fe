@@ -18,15 +18,15 @@ RSpec.describe 'User Dashboard', type: :feature do
       expect(page).to have_button("Create New Garden")
     end
 
-    xit 'I see my current gardens and each garden name is a link to that gardens dashboard /gardens/:id' do
-      visit dashboard_path
+    # xit 'I see my current gardens and each garden name is a link to that gardens dashboard /gardens/:id' do
+    #   visit dashboard_path
 
-      @gardens.each do |garden|
-        within "#garden.id" do
-          expect(page).to have_link("#{garden.name}")
-        end
-      end
-    end
+    #   @gardens.each do |garden|
+    #     within "#garden.id" do
+    #       expect(page).to have_link("#{garden.name}")
+    #     end
+    #   end
+    # end
 
   end
 end

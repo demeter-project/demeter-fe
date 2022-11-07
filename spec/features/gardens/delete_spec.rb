@@ -9,16 +9,16 @@ RSpec.describe 'delete garden method' do
     click_on "Log in with Google"
   end
 
-  xit 'can delete a garden' do
-    visit dashboard_path
-    click_on 'Delete This Garden'
-  end
+  # xit 'can delete a garden' do
+  #   visit dashboard_path
+  #   click_on 'Delete This Garden'
+  # end
 
-  xit 'wont delete a garden if you do not confirm' do
-    visit dashboard_path
-    click_on 'Delete This Garden'
+  # xit 'wont delete a garden if you do not confirm' do
+  #   visit dashboard_path
+  #   click_on 'Delete This Garden'
 
 
-  end
+  # end
 
 end

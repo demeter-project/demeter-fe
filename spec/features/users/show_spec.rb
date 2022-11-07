@@ -8,11 +8,11 @@ RSpec.describe 'user show page' do
     click_on "Log in with Google"
   end
 
-  xit 'displays all gardens' do
-    visit dashboard_path
+  # xit 'displays all gardens' do
+  #   visit dashboard_path
 
-    expect(page).to have_content("")
-  end
+  #   expect(page).to have_content("")
+  # end
 
   it 'can use button to go to new garden page' do
     visit dashboard_path
