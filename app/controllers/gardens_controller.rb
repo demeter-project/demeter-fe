@@ -5,11 +5,12 @@ class GardensController < ApplicationController
   end
 
   def new
-    
+
   end
 
   def create
-    #send request to create garden backend using garden_params
+
+    DatabaseService.create_garden_endpoint(params[:name], params[:zip_code], params[:state_code], session[:user_id])
   end
 
   def destroy

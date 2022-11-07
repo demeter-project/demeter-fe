@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    # @gardens = GardenFacade.get_user_gardens(session[:user_id])
+    # require "pry"; binding.pry
+    @gardens = GardenFacade.get_user_gardens(session[:user_id])
   end
 end

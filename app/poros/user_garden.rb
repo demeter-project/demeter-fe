@@ -3,7 +3,7 @@ class UserGarden
               :name,
               :zip_code,
               :state_code,
-              :user_id,
+              :user_id
 
   def initialize(data, garden_id)
     @id = garden_id

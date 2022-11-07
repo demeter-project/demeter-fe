@@ -1,7 +1,7 @@
 class DatabaseService
 
-  # GET 
-  def self.get_garden_endpoint(garden_id) 
+  # GET
+  def self.get_garden_endpoint(garden_id)
     response = conn.get("/api/v1/gardens/#{garden_id}")
     parse(response)
   end
@@ -22,27 +22,27 @@ class DatabaseService
   end
 
   def self.get_user_gardens_endpoint(user_id)
-    response = conn.get('/api/v1/gardens/', user_id: user_id)
+    response = conn.get('/api/v1/gardens', user_id: user_id)
     parse(response)
   end
 
-  def self.get_plant_endpoint(plant_id) 
+  def self.get_plant_endpoint(plant_id)
     response = conn.get("/api/v1/plants/#{plant_id}")
     parse(response)
   end
 
   def self.get_plants_by_state(state, aip_code, search_name = nil, sort_by = nil)
-    response = conn.get('/api/v1/plants/', 
-                state: state, 
-                zip_code: zip_code, 
-                search_name: search_name, 
+    response = conn.get('/api/v1/plants', 
+                state: state,
+                zip_code: zip_code,
+                search_name: search_name,
                 sort_by: sort_by)
     parse(response)
   end
 
-  #POST 
+  #POST
   def self.create_garden_endpoint(name, zip_code, state, user_id)
-    conn.post('/api/v1/gardens', 
+    conn.post('/api/v1/gardens',
       name: name,
       zip_code: zip_code,
       state: state,
