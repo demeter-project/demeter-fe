@@ -3,7 +3,7 @@
 <ul>
   <% @plot_plants.each do |plant| %>
     <li id="plant-<%=plant.id%>">
-      <h3><%= link_to plant.plant_name, plant_path(plant.id) %></h3>
+      <h3><%= link_to plant.plant_name.titleize, plant_path(plant.id) %></h3>
       <% if plant.quantity.nil? %>
         <p>Quantity planted: Not yet planted </p>
       <% else %>
