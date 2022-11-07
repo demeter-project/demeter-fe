@@ -19,12 +19,12 @@ RSpec.describe 'plot delete' do
         .to_return(body: garden_with_plot_response.to_json)
 
         stub_request(:get, "#{@api_base}/api/v1/gardens/1/plots")
-        .to_return(body: plot_response.to_json)
+        .to_return(body: plots_response.to_json)
 
         garden = GardenFacade.get_garden(1)
         plots = GardenFacade.get_garden_plots(garden.id)
 
-        visit "/gardens/1?user_id=#{@user.id}"
+        visit garden_path(garden.id)
 
         plots.each do |plot|
           within("#plot-#{plot.id}") do
@@ -32,9 +32,16 @@ RSpec.describe 'plot delete' do
           end
         end
 
+        stub_request(:delete, "#{@api_base}/api/v1/gardens/#{garden.id}/plots/#{plots[0].id}")
+
+        stub_request(:get, "#{@api_base}/api/v1/gardens/1/plots")
+        .to_return(body: plots_response_no_plots.to_json)
+
         click_on "Delete #{plots[0].name}"
-        
-        expect(page).to have_content("Are you sure?")
+
+        expect(current_path).to eq(garden_path(garden.id))
+
+        expect(page).to_not have_content(plots[0].name)
       end
     end
   end
