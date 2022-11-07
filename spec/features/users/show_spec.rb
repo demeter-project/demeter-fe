@@ -14,11 +14,11 @@ RSpec.describe 'user show page' do
   #   expect(page).to have_content("")
   # end
 
-  it 'can use button to go to new garden page' do
-    visit dashboard_path
-    click_button "Create New Garden"
+  # it 'can use button to go to new garden page' do
+  #   visit dashboard_path
+  #   click_button "Create New Garden"
 
-    expect(current_path).to eq('/gardens/new')
-  end
+  #   expect(current_path).to eq('/gardens/new')
+  # end
 
 end
