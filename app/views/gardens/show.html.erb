@@ -9,7 +9,7 @@
       <p>Max Soil PH: <%= plot.soil_ph_max %></p>
       <p>Shade Tolerant: <%= plot.shade_tolerant? %></p>
       <p>Contains Toxic: <%= plot.contains_toxic? %></p>
-      <p><%= button_to "Delete #{plot.name}", garden_plot_path(@garden.id, plot.id), method: :delete %></p>
+      <p><%= button_to "Delete #{plot.name}", garden_plot_path(@garden.id, plot.id), method: :delete, params: {garden_id: @garden.id, plot_id: plot.id}, data: { confirm: "Are you sure you want to remove plot: #{plot.name}?" } %></p>
     </li>
   <% end %>
 </ul>

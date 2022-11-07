@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'new garden page' do
 
   before:each do
-    user = create(:user)
+    user = create(:user, id: 1)
     stub_omniauth(user)
     visit landing_page_path
     click_on "Log in with Google"

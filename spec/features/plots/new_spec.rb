@@ -1,8 +1,8 @@
 require 'rails_helper'
-require './spec/fixtures/webmock/plot_creation/sample_garden_response'
+require './spec/fixtures/webmock/plots/sample_plot_response'
 
 RSpec.describe 'plot new page' do
-include SampleGardenResponse
+include SamplePlotResponse
 
   before :each do
     @api_base = 'https://demeter-be.herokuapp.com'
@@ -18,27 +18,39 @@ include SampleGardenResponse
       .to_return(body: garden_response.to_json)
 
       stub_request(:get, "#{@api_base}/api/v1/gardens/1/plots")
-      .to_return(body: plot_response_no_plots.to_json)
-
-      visit "/gardens/1?user_id=#{@user.id}"
+      .to_return(body: plots_response_no_plots.to_json)
 
       garden = GardenFacade.get_garden(1)
       plots = GardenFacade.get_garden_plots(garden.id)
-      
-      expect(plots).to eq([])
+
+      visit garden_path(garden.id)
 
       click_button "Add a new plot"
 
       expect(current_path).to eq(new_garden_plot_path(garden.id))
 
+      stub_request(:post, "#{@api_base}/api/v1/gardens/1/plots")
+      .with(body: plot_create_request.to_json)
+      .to_return(body: plot_response.to_json)
+      
+      stub_request(:get, "#{@api_base}/api/v1/gardens/1")
+      .to_return(body: garden_with_plot_response.to_json)
+
+      stub_request(:get, "#{@api_base}/api/v1/gardens/1/plots")
+      .to_return(body: plots_response.to_json)
+
       fill_in "name", with: "Test Plot"
       click_button "Submit"
 
-      # stub_request(:post, "#{@api_base}/api/v1/gardens/#{garden.id}/plots")
-      # .with(body: plot_create_request.to_json)
+      plots = GardenFacade.get_garden_plots(garden.id)
 
-      # garden = GardenFacade.get_garden(1)
-      # plots = GardenFacade.get_garden_plots(garden.id)
+      expect(current_path).to eq(garden_path(garden.id))
+
+      plots.each do |plot|
+        within "#plot-#{plot.id}" do
+          expect(page).to have_content(plot.name)
+        end
+      end
     end
   end
 end

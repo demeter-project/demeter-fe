@@ -21,19 +21,19 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Thu, 03 Nov 2022 23:54:14 GMT
+      - Sun, 06 Nov 2022 00:26:39 GMT
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"11ec1a3adbd420c451fe2a1c02a74bc2"
+      - W/"79c232d67faa29fb094a3bd51c4a73a0"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 8d592ef3-6531-45f9-9528-0ab02b2d27c7
+      - d2fd674f-59d6-4aa8-be1b-70ec91612edb
       X-Runtime:
-      - '0.029425'
+      - '0.121200'
       Transfer-Encoding:
       - chunked
       Via:
@@ -42,6 +42,6 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"id":"1","type":"plant","attributes":{"usda_symbol":"ABBA","scientific_name":"Abies
         balsamea","common_name":"balsam fir","states":"CT IA IN MA MD ME MI MN NH
-        NJ NY OH PA RI VA VT WI WV","flower_color":"Yellow","drought_tolerance":"Low","fire_tolerance":"Low","moisture_use":"Medium","toxicity":"None","duration":"Perennial","growth_rate":"Slow","salinity_tolerance":"None","shade_tolerance":"Tolerant","edible":"f","ph_minimum":"4.0","ph_maximum":"6.0","temperature_min":-43,"frost_free_days_min":80,"precipitation_min":13,"precipitation_max":60}}}'
-  recorded_at: Thu, 03 Nov 2022 23:54:15 GMT
+        NJ NY OH PA RI VA VT WI WV","flower_color":"Yellow","drought_tolerance":"Low","fire_tolerance":"Low","moisture_use":"Medium","toxicity":"None","duration":"Perennial","growth_rate":"Slow","salinity_tolerance":"None","shade_tolerance":"Tolerant","edible":"f","ph_minimum":"4.0","ph_maximum":"6.0","temperature_min":-43,"frost_free_days_min":80,"precipitation_min":13,"precipitation_max":60,"suitable_for_hz":null}}}'
+  recorded_at: Sun, 06 Nov 2022 00:26:40 GMT
 recorded_with: VCR 6.1.0
