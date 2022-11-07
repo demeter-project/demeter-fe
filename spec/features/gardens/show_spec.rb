@@ -24,7 +24,7 @@ RSpec.describe 'garden show page' do
       
       garden = GardenFacade.get_garden(1)
       plots = GardenFacade.get_garden_plots(garden.id)
-      save_and_open_page
+
       expect(page).to have_content(garden.name)
 
       plots.each do |plot|
