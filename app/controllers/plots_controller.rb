@@ -12,10 +12,7 @@ class PlotsController < ApplicationController
   end
 
   def create
-    #same question as above, do we restructure plots new/create path? Currently POST gardens/:garden_id/plots
 
-    #How do we test post using Webmock?
-    # DatabaseService.create_plot_for_garden_endpoint(params[:garden_id], plot_params)
   end
 
   def destroy
