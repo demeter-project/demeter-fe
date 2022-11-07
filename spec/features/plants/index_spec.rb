@@ -45,20 +45,28 @@ RSpec.describe 'plants#index' do
       end
     end
     
-    # sampled_plants = plants.sample(3)
+    plants = plants.first(3)
+    plant_ids = plants.map { |plant| plant.id }.join(',')
+    body = { plant_ids: plant_ids }
 
-    # sampled_plants.each do |plant|
-    #   within("#plant-#{plant.id}") do
-    #     check "plant_ids[]"
-    #   end
-    # end
+    plants.each do |plant|
+      within("#plant-#{plant.id}") do
+        check "plant_ids[]"
+      end
+    end
 
-    # click_on "Add Selected Plants to Plot"
+    stub_request(:patch, "#{@api_uri}/api/v1/gardens/#{garden.id}/plots/#{plot.id}")
+      .with(body: body.to_json)
+      .to_return(body: plot_plant_create.to_json)
 
-    # expect(current_path).to eq(garden_plot_path(garden, plot))
+    stub_request(:get, "#{@api_uri}/api/v1/gardens/#{garden.id}/plots/#{plot.id}/plot_plants")
+      .to_return(body: new_plot_plants.to_json)
+    click_on "Add Selected Plants to Plot"
 
-    # sampled_plants.each do |plant|
-    #   expect(page).to have_content(plant.name)
-    # end
+    expect(current_path).to eq(garden_plot_path(garden.id, plot.id))
+
+    plants.each do |plant|
+      expect(page).to have_content(plant.common_name.titleize)
+    end
   end
 end
