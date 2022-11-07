@@ -5,7 +5,7 @@ class PlotPlantsController < ApplicationController
   end
 
   def destroy
-    plot_plant = PlotPlantFacade.delete_plot_plant(params[:garden_id], params[:plot_id], params[[:id]])
-    # plot_plant.destroy
+    plot_plant = PlotPlantFacade.delete_plot_plant(params[:garden_id], params[:plot_id], params[:id])
+    redirect_to garden_plot_path(params[:garden_id], params[:plot_id])
   end
 end
