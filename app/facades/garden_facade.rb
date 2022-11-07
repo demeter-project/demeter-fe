@@ -24,4 +24,7 @@ class GardenFacade
     UserGarden.new(json[:data], json[:data][:id].to_i)
   end
 
+  def self.destroy(garden_id)
+    DatabaseService.delete_garden_endpoint(garden_id)
+  end
 end
