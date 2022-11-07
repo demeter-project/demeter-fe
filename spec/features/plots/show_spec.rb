@@ -102,11 +102,4 @@ RSpec.describe 'The plot show page' do
       end
     end
   end
-
-
 end
-# When I visit a plot show page, and I see newly added plants from the plant discover page, 
-# I see a small form in each plants tile, with a quantity field and a "date planted" field, 
-# as well as a "Plant It" button. When I fill in the quantities and click the "Plant It", the page is reloaded. 
-# I no longer see the form in that plants tile, and instead I see the date planted and 
-# the quantity listed as attributes in the tile.
