@@ -24,18 +24,19 @@ RSpec.describe 'garden show page' do
       
       garden = GardenFacade.get_garden(1)
       plots = GardenFacade.get_garden_plots(garden.id)
-
+      save_and_open_page
       expect(page).to have_content(garden.name)
 
       plots.each do |plot|
         within("#plot-#{plot.id}") do
           expect(page).to have_content(plot.name)
           expect(page).to have_button("Delete #{plot.name}")
-
-          # expect(page).to have_content(plot.soil_ph_min)
-          # expect(page).to have_content(plot.soil_ph_max)
-          # expect(page).to have_content(plot.shade_tolerant?)
-          # expect(page).to have_content(plot.contains_toxic?)
+          if !plot.soil_ph_min.nil?
+            expect(page).to have_content(plot.soil_ph_min) 
+            expect(page).to have_content(plot.soil_ph_max)
+            expect(page).to have_content(plot.shade_tolerant?)
+            expect(page).to have_content(plot.contains_toxic?)
+          end
         end
       end
 
