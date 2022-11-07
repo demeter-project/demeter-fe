@@ -12,5 +12,6 @@ class PlotPlantsController < ApplicationController
   def update
     @date_time_now = DateTime.now.strftime("%Y-%m-%dT%H:%M")
     DatabaseService.update_plot_plant(params[:garden_id], params[:plot_id], params[:id], params[:date_planted], params[:quantity])
+    redirect_to garden_plot_path(params[:garden_id], params[:plot_id])
   end
 end
