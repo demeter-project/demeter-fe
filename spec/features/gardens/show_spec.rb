@@ -31,11 +31,12 @@ RSpec.describe 'garden show page' do
         within("#plot-#{plot.id}") do
           expect(page).to have_content(plot.name)
           expect(page).to have_button("Delete #{plot.name}")
-
-          # expect(page).to have_content(plot.soil_ph_min)
-          # expect(page).to have_content(plot.soil_ph_max)
-          # expect(page).to have_content(plot.shade_tolerant?)
-          # expect(page).to have_content(plot.contains_toxic?)
+          if !plot.soil_ph_min.nil?
+            expect(page).to have_content(plot.soil_ph_min) 
+            expect(page).to have_content(plot.soil_ph_max)
+            expect(page).to have_content(plot.shade_tolerant?)
+            expect(page).to have_content(plot.contains_toxic?)
+          end
         end
       end
 

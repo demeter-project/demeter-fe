@@ -2,6 +2,7 @@ class PlotsController < ApplicationController
 
   def show
 #the api request has /gardens/garden_id/plot/plot_id do we need to resturcture?
+    @date_time_now = DateTime.now.strftime("%Y-%m-%dT%H:%M")
     @garden = GardenFacade.get_garden(params[:garden_id])
     @plot = PlotFacade.get_plot(@garden.id, params[:id])
     @plot_plants = PlotFacade.get_plot_plants(@garden.id, @plot.id)
