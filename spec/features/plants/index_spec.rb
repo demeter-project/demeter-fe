@@ -48,7 +48,7 @@ RSpec.describe 'plants#index' do
       end
     end
     
-    plant_ids = selected_plants.map { |plant| plant.id }.join(',')
+    plant_ids = selected_plants.map { |plant| plant.id }
     body = { plant_ids: plant_ids }
     stub_request(:patch, "#{@api_uri}/api/v1/gardens/#{@garden.id}/plots/#{@plot.id}")
       .with(body: body.to_json)

@@ -48,26 +48,57 @@ RSpec.describe 'The plot show page' do
       click_button "Plant a new plant in #{@plot.name}"
       expect(current_path).to eq(discover_plants_path(@garden.id, @plot.id))
     end
-  end
+  
 
-  describe "On each plant tile I see a button to 'Remove Plant'" do
-    it 'Confirms deletion of the plant and reloads the page and I no longer see the plant' do
-      visit garden_plot_path(@garden.id, @plot.id)
+    describe "On each plant tile I see a button to 'Remove Plant'" do
+      it 'Confirms deletion of the plant and reloads the page and I no longer see the plant' do
+        visit garden_plot_path(@garden.id, @plot.id)
 
-      plant = @plot_plants.first
-      stub_request(:delete, "#{@api_uri}/api/v1/gardens/#{@garden.id}/plots/#{@plot.id}/plot_plants/#{plant.id}")
+        plant = @plot_plants.first
+        stub_request(:delete, "#{@api_uri}/api/v1/gardens/#{@garden.id}/plots/#{@plot.id}/plot_plants/#{plant.id}")
 
-      within("#plant-#{plant.id}") do
-        click_button "Remove Plant"
-        # accept_alert do
-        #   click_link('Show Alert')
-        # end
+        within("#plant-#{plant.id}") do
+          click_button "Remove Plant"
+        end
+        
+        stub_request(:get, "#{@api_uri}/api/v1/gardens/#{@garden.id}/plots/#{@plot.id}/plot_plants")
+        .to_return(status: 200, body: plot_plant_index_after_delete.to_json)
+
+        expect(current_path).to eq(garden_plot_path(@garden.id, @plot.id))
+        expect(page).to_not have_link(plant.plant_name)
       end
-      stub_request(:get, "#{@api_uri}/api/v1/gardens/#{@garden.id}/plots/#{@plot.id}/plot_plants")
-      .to_return(status: 200, body: plot_plant_index_after_delete.to_json)
+    end
 
-      expect(current_path).to eq(garden_plot_path(@garden.id, @plot.id))
-      expect(page).to_not have_link(plant.plant_name)
+    describe "I see a form in each plant tile, with a quantity field/date planted field/'plant it' button" do
+      it 'When I fill in the form and click plant it, I no longer see the form in that tile and date planted/quantity are displayed' do
+        visit garden_plot_path(@garden.id, @plot.id)
+
+        plant = @plot_plants.first
+
+        within("#plant-#{plant.id}") do
+          expect(plant.quantity).to eq(nil)
+          expect(plant.date_planted).to eq(nil)
+
+          expect(page).to have_select("Quantity")
+          expect(page).to have_field("Date planted")
+
+          stub_request(:patch, "#{@api_uri}/api/v1/gardens/#{@garden.id}/plots/#{@plot.id}/plot_plants/#{plant.id}")
+          .to_return(status: 200, body: plot_plants_update_request.to_json)
+          
+          stub_request(:get, "#{@api_uri}/api/v1/gardens/#{@garden.id}/plots/#{@plot.id}/plot_plants")
+          .to_return(status: 200, body: updated_plot_plant.to_json)
+
+          select 2, from: "Quantity"
+          click_on "Plant it"
+        end
+
+        expect(current_path).to eq(garden_plot_path(@garden.id, @plot.id))
+
+        within("#plant-#{plant.id}") do
+          expect(page).to have_content("Quantity: 2")
+          expect(page).to have_content("Date planted: 2022-11-07")
+        end
+      end
     end
   end
 end
