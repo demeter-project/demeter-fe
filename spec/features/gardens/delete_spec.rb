@@ -24,6 +24,7 @@ RSpec.describe 'delete garden method' do
       garden_1 = @gardens[0]
       garden_2 = @gardens[1]
 
+      stub_request(:delete, "#{@api_base}/api/v1/gardens/#{garden_1.id}").to_return(body: {}.to_json)
       stub_request(:get, "#{@api_base}/api/v1/gardens?user_id=2")
         .to_return(body: user_gardens_updated.to_json)
 
