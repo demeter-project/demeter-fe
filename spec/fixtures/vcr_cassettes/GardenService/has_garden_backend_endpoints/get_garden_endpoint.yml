@@ -1,0 +1,90 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://demeter-be.herokuapp.com/api/v1/gardens/5
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Mon, 07 Nov 2022 23:35:05 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"8f6c0124e327584ad3c8175d1ea46ed0"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 4a73b000-3196-46d0-999f-527efb5b41c9
+      X-Runtime:
+      - '1.020801'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"5","type":"garden","attributes":{"name":"Backyard Garden","zip_code":"80223","state_code":"CO","user_id":1,"weather_forecast":[{"id":1,"day":"This
+        Afternoon","start_time":"2022-11-07T16:00:00-07:00","end_time":"2022-11-07T18:00:00-07:00","day_time":true,"temperature":61,"temperature_unit":"F","temperature_trend":"falling","wind_speed":"10
+        mph","wind_direction":"WSW","icon":"https://api.weather.gov/icons/land/day/few?size=medium","short_forecast":"Sunny","detailed_forecast":"Sunny.
+        High near 61, with temperatures falling to around 55 in the afternoon. West
+        southwest wind around 10 mph, with gusts as high as 16 mph."},{"id":2,"day":"Tonight","start_time":"2022-11-07T18:00:00-07:00","end_time":"2022-11-08T06:00:00-07:00","day_time":false,"temperature":38,"temperature_unit":"F","temperature_trend":"rising","wind_speed":"10
+        mph","wind_direction":"SSW","icon":"https://api.weather.gov/icons/land/night/bkn?size=medium","short_forecast":"Mostly
+        Cloudy","detailed_forecast":"Mostly cloudy. Low around 38, with temperatures
+        rising to around 42 overnight. South southwest wind around 10 mph, with gusts
+        as high as 16 mph."},{"id":3,"day":"Tuesday","start_time":"2022-11-08T06:00:00-07:00","end_time":"2022-11-08T18:00:00-07:00","day_time":true,"temperature":68,"temperature_unit":"F","temperature_trend":"falling","wind_speed":"12
+        mph","wind_direction":"S","icon":"https://api.weather.gov/icons/land/day/sct?size=medium","short_forecast":"Mostly
+        Sunny","detailed_forecast":"Mostly sunny. High near 68, with temperatures
+        falling to around 61 in the afternoon. South wind around 12 mph, with gusts
+        as high as 18 mph."},{"id":4,"day":"Tuesday Night","start_time":"2022-11-08T18:00:00-07:00","end_time":"2022-11-09T06:00:00-07:00","day_time":false,"temperature":39,"temperature_unit":"F","temperature_trend":null,"wind_speed":"13
+        mph","wind_direction":"S","icon":"https://api.weather.gov/icons/land/night/few?size=medium","short_forecast":"Mostly
+        Clear","detailed_forecast":"Mostly clear, with a low around 39. South wind
+        around 13 mph, with gusts as high as 21 mph."},{"id":5,"day":"Wednesday","start_time":"2022-11-09T06:00:00-07:00","end_time":"2022-11-09T18:00:00-07:00","day_time":true,"temperature":70,"temperature_unit":"F","temperature_trend":null,"wind_speed":"12
+        to 18 mph","wind_direction":"S","icon":"https://api.weather.gov/icons/land/day/few?size=medium","short_forecast":"Sunny","detailed_forecast":"Sunny,
+        with a high near 70. South wind 12 to 18 mph, with gusts as high as 30 mph."},{"id":6,"day":"Wednesday
+        Night","start_time":"2022-11-09T18:00:00-07:00","end_time":"2022-11-10T06:00:00-07:00","day_time":false,"temperature":30,"temperature_unit":"F","temperature_trend":null,"wind_speed":"14
+        mph","wind_direction":"WSW","icon":"https://api.weather.gov/icons/land/night/rain,20/snow,50?size=medium","short_forecast":"Slight
+        Chance Light Rain then Chance Rain And Snow","detailed_forecast":"A slight
+        chance of rain between 11pm and 3am, then a chance of rain and snow. Partly
+        cloudy, with a low around 30. Chance of precipitation is 50%. Little or no
+        snow accumulation expected."},{"id":7,"day":"Thursday","start_time":"2022-11-10T06:00:00-07:00","end_time":"2022-11-10T18:00:00-07:00","day_time":true,"temperature":42,"temperature_unit":"F","temperature_trend":null,"wind_speed":"13
+        mph","wind_direction":"N","icon":"https://api.weather.gov/icons/land/day/snow,50/snow,20?size=medium","short_forecast":"Chance
+        Light Snow","detailed_forecast":"A chance of snow before 5pm. Partly sunny,
+        with a high near 42. Chance of precipitation is 50%. Little or no snow accumulation
+        expected."},{"id":8,"day":"Thursday Night","start_time":"2022-11-10T18:00:00-07:00","end_time":"2022-11-11T06:00:00-07:00","day_time":false,"temperature":19,"temperature_unit":"F","temperature_trend":null,"wind_speed":"6
+        to 10 mph","wind_direction":"SSE","icon":"https://api.weather.gov/icons/land/night/sct?size=medium","short_forecast":"Partly
+        Cloudy","detailed_forecast":"Partly cloudy, with a low around 19."},{"id":9,"day":"Veterans
+        Day","start_time":"2022-11-11T06:00:00-07:00","end_time":"2022-11-11T18:00:00-07:00","day_time":true,"temperature":41,"temperature_unit":"F","temperature_trend":null,"wind_speed":"6
+        to 9 mph","wind_direction":"ESE","icon":"https://api.weather.gov/icons/land/day/few?size=medium","short_forecast":"Sunny","detailed_forecast":"Sunny,
+        with a high near 41."},{"id":10,"day":"Friday Night","start_time":"2022-11-11T18:00:00-07:00","end_time":"2022-11-12T06:00:00-07:00","day_time":false,"temperature":19,"temperature_unit":"F","temperature_trend":null,"wind_speed":"6
+        mph","wind_direction":"SSE","icon":"https://api.weather.gov/icons/land/night/few?size=medium","short_forecast":"Mostly
+        Clear","detailed_forecast":"Mostly clear, with a low around 19."},{"id":11,"day":"Saturday","start_time":"2022-11-12T06:00:00-07:00","end_time":"2022-11-12T18:00:00-07:00","day_time":true,"temperature":47,"temperature_unit":"F","temperature_trend":null,"wind_speed":"7
+        mph","wind_direction":"SE","icon":"https://api.weather.gov/icons/land/day/few?size=medium","short_forecast":"Sunny","detailed_forecast":"Sunny,
+        with a high near 47."},{"id":12,"day":"Saturday Night","start_time":"2022-11-12T18:00:00-07:00","end_time":"2022-11-13T06:00:00-07:00","day_time":false,"temperature":22,"temperature_unit":"F","temperature_trend":null,"wind_speed":"6
+        mph","wind_direction":"SSW","icon":"https://api.weather.gov/icons/land/night/sct?size=medium","short_forecast":"Partly
+        Cloudy","detailed_forecast":"Partly cloudy, with a low around 22."},{"id":13,"day":"Sunday","start_time":"2022-11-13T06:00:00-07:00","end_time":"2022-11-13T18:00:00-07:00","day_time":true,"temperature":46,"temperature_unit":"F","temperature_trend":null,"wind_speed":"5
+        to 8 mph","wind_direction":"NNE","icon":"https://api.weather.gov/icons/land/day/sct?size=medium","short_forecast":"Mostly
+        Sunny","detailed_forecast":"Mostly sunny, with a high near 46."},{"id":14,"day":"Sunday
+        Night","start_time":"2022-11-13T18:00:00-07:00","end_time":"2022-11-14T06:00:00-07:00","day_time":false,"temperature":21,"temperature_unit":"F","temperature_trend":null,"wind_speed":"5
+        mph","wind_direction":"WNW","icon":"https://api.weather.gov/icons/land/night/sct?size=medium","short_forecast":"Partly
+        Cloudy","detailed_forecast":"Partly cloudy, with a low around 21."}]},"relationships":{"plots":{"data":[{"id":"1","type":"plot"},{"id":"2","type":"plot"},{"id":"3","type":"plot"}]}}}}'
+  recorded_at: Mon, 07 Nov 2022 23:35:05 GMT
+recorded_with: VCR 6.1.0

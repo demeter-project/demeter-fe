@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://demeter-be.herokuapp.com/api/v1/gardens/5/plots
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Mon, 07 Nov 2022 23:35:04 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"c07beed164f9d5bdd582a9735c7bbcd4"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 56aaa0db-9d57-4037-8d83-90c410dbf686
+      X-Runtime:
+      - '0.055550'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"1","type":"plot","attributes":{"name":"Native Wildflowers","soil_ph_min":"6.8","soil_ph_max":"7.5","shade_tolerant?":false,"contains_toxic?":false},"relationships":{"plants":{"data":[{"id":"692","type":"plant"},{"id":"869","type":"plant"},{"id":"876","type":"plant"}]}}},{"id":"2","type":"plot","attributes":{"name":"Shrubs","soil_ph_min":"6.0","soil_ph_max":"7.8","shade_tolerant?":false,"contains_toxic?":false},"relationships":{"plants":{"data":[{"id":"206","type":"plant"},{"id":"360","type":"plant"}]}}},{"id":"3","type":"plot","attributes":{"name":"Foxtails","soil_ph_min":"5.8","soil_ph_max":"8.0","shade_tolerant?":false,"contains_toxic?":false},"relationships":{"plants":{"data":[{"id":"57","type":"plant"},{"id":"58","type":"plant"},{"id":"66","type":"plant"}]}}}]}'
+  recorded_at: Mon, 07 Nov 2022 23:35:05 GMT
+recorded_with: VCR 6.1.0

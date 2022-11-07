@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://demeter-be.herokuapp.com/api/v1/gardens
+    body:
+      encoding: UTF-8
+      string: '{"name":"FE Test Garden","zip_code":"98119","state_code":"WA","user_id":1}'
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Mon, 07 Nov 2022 23:35:05 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"3274db0b348a87059f8ebe2d07c2eef5"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 0f2d8856-b77f-4a0b-a082-df4e93929a44
+      X-Runtime:
+      - '0.013818'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"12","type":"garden","attributes":{"name":"FE Test Garden","zip_code":"98119","state_code":"WA","user_id":1,"weather_forecast":null},"relationships":{"plots":{"data":[]}}}}'
+  recorded_at: Mon, 07 Nov 2022 23:35:06 GMT
+recorded_with: VCR 6.1.0
