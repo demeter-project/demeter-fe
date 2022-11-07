@@ -23,21 +23,17 @@ RSpec.describe 'User Dashboard', type: :feature do
       expect(page).to have_button("Create New Garden")
     end
 
-    it 'I see my current gardens and each garden name is a link to that gardens dashboard /gardens/:id' do
-      @api_base = 'https://demeter-be.herokuapp.com'
-      @user = create(:user, id: 2)
-      stub_request(:get, "#{@api_base}/api/v1/gardens?user_id=2")
-      .to_return(body: user_gardens.to_json)
+    # xit 'I see my current gardens and each garden name is a link to that gardens dashboard /gardens/:id' do
+    #   visit dashboard_path
 
-      stub_omniauth(@user)
-      visit landing_page_path
-      click_on "Log in with Google"
+    #   @gardens.each do |garden|
+    #     within "#garden.id" do
+    #       expect(page).to have_link("#{garden.name}")
+    #     end
+    #   end
+    # end
 
-        within "#garden-1" do
-          expect(page).to have_link("Sunflower Patch")
-        end
-    end
-
+  
 
 
   end
