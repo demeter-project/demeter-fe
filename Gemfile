@@ -66,6 +66,7 @@ group :test do
   gem 'simplecov'
   gem 'vcr'
   gem 'webmock'
+  gem 'orderly'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -1,33 +1,50 @@
 <h1>Discover Native Plants in Your State</h1>
-<div id="plant_search">
-  <p>
-    <%= form_with url: discover_plants_path(@garden.id, @plot.id), method: :get, local: :true do |f| %>
-      <%= f.text_field :search_name %>
-      <%= f.hidden_field :state_code, value: @garden.state_code %>
-      <%= f.hidden_field :zip_code, value: @garden.zip_code %>
-      <%= f.submit "Search by name (common & scientific)" %>
-    <% end %>
-  </p>
-</div>
-<p><%= form_with url: garden_plot_plants_path(@garden.id, @plot.id), method: :post do |f| %></p>
-  <p><%= f.submit "Add Selected Plants to Plot"%></p>
-    <table>
-      <tr>
-        <th>Add Plant To Garden?</th>
-        <th>Common Name</th>
-        <th>Scientific Name</th>
-        <th>Suitable For Hardiness Zone</th>
-      </tr>
-      <% @plants.each do |plant| %>
-        <tr id="plant-<%= plant.id %>">
-          <td>
-            <%= f.check_box "plant_ids", { multiple: true }, plant.id, nil %>
-          </td>
-          <td><%= plant.common_name.titleize %></td>
-          <td><%= plant.scientific_name.titleize %></td>
-          <td><%= plant.suitable_for_hz %></td>
-        </tr>
+
+  <div id = "display_options">
+    <div id="plant_search"><p>
+      <%= form_with url: discover_plants_path(@garden.id, @plot.id), method: :get, local: :true do |f| %>
+        <%= f.text_field :search_name %>
+        <%= f.hidden_field :state_code, value: @garden.state_code %>
+        <%= f.hidden_field :zip_code, value: @garden.zip_code %>
+        <%= f.submit "Search by name (common & scientific)" %>
       <% end %>
-    </table>
-  <% end %>
+    </p></div>
+    
+    <div id="sort_by"><p>
+      <%= form_with url: discover_plants_path(@garden.id, @plot.id), method: :get, local: :true do |f| %>
+        <%= f.select :sort_by, options_for_select([["pH Max", :ph_maximum], ["pH Min", :ph_minimum]])  %>
+        <%= f.hidden_field :state_code, value: @garden.state_code %>
+        <%= f.hidden_field :zip_code, value: @garden.zip_code %>
+        <%= f.submit "Sort by attribute" %>
+      <% end %>
+    </p></div>
+  </div>
+
+  <div id="plant_table">
+    <%= form_with url: garden_plot_plants_path(@garden.id, @plot.id), method: :post do |f| %>
+      <p><%= f.submit "Add Selected Plants to Plot"%></p>
+      <table>
+        <tr>
+          <th>Add Plant To Garden?</th>
+          <th>Common Name</th>
+          <th>Scientific Name</th>
+          <th>Suitable For Hardiness Zone</th>
+          <th>pH Max</th>
+          <th>pH Min</th>
+        </tr>
+        <% @plants.each do |plant| %>
+          <tr id="plant-<%= plant.id %>">
+            <td>
+              <%= f.check_box "plant_ids", { multiple: true }, plant.id, nil %>
+            </td>
+            <td><%= plant.common_name.titleize %></td>
+            <td><%= plant.scientific_name.titleize %></td>
+            <td><%= plant.suitable_for_hz %></td>
+            <td><%= plant.ph_maximum %></td>
+            <td><%= plant.ph_minimum %></td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
+  </div>
   
