@@ -26,10 +26,10 @@ class DatabaseService
   #   parse(response)
   # end
 
-  def self.get_plant_endpoint(plant_id)
-    response = conn.get("/api/v1/plants/#{plant_id}")
-    parse(response)
-  end
+  # def self.get_plant_endpoint(plant_id)
+  #   response = conn.get("/api/v1/plants/#{plant_id}")
+  #   parse(response)
+  # end
 
   def self.get_plants_endpoint(state_code: nil, zip_code: nil, search_name: nil, sort_by: nil)
     queries = "state_code=#{state_code}&zip_code=#{zip_code}"
@@ -71,9 +71,9 @@ class DatabaseService
   #   conn.delete("/api/v1/gardens/#{garden_id}")
   # end
 
-  def self.delete_garden_plot_endpoint(garden_id, plot_id)
-    conn.delete("/api/v1/gardens/#{garden_id}/plots/#{plot_id}")
-  end
+  # def self.delete_garden_plot_endpoint(garden_id, plot_id)
+  #   conn.delete("/api/v1/gardens/#{garden_id}/plots/#{plot_id}")
+  # end
 
   def self.delete_plot_plant_endpoint(garden_id, plot_id, plot_plant_id)
     conn.delete("/api/v1/gardens/#{garden_id}/plots/#{plot_id}/plot_plants/#{plot_plant_id}")

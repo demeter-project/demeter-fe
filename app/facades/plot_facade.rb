@@ -10,5 +10,11 @@ class PlotFacade
     json[:data].map { |plot_plant| PlotPlant.new(plot_plant) }
   end
 
-  def self.create_
+  def self.create_plot_for_garden(garden_id, plot_params)
+    PlotService.create_plot_for_garden_endpoint(garden_id, plot_params)
+  end
+
+  def self.delete_garden_plot(garden_id, plot_id)
+    PlotService.delete_garden_plot_endpoint(garden_id, plot_id)
+  end
 end

@@ -13,13 +13,13 @@ class PlotsController < ApplicationController
 
   def create
     garden = GardenFacade.get_garden(params[:garden_id])
-    PlotService.create_plot_for_garden_endpoint(params[:garden_id], plot_params)
+    PlotFacade.create_plot_for_garden(params[:garden_id], plot_params)
     redirect_to garden_path(garden.id)
   end
 
   def destroy
     garden = GardenFacade.get_garden(params[:garden_id])
-    PlotService.delete_garden_plot_endpoint(params[:garden_id], params[:id])
+    PlotFacade.delete_garden_plot(params[:garden_id], params[:id])
     redirect_to garden_path(garden.id)
   end
 
