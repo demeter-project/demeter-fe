@@ -19,6 +19,4 @@ class PlantService < DatabaseService
     response = conn.get("/api/v1/plants?#{queries}")
     parse(response)
   end
-
-  
 end
