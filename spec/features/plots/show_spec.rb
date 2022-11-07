@@ -84,17 +84,16 @@ RSpec.describe 'The plot show page' do
 
           stub_request(:patch, "#{@api_uri}/api/v1/gardens/#{@garden.id}/plots/#{@plot.id}/plot_plants/#{plant.id}")
           .to_return(status: 200, body: plot_plants_update_request.to_json)
+          
+          stub_request(:get, "#{@api_uri}/api/v1/gardens/#{@garden.id}/plots/#{@plot.id}/plot_plants")
+          .to_return(status: 200, body: updated_plot_plant.to_json)
 
           select 2, from: "Quantity"
           click_on "Plant it"
         end
 
-        stub_request(:get, "#{@api_uri}/api/v1/gardens/#{@garden.id}/plots/#{@plot.id}/plot_plants")
-        .to_return(status: 200, body: updated_plot_plant.to_json)
         expect(current_path).to eq(garden_plot_path(@garden.id, @plot.id))
 
-        visit garden_plot_path(@garden.id, @plot.id)
-        
         within("#plant-#{plant.id}") do
           expect(page).to have_content("Quantity: 2")
           expect(page).to have_content("Date planted: 2022-11-07")
