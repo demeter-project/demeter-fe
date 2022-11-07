@@ -14,10 +14,10 @@ RSpec.describe 'The plot show page' do
     stub_request(:get, "#{@api_uri}/api/v1/gardens/1")
     .to_return(status: 200, body: garden_show.to_json)
     @garden = GardenFacade.get_garden(1)
-    stub_request(:get, "#{@api_uri}/api/v1/gardens/1/plots/1")
+    stub_request(:get, "#{@api_uri}/api/v1/gardens/#{@garden.id}/plots/1")
     .to_return(status: 200, body: plot_show.to_json)
     @plot = PlotFacade.get_plot(@garden.id, 1)
-    stub_request(:get, "#{@api_uri}/api/v1/gardens/1/plots/1/plot_plants")
+    stub_request(:get, "#{@api_uri}/api/v1/gardens/#{@garden.id}/plots/#{@plot.id}/plot_plants")
     .to_return(status: 200, body: plot_plant_index.to_json)
     @plot_plants = PlotFacade.get_plot_plants(@garden.id, @plot.id)
     stub_request(:get, "#{@api_uri}/api/v1/plants?state_code=#{@garden.state_code}&zip_code=#{@garden.zip_code}")
@@ -47,6 +47,27 @@ RSpec.describe 'The plot show page' do
 
       click_button "Plant a new plant in #{@plot.name}"
       expect(current_path).to eq(discover_plants_path(@garden.id, @plot.id))
+    end
+  end
+
+  describe "On each plant tile I see a button to 'Remove Plant'" do
+    it 'Confirms deletion of the plant and reloads the page and I no longer see the plant' do
+      visit garden_plot_path(@garden.id, @plot.id)
+
+      plant = @plot_plants.first
+      stub_request(:delete, "#{@api_uri}/api/v1/gardens/#{@garden.id}/plots/#{@plot.id}/plot_plants/#{plant.id}")
+
+      within("#plant-#{plant.id}") do
+        click_button "Remove Plant"
+        # accept_alert do
+        #   click_link('Show Alert')
+        # end
+      end
+      stub_request(:get, "#{@api_uri}/api/v1/gardens/#{@garden.id}/plots/#{@plot.id}/plot_plants")
+      .to_return(status: 200, body: plot_plant_index_after_delete.to_json)
+
+      expect(current_path).to eq(garden_plot_path(@garden.id, @plot.id))
+      expect(page).to_not have_link(plant.plant_name)
     end
   end
 end
