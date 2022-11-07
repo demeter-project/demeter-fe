@@ -1,11 +1,6 @@
-class PlantService < DatabaseService 
+class PlantService < DatabaseService
   def self.get_plant_endpoint(plant_id)
     response = conn.get("/api/v1/plants/#{plant_id}")
-    parse(response)
-  end
-
-  def self.get_plot_plants_endpoint(garden_id, plot_id)
-    response = conn.get("/api/v1/gardens/#{garden_id}/plots/#{plot_id}/plot_plants")
     parse(response)
   end
 
