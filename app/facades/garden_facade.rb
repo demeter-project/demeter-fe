@@ -1,4 +1,8 @@
-class GardenFacade < DatabaseService
+class GardenFacade
+  # def self.garden(user_id)
+  #
+  #   # GardenPoro.new(garden)
+  # end
 
   def self.get_garden(garden_id)    #get_garden_endpoint
     json = DatabaseService.get_garden_endpoint(garden_id)

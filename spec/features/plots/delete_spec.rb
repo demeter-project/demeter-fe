@@ -14,7 +14,7 @@ RSpec.describe 'plot delete' do
 
   describe 'when I visit the garden show page' do
     describe 'and click on the remove a plot button next to a plot' do
-      xit 'I see a pop-up asking me to confirm' do
+      it 'I see a pop-up asking me to confirm' do
         stub_request(:get, "#{@api_base}/api/v1/gardens/1")
         .to_return(body: garden_with_plot_response.to_json)
 

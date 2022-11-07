@@ -19,27 +19,27 @@ RSpec.describe 'new garden page' do
     expect(page).to have_content("State code")
   end
 
-  xit 'can create new garden' do
-    visit new_garden_path
+  # xit 'can create new garden' do
+  #   visit new_garden_path
 
-    fill_in("Name", with: "Sunflower Patch")
-    fill_in("Zip Code", with: "94952")
-    select("CA", from: "State Code")
-    click_on 'Submit'
+  #   fill_in("Name", with: "Sunflower Patch")
+  #   fill_in("Zip Code", with: "94952")
+  #   select("CA", from: "State Code")
+  #   click_on 'Submit'
 
-    expect(current_path).to eq(gardens_path)
-    expect(Garden.last.name).to eq("Sunflower Patch")
-  end
+  #   expect(current_path).to eq(gardens_path)
+  #   expect(Garden.last.name).to eq("Sunflower Patch")
+  # end
 
-  xit 'can fail to create new garden' do
-    visit new_garden_path
+  # xit 'can fail to create new garden' do
+  #   visit new_garden_path
 
-    fill_in("Name", with: "Front Yard Flower Garden")
-    select("CA", from: "State Code")
-    click_on 'Submit'
+  #   fill_in("Name", with: "Front Yard Flower Garden")
+  #   select("CA", from: "State Code")
+  #   click_on 'Submit'
 
-    expect(current_path).to eq(new_gardens_path)
-    expect(Garden.last.name).to_not eq("Sunflower Patch")
-  end
+  #   expect(current_path).to eq(new_gardens_path)
+  #   expect(Garden.last.name).to_not eq("Sunflower Patch")
+  # end
 
 end

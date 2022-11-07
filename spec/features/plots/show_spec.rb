@@ -29,8 +29,8 @@ RSpec.describe 'The plot show page' do
       visit garden_plot_path(@garden.id, @plot.id)
 
       @plot_plants.each do |plant|
-        expect(page).to have_content(plant.quantity)
-        expect(page).to have_content(plant.date_planted)
+        expect(page).to have_content(plant.quantity) if !plant.quantity.nil?
+        expect(page).to have_content(plant.date_planted) if !plant.date_planted.nil?
       end
 
       plant = @plot_plants.first
