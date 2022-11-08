@@ -77,7 +77,7 @@ RSpec.describe 'plants#index', :vcr do
   it 'has a field to select an attribute to sort by', :vcr do
     expect(page).to have_select :sort_by
 
-    sorted_plants = PlantFacade.get_plants(state_code: @garden.state_code, zip_code: @garden.zip_code, sort_by: 'ph_minimum', sort_order: :asc)
+    sorted_plants = PlantFacade.get_plants(state_code: @garden.state_code, zip_code: @garden.zip_code, sort_by: 'ph_minimum')
 
     select "pH Min", from: :sort_by
     select "Ascending", from: :sort_order
