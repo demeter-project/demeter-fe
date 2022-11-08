@@ -12,8 +12,8 @@
           ["Scientific Name", :scientific_name],
           ["Min. Temperature", :temperature_min],
           ["pH Max", :ph_maximum], 
-          ["pH Min", :ph_minimum]], "Common Name")  %>
-        <%= f.select :sort_order, options_for_select([["Ascending", "asc"], ["Descending", :desc]], "Ascending") %>
+          ["pH Min", :ph_minimum]], "Scientific Name")  %>
+        <%= f.select :sort_order, options_for_select([["Ascending", "asc"], ["Descending", "desc"]], "Ascending") %>
         <%= f.submit "Submit" %>
       <% end %>
     </p></div>
