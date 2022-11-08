@@ -1,54 +1,72 @@
-<div class="container">
-  <h1>Discover Native Plants in Your State</h1>
-
-  <div id = "display_options">
+<div class="container bg-light">
+  <div class="container-sm">
+    <h1 class="text-center" style="font-family: allura; font-size: 70px; font-weight: bold;">Discover Native Plants in Your State</h1>
+  </div>
+  <div id ="display_options" class="container-md">
     <div id="search"><p>
       <%= form_with url: discover_plants_path(@garden.id, @plot.id), method: :get, local: :true do |f| %>
-        <%= f.label :search_name, "Search by name (common & scientific)" %>
-        <%= f.text_field :search_name, value: @search_name %>
-        <%= f.label :sort_by, "Sort by " %>
-        <%= f.select :sort_by, options_for_select([
-          ["Common Name", :common_name],
-          ["Scientific Name", :scientific_name],
-          ["Min. Temperature", :temperature_min],
-          ["pH Max", :ph_maximum], 
-          ["pH Min", :ph_minimum]], @sort_by)  %>
-        <%= f.select :sort_order, options_for_select([["Ascending", "asc"], ["Descending", "desc"]], @sort_order) %>
-        <%= f.submit "Submit" %>
+        <br>
+        <div class="container-sm">
+          <%= f.label :search_name, "Search by name (common & scientific)", class: "form-label", style: "font-family: allura; font-size: 34px; font-weight: bold;" %>
+          <%= f.text_field :search_name, value: @search_name, class: "form-control", style: "font-family: arial; font-weight: light;" %>
+        </div>
+        <br>
+        <div>
+          <%= f.label :sort_by, "Sort by ", style: "font-family: allura; font-size: 30px; font-weight: bold;" %>
+          <%= f.select :sort_by, options_for_select([
+            ["Common Name", :common_name],
+            ["Scientific Name", :scientific_name],
+            ["Min. Temperature", :temperature_min],
+            ["pH Max", :ph_maximum], 
+            ["pH Min", :ph_minimum]], @sort_by), {}, {class: "custom-select", style: "font-family: arial; font-weight: light;"}%>
+          <%= f.select :sort_order, options_for_select([["Ascending", "asc"], ["Descending", "desc"]], @sort_order), {}, {class: "custom-select", style: "font-family: arial; font-weight: light;"} %>
+        </div>
+        <div>
+        <br>
+          <%= f.submit "Search", class: "btn btn-primary font-weight-light" %>
+        </div>
       <% end %>
     </p></div>
   </div>
-
-  <div id="plant_table">
+  <br>
+  <div id="plant_table" class="container-lg">
     <%= form_with url: garden_plot_plants_path(@garden.id, @plot.id), method: :post do |f| %>
-      <p><%= f.submit "Add Selected Plants to Plot"%></p>
-      <table>
-        <tr>
-          <th>Add Plant To Garden?</th>
-          <th>Common Name</th>
-          <th>Scientific Name</th>
-          <th>Minimum Temperature</th>
-          <th>Suitable For Hardiness Zone</th>
-          <th>Water Usage</th>
-          <th>pH Max</th>
-          <th>pH Min</th>
-          <th>Toxicity</th>
-        </tr>
+      <div class="text-right">
+      <p><%= f.submit "Add Selected Plants to #{@plot.name}", class: "btn btn-primary font-weight-light font-family-arial"%></p>
+      </div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Select</th>
+            <th>Common Name</th>
+            <th>Scientific Name</th>
+            <th>Minimum Temperature</th>
+            <th>Suitable For Hardiness Zone</th>
+            <th>Water Usage</th>
+            <th>pH Max</th>
+            <th>pH Min</th>
+            <th>Toxicity</th>
+          </tr>
+        </thead>
         <% @plants = @plants.reverse if @sort_order == "desc" %>
         <% @plants.each do |plant| %>
-          <tr id="plant-<%= plant.id %>">
-            <td>
-              <%= f.check_box "plant_ids", { multiple: true }, plant.id, nil %>
-            </td>
-            <td><%= link_to plant.common_name.titleize, "/plants/#{plant.id}" %></td>
-            <td><%= plant.scientific_name.titleize %></td>
-            <td><%= plant.temperature_min %></td>
-            <td><%= plant.suitable_for_hz %></td>
-            <td><%= plant.moisture_use %></td>
-            <td><%= plant.ph_maximum %></td>
-            <td><%= plant.ph_minimum %></td>
-            <td><%= plant.toxic %></td>
-          </tr>
+            <tr id="plant-<%= plant.id %>">
+              <td style="text-align: center">
+                <% if @plot_plants.none? { |pp| pp.plant_id == plant.id } %>
+                  <%= f.check_box "plant_ids", { multiple: true }, plant.id, nil %>
+                <% else %>
+                  <%= "In plot" %>
+                <% end %>
+              </td>
+              <td><%= link_to plant.common_name.titleize, "/plants/#{plant.id}" %></td>
+              <td class="font-italic"><%= plant.scientific_name.titleize %></td>
+              <td style="text-align: center; text-justify: right"><%= "#{plant.temperature_min}°" %></td>
+              <td style="text-align: center"><%= plant.suitable_for_hz %></td>
+              <td><%= plant.moisture_use %></td>
+              <td><%= plant.ph_maximum %></td>
+              <td><%= plant.ph_minimum %></td>
+              <td><%= plant.toxic %></td>
+            </tr>
         <% end %>
       </table>
     <% end %>

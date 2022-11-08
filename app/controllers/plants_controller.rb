@@ -4,6 +4,7 @@ class PlantsController < ApplicationController
   def index
     @garden = GardenFacade.get_garden(params[:garden_id])
     @plot = PlotFacade.get_plot(params[:garden_id], params[:plot_id])
+    @plot_plants = PlotFacade.get_plot_plants(@garden.id, @plot.id)
     @plants = PlantFacade.get_plants(
       state_code: @garden.state_code, 
       zip_code: @garden.zip_code,
