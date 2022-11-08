@@ -5,13 +5,17 @@ class GardensController < ApplicationController
   end
 
   def new
-
+    @new_garden = NewGarden.new
   end
 
   def create
     params[:user_id] = current_user.id 
-    new_garden = GardenFacade.create(garden_params)
-    redirect_to garden_path(new_garden.id)
+    @new_garden = NewGarden.new(garden_params)
+    if @new_garden.save
+      redirect_to garden_path(@new_garden.id)
+    else
+      render :new
+    end
   end
 
   def destroy
