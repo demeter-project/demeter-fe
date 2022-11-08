@@ -1,0 +1,100 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://demeter-be.herokuapp.com/api/v1/plants?search_name=primrose&state_code=CA&zip_code=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Tue, 08 Nov 2022 01:41:37 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 06bd1f35-8a12-45a3-bf26-7ce52e6b5929
+      X-Runtime:
+      - '0.002015'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"Zip_code","detail":"Zip_code must be present"}]}'
+  recorded_at: Tue, 08 Nov 2022 01:41:38 GMT
+- request:
+    method: get
+    uri: https://demeter-be.herokuapp.com/api/v1/plants?search_name=primrose&state_code=CA&zip_code=98119
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Tue, 08 Nov 2022 01:43:06 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"5c862b9db20a6622ef0232ea7ce1fd40"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - e4a45b71-b36e-4f65-806b-f4c39b91e2f6
+      X-Runtime:
+      - '0.082979'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"660","type":"plant","attributes":{"usda_symbol":"MIPR","scientific_name":"Mimulus
+        primuloides","common_name":"primrose monkeyflower","states":"AZ CA ID MT NM
+        NV OR UT WA","flower_color":"Red","drought_tolerance":"Low","fire_tolerance":"Medium","moisture_use":"High","toxicity":"None","duration":"Perennial","growth_rate":"Moderate","salinity_tolerance":"None","shade_tolerance":"Tolerant","edible":false,"ph_minimum":"6.0","ph_maximum":"7.2","temperature_min":-33,"frost_free_days_min":100,"precipitation_min":24,"precipitation_max":60,"suitable_for_hz":true}},{"id":"692","type":"plant","attributes":{"usda_symbol":"OECA10","scientific_name":"Oenothera
+        caespitosa","common_name":"tufted evening primrose","states":"AZ CA CO ID
+        MT ND NE NM NV OR SD TX UT WA WY","flower_color":"White","drought_tolerance":"High","fire_tolerance":"Medium","moisture_use":"Low","toxicity":"None","duration":"Perennial","growth_rate":"Rapid","salinity_tolerance":"Medium","shade_tolerance":"Intolerant","edible":false,"ph_minimum":"6.5","ph_maximum":"8.0","temperature_min":-13,"frost_free_days_min":140,"precipitation_min":7,"precipitation_max":69,"suitable_for_hz":true}},{"id":"693","type":"plant","attributes":{"usda_symbol":"OEEL","scientific_name":"Oenothera
+        elata","common_name":"Hooker''s evening primrose","states":"AZ CA CO ID KS
+        MT NM NV OK OR TX UT WA WY","flower_color":"Yellow","drought_tolerance":"Low","fire_tolerance":"High","moisture_use":"High","toxicity":"None","duration":"Biennial,
+        Perennial","growth_rate":"Moderate","salinity_tolerance":"None","shade_tolerance":"Intolerant","edible":false,"ph_minimum":"5.5","ph_maximum":"7.5","temperature_min":-23,"frost_free_days_min":120,"precipitation_min":10,"precipitation_max":25,"suitable_for_hz":true}},{"id":"694","type":"plant","attributes":{"usda_symbol":"OEELH2","scientific_name":"Oenothera
+        elata ssp. hookeri","common_name":"Hooker''s evening primrose","states":"CA","flower_color":"Yellow","drought_tolerance":"Medium","fire_tolerance":"None","moisture_use":"Low","toxicity":"None","duration":"Biennial,
+        Perennial","growth_rate":"Rapid","salinity_tolerance":"Low","shade_tolerance":"Intolerant","edible":false,"ph_minimum":"7.0","ph_maximum":"8.5","temperature_min":-23,"frost_free_days_min":140,"precipitation_min":10,"precipitation_max":15,"suitable_for_hz":true}},{"id":"695","type":"plant","attributes":{"usda_symbol":"OEFL","scientific_name":"Oenothera
+        flava","common_name":"yellow evening primrose","states":"AZ CA CO ID MT ND
+        NE NM NV OR SD TX UT WA WY","flower_color":"Yellow","drought_tolerance":"Low","fire_tolerance":"High","moisture_use":"Medium","toxicity":"None","duration":"Perennial","growth_rate":"Moderate","salinity_tolerance":"None","shade_tolerance":"Intermediate","edible":false,"ph_minimum":"6.0","ph_maximum":"7.8","temperature_min":-33,"frost_free_days_min":100,"precipitation_min":10,"precipitation_max":18,"suitable_for_hz":true}}]}'
+  recorded_at: Tue, 08 Nov 2022 01:43:07 GMT
+recorded_with: VCR 6.1.0

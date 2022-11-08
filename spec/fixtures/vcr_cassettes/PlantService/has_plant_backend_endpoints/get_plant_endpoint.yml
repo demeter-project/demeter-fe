@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://demeter-be.herokuapp.com/api/v1/plants/692
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Tue, 08 Nov 2022 01:37:11 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"3651430ebd87b948af163b5a73d2b405"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - b8e7689f-7b5f-4a7c-b3e4-050f08c852f4
+      X-Runtime:
+      - '0.043450'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"692","type":"plant","attributes":{"usda_symbol":"OECA10","scientific_name":"Oenothera
+        caespitosa","common_name":"tufted evening primrose","states":"AZ CA CO ID
+        MT ND NE NM NV OR SD TX UT WA WY","flower_color":"White","drought_tolerance":"High","fire_tolerance":"Medium","moisture_use":"Low","toxicity":"None","duration":"Perennial","growth_rate":"Rapid","salinity_tolerance":"Medium","shade_tolerance":"Intolerant","edible":false,"ph_minimum":"6.5","ph_maximum":"8.0","temperature_min":-13,"frost_free_days_min":140,"precipitation_min":7,"precipitation_max":69,"suitable_for_hz":null}}}'
+  recorded_at: Tue, 08 Nov 2022 01:37:12 GMT
+recorded_with: VCR 6.1.0

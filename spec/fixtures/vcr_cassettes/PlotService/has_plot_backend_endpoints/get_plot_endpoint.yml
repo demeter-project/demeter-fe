@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://demeter-be.herokuapp.com/api/v1/gardens/5/plots/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Tue, 08 Nov 2022 01:53:16 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"1fb8d6b42ddc11ddfc0274cbf6b5ad47"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 4fd019ed-c542-4f8f-b458-fbe2aac11db8
+      X-Runtime:
+      - '0.015900'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"1","type":"plot","attributes":{"name":"Native Wildflowers","soil_ph_min":"6.8","soil_ph_max":"7.5","shade_tolerant?":false,"contains_toxic?":false},"relationships":{"plants":{"data":[{"id":"692","type":"plant"},{"id":"869","type":"plant"},{"id":"876","type":"plant"}]}}}}'
+  recorded_at: Tue, 08 Nov 2022 01:53:16 GMT
+recorded_with: VCR 6.1.0

@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://demeter-be.herokuapp.com/api/v1/gardens/1/plots
+    body:
+      encoding: UTF-8
+      string: '{"name":"FE Test Plot"}'
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Tue, 08 Nov 2022 01:56:34 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"07a801d59d99ee1ce9d4106a5a82ed26"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - a97fadc3-7d61-4402-ae79-84581071ebd3
+      X-Runtime:
+      - '0.018540'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"5","type":"plot","attributes":{"name":"FE Test Plot","soil_ph_min":null,"soil_ph_max":null,"shade_tolerant?":null,"contains_toxic?":null},"relationships":{"plants":{"data":[]}}}}'
+  recorded_at: Tue, 08 Nov 2022 01:56:35 GMT
+recorded_with: VCR 6.1.0
