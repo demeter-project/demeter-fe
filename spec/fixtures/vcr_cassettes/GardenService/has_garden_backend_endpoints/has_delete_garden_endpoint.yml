@@ -1,0 +1,88 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://demeter-be.herokuapp.com/api/v1/gardens
+    body:
+      encoding: UTF-8
+      string: '{"name":"FE Test Delete Garden","zip_code":"93013","state_code":"CA","user_id":1}'
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Mon, 07 Nov 2022 23:35:06 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"e2c2e5e1e3664473f61221ae21705f8a"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 3a87894b-9217-4ece-847c-341325482816
+      X-Runtime:
+      - '0.027162'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"13","type":"garden","attributes":{"name":"FE Test Delete
+        Garden","zip_code":"93013","state_code":"CA","user_id":1,"weather_forecast":null},"relationships":{"plots":{"data":[]}}}}'
+  recorded_at: Mon, 07 Nov 2022 23:35:06 GMT
+- request:
+    method: delete
+    uri: https://demeter-be.herokuapp.com/api/v1/gardens/13
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Mon, 07 Nov 2022 23:35:06 GMT
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 7b220f9a-60ad-4417-a7de-b575669ba47f
+      X-Runtime:
+      - '0.023408'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Mon, 07 Nov 2022 23:35:07 GMT
+recorded_with: VCR 6.1.0
