@@ -1,6 +1,6 @@
 <div class="container">
 <h1><%= @garden.name %></h1>
-
+<div class="w-75 p-3" style="background-color: #eee;">
 <div class="card-deck">
   <div class="card" style="width: 12rem;">
     <img class="card-img-top" src=<%= @garden.weather_forecast[0].icon%> alt="Weather icon">
@@ -17,6 +17,7 @@
     </div>
   </div>
 </div>
+</div>
 <br>
 <h2>Weekly Forecast</h2>
 <div class="w-75 p-3" style="background-color: #eee;">
@@ -30,24 +31,31 @@
   </ul>
 </div>
 <br>
-<p><%= button_to "Add a new plot", new_garden_plot_path(@garden.id), method: :get %></p>
+
+<% if !@plots.empty? %>
 <% @plots.each do |plot| %>
   <div id="plot-<%= plot.id %>">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><h2><%= link_to plot.name, garden_plot_path(@garden.id, plot.id) %></h2></h5>
+        <p class="card-text">
+        <% if !plot.soil_ph_min.nil? %>
+          <p>Minimum Soil pH: <%= plot.soil_ph_min %></p>
+          <p>Maximum Soil pH: <%= plot.soil_ph_max %></p>
+          <p>Shade Tolerant: <%= plot.shade_tolerant? %></p>
+          <p>Toxic? <%= plot.contains_toxic? %></p>
+        <% end %>
+        </p>
+        <a href="#" class="btn btn-primary"><%= button_to "Delete #{plot.name}", garden_plot_path(@garden.id, plot.id), method: :delete, params: {garden_id: @garden.id, plot_id: plot.id}, data: { confirm: "Are you sure you want to remove plot: #{plot.name}?" } %></p></a>
+      </div>
+      <% end %>
+      <p><%= button_to "Add a new plot", new_garden_plot_path(@garden.id), method: :get %></p>
+<% else %>
   <div class="card" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title"><h2><%= link_to plot.name, garden_plot_path(@garden.id, plot.id) %></h2></h5>
+      <h5 class="card-title">It looks like your garden doesn't have any plots. <%= button_to "Add a new plot", new_garden_plot_path(@garden.id), method: :get %></h5>
       <p class="card-text">
-      <% if !plot.soil_ph_min.nil? %>
-        <p>Minimum Soil pH: <%= plot.soil_ph_min %></p>
-        <p>Maximum Soil pH: <%= plot.soil_ph_max %></p>
-        <p>Shade Tolerant: <%= plot.shade_tolerant? %></p>
-        <p>Toxic? <%= plot.contains_toxic? %></p>
       <% end %>
-      </p>
-      <a href="#" class="btn btn-primary"><%= button_to "Delete #{plot.name}", garden_plot_path(@garden.id, plot.id), method: :delete, params: {garden_id: @garden.id, plot_id: plot.id}, data: { confirm: "Are you sure you want to remove plot: #{plot.name}?" } %></p></a>
-    </div>
-    <% end %>
   </div>
-
-
+</div>
 </div>
