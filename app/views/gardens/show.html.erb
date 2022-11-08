@@ -1,22 +1,63 @@
+
 <%= render partial: "/breadcrumbs" %>
-
-<p><%= @garden.name %></p>
-
-<p>Current Forecast: <%= @garden.weather_forecast.first.detailed_forecast %></p>
-<ul>
+<div class="container">
+<h1 class="text-center" style="color: #067f0e"><%= @garden.name %></h1>
+<div class="w-85 p-3">
+  <div class="card-deck">
+    <div class="card" style="width: 12rem;">
+      <img class="card-img-top" src=<%= @garden.weather_forecast[0].icon%> alt="Weather icon">
+      <div class="card-body">
+        <h5 class="card-title">Current Weather</h5>
+        <p class="card-text"><%= @garden.weather_forecast[0].detailed_forecast %></p>
+      </div>
+    </div>
+    <div class="card" style="width: 12rem;">
+      <img class="card-img-top" src=<%= @garden.weather_forecast[1].icon%> alt="Weather icon">
+      <div class="card-body">
+        <h5 class="card-title"><%= @garden.weather_forecast[1].day %></h5>
+        <p class="card-text"><%= @garden.weather_forecast[1].detailed_forecast %></p>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<h2 class="text-center" style="color: #067f0e">Weekly Forecast</h2>
+<div class="w-80 p-3 text-center";>
+  <ul class="list-group">
+    <li class="list-group-item"><%= @garden.weather_forecast[2].day %> High: <%=  @garden.weather_forecast[2].temperature %>F Low: <%=  @garden.weather_forecast[3].temperature %>F</li>
+    <li class="list-group-item"><%= @garden.weather_forecast[4].day %> High: <%=  @garden.weather_forecast[2].temperature %>F Low: <%=  @garden.weather_forecast[5].temperature %>F</li>
+    <li class="list-group-item"><%= @garden.weather_forecast[6].day %> High: <%=  @garden.weather_forecast[2].temperature %>F Low: <%=  @garden.weather_forecast[7].temperature %>F</li>
+    <li class="list-group-item"><%= @garden.weather_forecast[8].day %> High: <%=  @garden.weather_forecast[2].temperature %>F Low: <%=  @garden.weather_forecast[9].temperature %>F</li>
+    <li class="list-group-item"><%= @garden.weather_forecast[10].day %> High: <%=  @garden.weather_forecast[2].temperature %>F Low: <%=  @garden.weather_forecast[11].temperature %>F</li>
+    <li class="list-group-item"><%= @garden.weather_forecast[12].day %> High: <%=  @garden.weather_forecast[2].temperature %>F Low: <%=  @garden.weather_forecast[13].temperature %>F</li>
+  </ul>
+</div>
+<br>
+<% if !@plots.empty? %>
   <% @plots.each do |plot| %>
-    <li id="plot-<%= plot.id %>">
-      <h2><%= link_to plot.name, garden_plot_path(@garden.id, plot.id) %></h2>
-
-      <% if !plot.soil_ph_min.nil? %>
-        <p>Min Soil pH: <%= plot.soil_ph_min %></p>
-        <p>Max Soil pH: <%= plot.soil_ph_max %></p>
-        <p>Shade Tolerant: <%= plot.shade_tolerant? %></p>
-        <p>Contains Toxic: <%= plot.contains_toxic? %></p>
-      <% end %>
-
-      <p><%= button_to "Delete #{plot.name}", garden_plot_path(@garden.id, plot.id), method: :delete, params: {garden_id: @garden.id, plot_id: plot.id}, data: { confirm: "Are you sure you want to remove plot: #{plot.name}?" } %></p>
-    </li>
-  <% end %>
-</ul>
-<p><%= button_to "Add a new plot", new_garden_plot_path(@garden.id), method: :get %></p>
+    <div id="plot-<%= plot.id %>">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body text-center">
+          <h2 class="card-title"><%= link_to plot.name, garden_plot_path(@garden.id, plot.id) %></h2>
+            <p class="card-text">
+            <% if !plot.soil_ph_min.nil? %>
+              <p>Minimum Soil pH: <%= plot.soil_ph_min %></p>
+              <p>Maximum Soil pH: <%= plot.soil_ph_max %></p>
+              <p>Shade Tolerant: <%= plot.shade_tolerant? %></p>
+              <p>Toxic? <%= plot.contains_toxic? %></p>
+            <% end %>
+            </p>
+          <%= button_to "Delete #{plot.name}", garden_plot_path(@garden.id, plot.id), method: :delete, params: {garden_id: @garden.id, plot_id: plot.id}, data: { confirm: "Are you sure you want to remove plot: #{plot.name}?" }, class: "btn btn-outline-primary" %></p></a>
+        </div>
+        <% end %>
+        <p><div class="text-center"><%= button_to "Add a new plot", new_garden_plot_path(@garden.id), method: :get, class: "btn btn-outline-primary"  %></div></p>
+  <% else %>
+    <div class="card text-center" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title" style="color: #067f0e">It looks like your garden doesn't have any plots.</h5>
+        <%= button_to "Add a new plot", new_garden_plot_path(@garden.id), method: :get, class: "btn btn-outline-primary" %></h5>
+        <p class="card-text">
+        <% end %>
+    </div>
+  </div>
+</div>
