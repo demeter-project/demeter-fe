@@ -39,4 +39,17 @@ RSpec.describe 'new garden page' do
     expect(current_path).to eq(garden_path(garden.id))
     expect(page).to have_content(garden.name)
   end
+
+  it 'displays errors if name empty', :vcr do
+    visit new_garden_path
+  
+    select "CO", from: :state_code
+    fill_in :zip_code, with: "80223"
+  
+    click_button "Create Garden"
+  
+    within "#errors" do
+      expect(page).to have_content("Name can't be blank")
+    end
+  end
 end
