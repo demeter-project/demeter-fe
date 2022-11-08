@@ -6,9 +6,9 @@ class PlantsController < ApplicationController
       state_code: @garden.state_code, 
       zip_code: @garden.zip_code,
       search_name: params[:search_name],
-      sort_by: params[:sort_by],
-      sort_order: params[:sort_order]
+      sort_by: params[:sort_by]
     )
+    
   end
 
   def show
