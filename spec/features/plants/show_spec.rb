@@ -1,15 +1,9 @@
 require 'rails_helper'
-require './spec/fixtures/webmock/sample_response'
 
 RSpec.describe 'The plant show page' do
-  include SampleResponses
-
   describe 'When I visit the plant show page' do
-    it 'lists all attributes for a plant' do
-      stub_request(:get, "#{@api_base}/api/v1/plants/692")
-      .to_return(body: plant_show.to_json)
-
-      plant = PlantService.get_plant_endpoint(692)
+    it 'lists all attributes for a plant', :vcr do
+      plant = PlantFacade.get_plant(692)
       visit plant_path(692)
    
       expect(page).to have_content("OECA10")
