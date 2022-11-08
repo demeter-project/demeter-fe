@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://demeter-be.herokuapp.com/api/v1/gardens
+    body:
+      encoding: UTF-8
+      string: '{"name":"","zip_code":"b!t(#","state_code":"","user_id":1}'
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Tue, 08 Nov 2022 05:05:13 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 1aa5f0f7-dd6d-4dfc-94df-ca1494983829
+      X-Runtime:
+      - '0.006388'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"Name","source":"name","detail":["Name can''t be
+        blank"]},{"title":"State code","source":"state_code","detail":["State code
+        can''t be blank","State code is the wrong length (should be 2 characters)"]},{"title":"Zip
+        code","source":"zip_code","detail":["Zip code is not a valid US postal code"]}]}'
+  recorded_at: Tue, 08 Nov 2022 05:05:14 GMT
+recorded_with: VCR 6.1.0

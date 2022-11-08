@@ -48,8 +48,48 @@ RSpec.describe 'new garden page' do
   
     click_button "Create Garden"
   
-    within "#errors" do
-      expect(page).to have_content("Name can't be blank")
-    end
+    expect(page).to have_content("Name can't be blank")
+  end
+
+  it 'displays zip code errors', :vcr do
+    visit new_garden_path
+
+    fill_in :name, with: "Test Garden"
+    select "CO", from: :state_code
+    click_button "Create Garden"
+
+    expect(page).to have_content("Zip code can't be blank")
+
+    fill_in :zip_code, with: "8944"
+    click_button "Create Garden"
+
+    expect(page).to have_content("Zip code is the wrong length (should be 5 characters)")
+
+    fill_in :zip_code, with: "F&%$U"
+    click_button "Create Garden"
+
+    expect(page).to have_content("Zip code is not a valid US postal code")
+  end
+
+  it 'displays state code errors', :vcr do
+    visit new_garden_path
+
+    fill_in :name, with: "Test Garden"
+    fill_in :zip_code, with: "82072"
+
+    click_button "Create Garden"
+
+    expect(page).to have_content("State code can't be blank")
+  end
+
+  it 'displays multiple errors', :vcr do
+    visit new_garden_path
+
+    fill_in :zip_code, with: "b!t(#"
+    click_button "Create Garden"
+
+    expect(page).to have_content("State code can't be blank")
+    expect(page).to have_content("Zip code is not a valid US postal code")
+    expect(page).to have_content("Name can't be blank")
   end
 end
