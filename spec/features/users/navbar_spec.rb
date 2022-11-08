@@ -15,40 +15,40 @@ RSpec.describe 'Navigation Bar' do
       @user_1 = create(:user, id: 1)
       stub_omniauth(@user_1)
       visit landing_page_path
-      click_button "Log in with Google"
+      click_button "Login with Google"
     end
     it 'I see the name and logo for the app.' do
       visit dashboard_path
-      expect(page).to have_content("###Placeholder###")
+      expect(page).to have_content("en root")
     end
 
     it 'If I am logged out, I see a button to "Login With Google"' do
       visit dashboard_path
 
-      click_button("Log Out")
+      click_link("Log Out")
 
       expect(current_path).to eq(landing_page_path)
-      expect(page).to have_button("Log in with Google")
+      expect(page).to have_button("Login with Google")
     end
 
     it 'If I am logged in, I see buttons to return to my user dashboard and log out' do
       visit dashboard_path
 
-      expect(page).to have_button("Log Out")
-      expect(page).to have_button("Return to Dashboard")
+      expect(page).to have_link("Log Out")
+      expect(page).to have_link("Return to Dashboard")
     end
 
     it 'When I click the user dashboard button I redirected to /dashboard' do
       visit landing_page_path
 
-      click_button("Return to Dashboard")
+      click_link("Return to Dashboard")
       expect(current_path).to eq(dashboard_path)
     end
 
     it 'has sad path and redirect if user is not valid' do
       visit dashboard_path
 
-      click_button("Log Out")
+      click_link("Log Out")
 
       visit dashboard_path
 

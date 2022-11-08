@@ -11,9 +11,9 @@ RSpec.describe 'user login' do
 
       visit landing_page_path
 
-      expect(page).to have_button("Log in with Google")
+      expect(page).to have_button("Login with Google")
 
-      click_button "Log in with Google"
+      click_button "Login with Google"
 
       expect(current_path).to eq(dashboard_path)
       expect(page).to have_content('Major Equinox')

@@ -9,7 +9,7 @@ RSpec.describe 'The plot show page', :vcr do
     @user = create(:user, id: 1)
     stub_omniauth(@user)
     visit landing_page_path
-    click_on "Log in with Google"
+    click_on "Login with Google"
 
     stub_request(:get, "#{@api_uri}/api/v1/gardens/1")
     .to_return(status: 200, body: garden_show.to_json)

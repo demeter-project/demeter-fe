@@ -9,7 +9,7 @@ RSpec.describe 'garden show page' do
     @user = create(:user, id: 1)
     stub_omniauth(@user)
     visit landing_page_path
-    click_on "Log in with Google"
+    click_on "Login with Google"
   end
 
   describe 'when I visit the garden show page' do
