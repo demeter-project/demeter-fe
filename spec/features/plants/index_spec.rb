@@ -1,8 +1,6 @@
 require 'rails_helper'
-require './spec/fixtures/webmock/sample_response'
 
 RSpec.describe 'plants#index', :vcr do
-  include SampleResponses
 
   before :each do
     @api_uri = 'https://demeter-be.herokuapp.com'
@@ -21,7 +19,7 @@ RSpec.describe 'plants#index', :vcr do
     expect(page).to have_button "Add Selected Plants to #{@plot.name}"
 
     plant = @plants.first
-    
+
     within("#plant-#{plant.id}") do
       expect(page).to have_content(plant.common_name.titleize)
       expect(page).to have_content(plant.scientific_name.titleize)
