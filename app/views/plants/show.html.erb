@@ -1,2 +1,48 @@
-<h1>Plants#show</h1>
-<p>Find me in app/views/plants/show.html.erb</p>
+<h1><%= @plant.common_name.titleize %></h1>
+  <table>
+    <tr>
+      <th>USDA Symbol</th>
+      <th>Scientific Name</th>
+      <th>Common Name</th>
+      <th>States Native To</th>
+      <th>Flower Color</th>
+      <th>Drought Tolerance</th>
+      <th>Fire Tolerance</th>
+      <th>Moisture Use</th>
+      <th>Toxicity</th>
+      <th>Duration</th>
+      <th>Growth Rate</th>
+      <th>Salinity Tolerance</th>
+      <th>Shade Tolerance</th>
+      <th>Edible</th>
+      <th>Ph Minimum</th>
+      <th>Ph Maximum</th>
+      <th>Temperature Minimum</th>
+      <th>Frost Free Days Minimum</th>
+      <th>Precipitation Minimum</th>
+      <th>Precipitation Maximum</th>
+    </tr>
+
+    <tr id="plant-<%= @plant.id %>">
+      <td><%= @plant.usda_symbol %></td>
+      <td><%= @plant.scientific_name.titleize %></td>
+      <td><%= @plant.common_name.titleize %></td>
+      <td><%= @plant.states %></td>
+      <td><%= @plant.flower_color %></td>
+      <td><%= @plant.drought_tolerance %></td>
+      <td><%= @plant.fire_tolerance %></td>
+      <td><%= @plant.moisture_use %></td>
+      <td><%= @plant.toxic %></td>
+      <td><%= @plant.duration %></td>
+      <td><%= @plant.growth_rate %></td>
+      <td><%= @plant.salinity_tolerance %></td>
+      <td><%= @plant.shade_tolerance %></td>
+      <td><%= @plant.edible %></td>
+      <td><%= @plant.ph_maximum %></td>
+      <td><%= @plant.ph_minimum %></td>
+      <td><%= @plant.temperature_min %></td>
+      <td><%= @plant.frost_free_days_min %></td>
+      <td><%= @plant.precipitation_min %></td>
+      <td><%= @plant.precipitation_max %></td>
+    </tr>
+</table>
