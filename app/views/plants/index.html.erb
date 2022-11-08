@@ -34,6 +34,7 @@
           <th>pH Min</th>
           <th>Toxicity</th>
         </tr>
+        <% @plants = @plants.reverse if @sort_order == "desc" %>
         <% @plants.each do |plant| %>
           <tr id="plant-<%= plant.id %>">
             <td>
