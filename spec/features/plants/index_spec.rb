@@ -20,14 +20,14 @@ RSpec.describe 'plants#index', :vcr do
   it 'displays a list of plants native to the gardens state' do
     expect(page).to have_button "Add Selected Plants to #{@plot.name}"
 
-    @plants.each do |plant|
-      within("#plant-#{plant.id}") do
-        expect(page).to have_content(plant.common_name.titleize)
-        expect(page).to have_content(plant.scientific_name.titleize)
-        expect(page).to have_content(plant.suitable_for_hz)
-        expect(page).to have_content(plant.ph_maximum)
-        expect(page).to have_content(plant.ph_minimum)
-      end
+    plant = @plants.first
+    
+    within("#plant-#{plant.id}") do
+      expect(page).to have_content(plant.common_name.titleize)
+      expect(page).to have_content(plant.scientific_name.titleize)
+      expect(page).to have_content(plant.suitable_for_hz)
+      expect(page).to have_content(plant.ph_maximum)
+      expect(page).to have_content(plant.ph_minimum)
     end
   end
     
