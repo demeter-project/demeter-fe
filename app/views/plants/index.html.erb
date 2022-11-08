@@ -5,15 +5,15 @@
     <div id="search"><p>
       <%= form_with url: discover_plants_path(@garden.id, @plot.id), method: :get, local: :true do |f| %>
         <%= f.label :search_name, "Search by name (common & scientific)" %>
-        <%= f.text_field :search_name %>
+        <%= f.text_field :search_name, value: @search_name %>
         <%= f.label :sort_by, "Sort by " %>
         <%= f.select :sort_by, options_for_select([
           ["Common Name", :common_name],
           ["Scientific Name", :scientific_name],
           ["Min. Temperature", :temperature_min],
           ["pH Max", :ph_maximum], 
-          ["pH Min", :ph_minimum]], "Scientific Name")  %>
-        <%= f.select :sort_order, options_for_select([["Ascending", "asc"], ["Descending", "desc"]], "Ascending") %>
+          ["pH Min", :ph_minimum]], @sort_by)  %>
+        <%= f.select :sort_order, options_for_select([["Ascending", "asc"], ["Descending", "desc"]], @sort_order) %>
         <%= f.submit "Submit" %>
       <% end %>
     </p></div>
@@ -40,7 +40,7 @@
             <td>
               <%= f.check_box "plant_ids", { multiple: true }, plant.id, nil %>
             </td>
-            <td><%= plant.common_name.titleize %></td>
+            <td><%= link_to plant.common_name.titleize, "/plants/#{plant.id}" %></td>
             <td><%= plant.scientific_name.titleize %></td>
             <td><%= plant.temperature_min %></td>
             <td><%= plant.suitable_for_hz %></td>
