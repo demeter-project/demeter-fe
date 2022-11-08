@@ -4,14 +4,15 @@ class PlantFacade
     Plant.new(json[:data])
   end
   
-  def self.get_plants(query_hash)
-    json = PlantService.get_plants_endpoint(
-      zip_code: query_hash[:zip_code], 
-      state_code: query_hash[:state_code], 
-      sort_by: query_hash[:sort_by], 
-      search_name: query_hash[:search_name]
-    )
+  def self.get_plants(state_code: nil, zip_code: nil, search_name: nil, sort_by: nil, sort_order: nil)
+    body = {
+      state_code: state_code,
+      zip_code: zip_code,
+      search_name: search_name,
+      sort_by: sort_by,
+      sort_order: sort_order
+    }
+    json = PlantService.get_plants_endpoint(body)
     json[:data].map { |plant_data| Plant.new(plant_data)}
   end
-
 end
