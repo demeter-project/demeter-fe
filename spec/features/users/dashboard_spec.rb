@@ -15,7 +15,7 @@ RSpec.describe 'User Dashboard', type: :feature do
       @gardens = GardenFacade.get_user_gardens(@user.id)
       stub_omniauth(@user)
       visit landing_page_path
-      click_on "Log in with Google"
+      click_on "Login with Google"
     end
 
     it 'when I visit the user dashboard /dashboard I see a button to create a new garden' do

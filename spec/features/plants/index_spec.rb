@@ -9,7 +9,7 @@ RSpec.describe 'plants#index', :vcr do
     @user = create(:user, id: 1)
     stub_omniauth(@user)
     visit landing_page_path
-    click_on "Log in with Google"
+    click_on "Login with Google"
     @garden = GardenFacade.get_garden(1)
     @plots = GardenFacade.get_garden_plots(@garden.id)
     @plot = PlotFacade.get_plot(@garden.id, @plots.first.id)
