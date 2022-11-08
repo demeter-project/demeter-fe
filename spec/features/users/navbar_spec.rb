@@ -35,13 +35,13 @@ RSpec.describe 'Navigation Bar' do
       visit dashboard_path
 
       expect(page).to have_link("Log Out")
-      expect(page).to have_link("Return to Dashboard")
+      expect(page).to have_link("My Gardens Dashboard")
     end
 
     it 'When I click the user dashboard button I redirected to /dashboard' do
       visit landing_page_path
 
-      click_link("Return to Dashboard")
+      click_link("My Gardens Dashboard")
       expect(current_path).to eq(dashboard_path)
     end
 
