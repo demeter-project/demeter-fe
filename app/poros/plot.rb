@@ -11,7 +11,7 @@ class Plot
     @soil_ph_max = data[:attributes][:soil_ph_max]
     @shade_tolerant = data[:attributes][:shade_tolerant?]
     @contains_toxic = data[:attributes][:contains_toxic?]
-    # @garden_id = garden_id
+    # @garden_id = data[:attributes][:garden_id]
   end
 
   def shade_tolerant?
