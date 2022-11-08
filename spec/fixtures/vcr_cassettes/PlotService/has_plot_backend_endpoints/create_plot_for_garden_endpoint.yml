@@ -23,25 +23,25 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Tue, 08 Nov 2022 01:56:34 GMT
+      - Tue, 08 Nov 2022 18:00:25 GMT
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"07a801d59d99ee1ce9d4106a5a82ed26"
+      - W/"307cd3e1b1bc7ab86a7ceeae3fdf1408"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - a97fadc3-7d61-4402-ae79-84581071ebd3
+      - 69e11d33-ae80-4f19-89df-fb2c5de983c4
       X-Runtime:
-      - '0.018540'
+      - '0.066954'
       Transfer-Encoding:
       - chunked
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"5","type":"plot","attributes":{"name":"FE Test Plot","soil_ph_min":null,"soil_ph_max":null,"shade_tolerant?":null,"contains_toxic?":null},"relationships":{"plants":{"data":[]}}}}'
-  recorded_at: Tue, 08 Nov 2022 01:56:35 GMT
+      string: '{"data":{"id":"4","type":"plot","attributes":{"name":"FE Test Plot","soil_ph_min":null,"soil_ph_max":null,"shade_tolerant?":null,"contains_toxic?":null},"relationships":{"plants":{"data":[]}}}}'
+  recorded_at: Tue, 08 Nov 2022 18:00:26 GMT
 recorded_with: VCR 6.1.0

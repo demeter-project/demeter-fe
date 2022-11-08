@@ -12,7 +12,7 @@ RSpec.describe 'delete garden method' do
     @gardens = GardenFacade.get_user_gardens(@user.id)
     stub_omniauth(@user)
     visit landing_page_path
-    click_on "Log in with Google"
+    click_on "Login with Google"
   end
 
   describe 'on my user dashboard, when I delete a garden' do
