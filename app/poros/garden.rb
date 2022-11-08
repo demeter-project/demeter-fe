@@ -12,6 +12,8 @@ class Garden
     @zip_code = data[:attributes][:zip_code]
     @state_code = data[:attributes][:state_code]
     @user_id = data[:attributes][:user_id]
-    @weather_forecast = data[:attributes][:weather_forecast].map { |day| Weather.new(day) }
+    if data[:attributes][:weather_forecast]
+      @weather_forecast = data[:attributes][:weather_forecast].map { |day| Weather.new(day) }
+    end
   end
 end

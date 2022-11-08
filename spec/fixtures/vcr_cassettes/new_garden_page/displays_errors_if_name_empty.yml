@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://demeter-be.herokuapp.com/api/v1/gardens
+    body:
+      encoding: UTF-8
+      string: '{"name":"","zip_code":"80223","state_code":"CO","user_id":1}'
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Tue, 08 Nov 2022 04:58:12 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 2c90dfa9-42f4-49ed-bcab-9e25a23cf202
+      X-Runtime:
+      - '0.006281'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"Name","source":"name","detail":["Name can''t be
+        blank"]}]}'
+  recorded_at: Tue, 08 Nov 2022 04:58:12 GMT
+recorded_with: VCR 6.1.0

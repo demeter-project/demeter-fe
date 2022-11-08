@@ -1,14 +1,39 @@
-<h1>Create New Garden</h1>
+<div class="container w-50">
+    <h1>Create New Garden</h1>
 
-<%= form_with url: gardens_path, method: :post, local: true do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, required: true %>
+    <%= form_with url: gardens_path, method: :post, local: true do |f| %>
+      <div class="form-row mb-3">
+        <%= f.label :name, "Name Your Garden!" %>
+        <% if @new_garden.errors.has_key?(:name) %>
+          <%= f.text_field :name, value: @new_garden.name, class: "form-control is-invalid", placeholder: "Garden Name" %>
+          <div class="invalid-feedback"><%= @new_garden.errors[:name].first %></div>
+        <% else %>
+          <%= f.text_field :name, value: @new_garden.name, class: "form-control", placeholder: "Garden Name" %>
+        <% end %>
+      </div>
 
-  <%= f.label :zip_code %>
-  <%= f.text_field :zip_code, maxlength: 5, minlength: 5 %>
+      <div class="form-row mb-3">
+        <div class="col-md-8">
+          <%= f.label :zip_code, "Where's the garden located?" %>
+          
+          <% if @new_garden.errors.has_key?(:zip_code) %>
+            <%= f.text_field :zip_code, value: @new_garden.zip_code, class: "form-control is-invalid", placeholder: "ZIP code" %>
+            <div class="invalid-feedback"><%= @new_garden.errors[:zip_code].first %></div>
+          <% else %>
+            <%= f.text_field :zip_code, value: @new_garden.zip_code, class: "form-control", placeholder: "ZIP code" %>
+          <% end %>
+        </div>
+        <div class="col-md-4">
+          <%= f.label :state_code, class: "invisible" %>
 
-  <%= f.label :state_code %>
-  <%= f.select :state_code, options_for_select(us_states), required: true %>
-
-  <%= f.submit "Create Garden" %>
-<% end %>
+          <% if @new_garden.errors.has_key?(:state_code) %>
+            <%= f.select :state_code, options_for_select(us_states, {selected: @new_garden.state_code}), {include_blank: "State"}, {class: "form-control is-invalid" } %>
+            <div class="invalid-feedback"><%= @new_garden.errors[:state_code].first %></div>
+          <% else %>
+            <%= f.select :state_code, options_for_select(us_states, {selected: @new_garden.state_code}), {include_blank: "State"}, {class: "form-control" } %>
+          <% end %>
+        </div>
+      </div>
+      <%= f.submit "Create Garden", class: "btn btn-primary" %>
+    <% end %>
+</div>

@@ -1,0 +1,134 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://demeter-be.herokuapp.com/api/v1/gardens
+    body:
+      encoding: UTF-8
+      string: '{"name":"Test Garden","zip_code":"","state_code":"CO","user_id":1}'
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Tue, 08 Nov 2022 05:01:20 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 8c60c4da-943b-451c-b44c-cf09b54ca15a
+      X-Runtime:
+      - '0.009904'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"Zip code","source":"zip_code","detail":["Zip code
+        can''t be blank","Zip code is the wrong length (should be 5 characters)","Zip
+        code is not a valid US postal code"]}]}'
+  recorded_at: Tue, 08 Nov 2022 05:01:21 GMT
+- request:
+    method: post
+    uri: https://demeter-be.herokuapp.com/api/v1/gardens
+    body:
+      encoding: UTF-8
+      string: '{"name":"Test Garden","zip_code":"8944","state_code":"CO","user_id":1}'
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Tue, 08 Nov 2022 05:01:21 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 0ba8db77-090e-4fc5-a556-d8669bfeec18
+      X-Runtime:
+      - '0.006003'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"Zip code","source":"zip_code","detail":["Zip code
+        is the wrong length (should be 5 characters)","Zip code is not a valid US
+        postal code"]}]}'
+  recorded_at: Tue, 08 Nov 2022 05:01:21 GMT
+- request:
+    method: post
+    uri: https://demeter-be.herokuapp.com/api/v1/gardens
+    body:
+      encoding: UTF-8
+      string: '{"name":"Test Garden","zip_code":"F\u0026%$U","state_code":"CO","user_id":1}'
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Tue, 08 Nov 2022 05:01:21 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 8eab31ae-8b40-4121-b35e-5f57e0f5ba62
+      X-Runtime:
+      - '0.005643'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"Zip code","source":"zip_code","detail":["Zip code
+        is not a valid US postal code"]}]}'
+  recorded_at: Tue, 08 Nov 2022 05:01:22 GMT
+recorded_with: VCR 6.1.0
