@@ -10,5 +10,10 @@ body {
   background-size: cover;
   -o-background-size: cover;
 }
+
+.card {
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+}
   
 @import "bootstrap";
