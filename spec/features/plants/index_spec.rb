@@ -85,5 +85,13 @@ RSpec.describe 'plants#index', :vcr do
 
     expect(sorted_plants[0].common_name.titleize).to appear_before(sorted_plants[1].common_name.titleize)
     expect(sorted_plants[1].common_name.titleize).to appear_before(sorted_plants[2].common_name.titleize)
+
+    # need back end sort order added first
+    # select "pH Min", from: :sort_by
+    # select "Descending", from: :sort_order
+    # click_on "Submit"
+
+    # expect(sorted_plants[2].common_name.titleize).to appear_before(sorted_plants[1].common_name.titleize)
+    # expect(sorted_plants[1].common_name.titleize).to appear_before(sorted_plants[0].common_name.titleize)
   end
 end
