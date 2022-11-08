@@ -1,7 +1,7 @@
 require 'rails_helper'
 require './spec/fixtures/webmock/sample_response'
 
-RSpec.describe 'The plot show page' do
+RSpec.describe 'The plot show page', :vcr do
   include SampleResponses
 
   before :each do

@@ -30,7 +30,7 @@ RSpec.describe PlotService do
     end
 
     it 'delete plot from garden endpoint' do
-      response = PlotService.delete_garden_plot_endpoint(5, 5)
+      response = PlotService.delete_garden_plot_endpoint(5, 4)
 
       expect(response.status).to eq(204)
       expect(response.reason_phrase).to eq("No Content")
