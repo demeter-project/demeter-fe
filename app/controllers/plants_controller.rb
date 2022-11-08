@@ -8,7 +8,7 @@ class PlantsController < ApplicationController
       search_name: params[:search_name],
       sort_by: params[:sort_by]
     )
-    
+    @sort_order = params[:sort_order]
   end
 
   def show
