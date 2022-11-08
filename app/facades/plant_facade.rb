@@ -1,5 +1,5 @@
 class PlantFacade
-  def self.get_plant(plant_id)       #get_plant_endpoint
+  def self.get_plant(plant_id)
     json = PlantService.get_plant_endpoint(plant_id)
     Plant.new(json[:data])
   end
