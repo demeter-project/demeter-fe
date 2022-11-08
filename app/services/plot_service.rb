@@ -10,7 +10,8 @@ class PlotService < DatabaseService
   end
 
   def self.create_plot_for_garden_endpoint(garden_id, plot_params)
-    conn.post("/api/v1/gardens/#{garden_id}/plots", plot_params.to_json)
+    response = conn.post("/api/v1/gardens/#{garden_id}/plots", plot_params.to_json)
+    parse(response)
   end
 
   def self.delete_garden_plot_endpoint(garden_id, plot_id)

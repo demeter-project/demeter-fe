@@ -1,9 +1,16 @@
-<h2>Create New Plot for <%= @garden.name %></h2>
-
-<%= form_with url: garden_plots_path(@garden.id), method: :post, local: true do |form| %>
-<%= form.label :name %>
-<%= form.text_field :name, required: true  %>
-
-<%= form.submit "Submit"  %>
-<% end  %>
-
+<div class="container w-50">
+  <h1>Create New Plot for <br><%= @garden.name %></h1>
+  
+  <%= form_with url: garden_plots_path(@garden.id), method: :post, local: true do |form| %>
+    <div class="form-row mb-3">
+      <%= form.label :name, "Name Your Plot!" %>
+      <% if @new_plot.errors.has_key?(:name) %>
+        <%= form.text_field :name, value: @new_plot.name, placeholder: "Plot Name", class: "form-control is-invalid" %>
+        <div class="invalid-feedback"><%= @new_plot.errors[:name].first %></div>
+      <% else %>
+        <%= form.text_field :name, value: @new_plot.name, placeholder: "Plot Name", class: "form-control" %>
+      <% end %>
+    </div>
+    <%= form.submit "Create Plot", class: "btn btn-primary" %>
+  <% end %>
+</div>

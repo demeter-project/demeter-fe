@@ -10,7 +10,7 @@ class NewGarden
       @state_code = garden_params[:state_code]
       @user_id = garden_params[:user_id]
     end
-    @errors = Hash.new
+    @errors = {}
   end
 
   def save

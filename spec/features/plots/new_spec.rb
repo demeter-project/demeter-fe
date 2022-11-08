@@ -40,7 +40,7 @@ include SamplePlotResponse
       .to_return(body: plots_response.to_json)
 
       fill_in "name", with: "Test Plot"
-      click_button "Submit"
+      click_button "Create Plot"
 
       plots = GardenFacade.get_garden_plots(garden.id)
 
@@ -51,6 +51,16 @@ include SamplePlotResponse
           expect(page).to have_content(plot.name)
         end
       end
+    end
+  end
+
+  describe 'sad path testing', :vcr do
+    it 'has server validation when name is blank' do
+      garden = GardenFacade.get_garden(1)
+      visit new_garden_plot_path(garden.id)
+      click_button "Create Plot"
+
+      expect(page).to have_content("Name can't be blank")
     end
   end
 end

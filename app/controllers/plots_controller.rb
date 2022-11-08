@@ -1,33 +1,39 @@
 class PlotsController < ApplicationController
 
+  before_action :get_garden
+
   def show
-#the api request has /gardens/garden_id/plot/plot_id do we need to resturcture?
     @date_time_now = DateTime.now.strftime("%Y-%m-%dT%H:%M")
-    @garden = GardenFacade.get_garden(params[:garden_id])
     @plot = PlotFacade.get_plot(@garden.id, params[:id])
     @plot_plants = PlotFacade.get_plot_plants(@garden.id, @plot.id)
   end
 
   def new
-    @garden = GardenFacade.get_garden(params[:garden_id])
+    @new_plot = NewPlot.new(plot_params)
   end
 
   def create
-    garden = GardenFacade.get_garden(params[:garden_id])
-    PlotFacade.create_plot_for_garden(params[:garden_id], plot_params)
-    redirect_to garden_path(garden.id)
+    @new_plot = NewPlot.new(plot_params)
+    if @new_plot.save
+      redirect_to garden_path(@new_plot.garden_id)
+    else
+      render :new
+    end
   end
 
   def destroy
-    garden = GardenFacade.get_garden(params[:garden_id])
     PlotFacade.delete_garden_plot(params[:garden_id], params[:id])
-    redirect_to garden_path(garden.id)
+    redirect_to garden_path(@garden.id)
   end
 
   private 
 
   def plot_params
-    params.permit(:name)
+    params.permit(:name, :garden_id)
+  end
+
+  def get_garden
+    @garden = GardenFacade.get_garden(params[:garden_id])
   end
 
 end
