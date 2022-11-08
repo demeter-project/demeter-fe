@@ -25,8 +25,8 @@ RSpec.describe PlotService do
 
       response = PlotService.create_plot_for_garden_endpoint(1, plot_params)
 
-      expect(response.status).to eq(201)
-      expect(response.reason_phrase).to eq("Created")
+      expect(response).to be_a(Hash)
+      expect(response[:data]).to be_a(Hash)
     end
 
     it 'delete plot from garden endpoint' do
