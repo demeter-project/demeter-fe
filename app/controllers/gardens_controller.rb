@@ -1,11 +1,16 @@
 class GardensController < ApplicationController
+
+  before_action :gardens_bc
+
   def show
     @garden = GardenFacade.get_garden(params[:id])
     @plots = GardenFacade.get_garden_plots(@garden.id)
+    add_breadcrumb(@garden.name)
   end
 
   def new
     @new_garden = NewGarden.new
+    add_breadcrumb("New Garden")
   end
 
   def create
@@ -14,6 +19,7 @@ class GardensController < ApplicationController
     if @new_garden.save
       redirect_to garden_path(@new_garden.id)
     else
+      add_breadcrumb("New Garden")
       render :new
     end
   end
@@ -27,6 +33,10 @@ class GardensController < ApplicationController
 
   def garden_params
     params.permit(:name, :zip_code, :state_code, :user_id)
+  end
+
+  def gardens_bc
+    add_breadcrumb("My Gardens", dashboard_path)
   end
 
 end

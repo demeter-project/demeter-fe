@@ -10,10 +10,12 @@ class PlantsController < ApplicationController
       search_name: @search_name,
       sort_by: @sort_by
     )
+    set_index_bcs
   end
 
   def show
     @plant = PlantFacade.get_plant(params[:id])
+    add_breadcrumb("Return to Previous Page", request.referrer)
   end
 
   private
@@ -22,5 +24,12 @@ class PlantsController < ApplicationController
     @sort_order = params[:sort_order]
     @search_name = params[:search_name]
     @sort_by = params[:sort_by]
+  end
+
+  def set_index_bcs
+    add_breadcrumb("My Gardens", dashboard_path)
+    add_breadcrumb(@garden.name, garden_path(@garden.id))
+    add_breadcrumb(@plot.name, garden_plot_path(@garden.id, @plot.id))
+    add_breadcrumb("Find Native Plants")
   end
 end
