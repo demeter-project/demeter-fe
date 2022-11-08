@@ -25,7 +25,7 @@ RSpec.describe 'The plot show page' do
   end
 
   describe 'When I visit a plot show page' do
-    it 'displays a list of all plants in that plot/quantity planted/date planted as links to plant show page' do
+    it 'displays a list of all plants in that plot/quantity planted/date planted as links to plant show page', :vcr do
       visit garden_plot_path(@garden.id, @plot.id)
 
       @plot_plants.each do |plant|
@@ -33,11 +33,10 @@ RSpec.describe 'The plot show page' do
         expect(page).to have_content(plant.date_planted) if !plant.date_planted.nil?
       end
 
-      plant = @plot_plants.first
-      within("#plant-#{plant.id}") do
-        click_link plant.plant_name.titleize
-        expect(current_path).to eq(plant_path(plant.id))
-      end
+      plant = PlantFacade.get_plant(@plot_plants.first.plant_id)
+
+      click_link plant.common_name.titleize
+      expect(current_path).to eq(plant_path(869))
     end
 
     it 'displays a button to plant a new plant in the plot' do

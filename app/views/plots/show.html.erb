@@ -3,7 +3,7 @@
 <ul>
   <% @plot_plants.each do |plant| %>
     <li id="plant-<%=plant.id%>">
-      <h3><%= link_to plant.plant_name.titleize, plant_path(plant.id) %></h3>
+      <h3><%= link_to plant.plant_name.titleize, plant_path(plant.plant_id) %></h3>
       <% if plant.quantity.nil? && plant.date_planted.nil? %>
         <%= form_with url: garden_plot_plant_path(@garden.id, @plot.id, plant.id), method: :patch, local: true do |f| %>
           <%= f.label :quantity %>
