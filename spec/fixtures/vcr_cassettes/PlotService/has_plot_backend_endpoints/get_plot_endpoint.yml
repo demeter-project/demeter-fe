@@ -23,25 +23,25 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Tue, 08 Nov 2022 01:53:16 GMT
+      - Tue, 08 Nov 2022 18:00:25 GMT
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"1fb8d6b42ddc11ddfc0274cbf6b5ad47"
+      - W/"1e0cded6536c5e2b258c9497be5d51e4"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 4fd019ed-c542-4f8f-b458-fbe2aac11db8
+      - 4d641574-335d-46f4-9945-a7e7cc65bf76
       X-Runtime:
-      - '0.015900'
+      - '0.022766'
       Transfer-Encoding:
       - chunked
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"1","type":"plot","attributes":{"name":"Native Wildflowers","soil_ph_min":"6.8","soil_ph_max":"7.5","shade_tolerant?":false,"contains_toxic?":false},"relationships":{"plants":{"data":[{"id":"692","type":"plant"},{"id":"869","type":"plant"},{"id":"876","type":"plant"}]}}}}'
-  recorded_at: Tue, 08 Nov 2022 01:53:16 GMT
+      string: '{"data":{"id":"1","type":"plot","attributes":{"name":"Native Wildflowers","soil_ph_min":"6.8","soil_ph_max":"6.5","shade_tolerant?":false,"contains_toxic?":false},"relationships":{"plants":{"data":[{"id":"692","type":"plant"},{"id":"869","type":"plant"},{"id":"876","type":"plant"},{"id":"2","type":"plant"},{"id":"6","type":"plant"},{"id":"9","type":"plant"},{"id":"2","type":"plant"},{"id":"6","type":"plant"},{"id":"9","type":"plant"},{"id":"2","type":"plant"},{"id":"6","type":"plant"},{"id":"9","type":"plant"}]}}}}'
+  recorded_at: Tue, 08 Nov 2022 18:00:26 GMT
 recorded_with: VCR 6.1.0

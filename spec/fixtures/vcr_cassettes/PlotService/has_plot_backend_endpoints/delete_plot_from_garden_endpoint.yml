@@ -17,13 +17,55 @@ http_interactions:
       - "*/*"
   response:
     status:
+      code: 404
+      message: Not Found
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Tue, 08 Nov 2022 18:00:26 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - cfb4c2e6-729d-4112-833c-405aeca350eb
+      X-Runtime:
+      - '0.004433'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"message":"Couldn''t find Plot with ''id''=5"}'
+  recorded_at: Tue, 08 Nov 2022 18:00:27 GMT
+- request:
+    method: delete
+    uri: https://demeter-be.herokuapp.com/api/v1/gardens/5/plots/4
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
       code: 204
       message: No Content
     headers:
       Server:
       - Cowboy
       Date:
-      - Tue, 08 Nov 2022 01:59:25 GMT
+      - Tue, 08 Nov 2022 18:21:38 GMT
       Content-Length:
       - '0'
       Connection:
@@ -31,13 +73,13 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - '03197eda-e005-4cf2-8e75-cf0a5fb9d16f'
+      - 82b40c11-9eab-481d-b176-b597bae83165
       X-Runtime:
-      - '0.008682'
+      - '0.140454'
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Tue, 08 Nov 2022 01:59:25 GMT
+  recorded_at: Tue, 08 Nov 2022 18:21:38 GMT
 recorded_with: VCR 6.1.0
