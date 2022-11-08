@@ -11,12 +11,12 @@ class GardenFacade
 
   def self.get_user_gardens(user_id)    #get_user_gardens_endpoint
     json = GardenService.get_user_gardens_endpoint(user_id)
-    json[:data].map { |garden| UserGarden.new(garden[:attributes], garden[:id])}
+    json[:data].map { |garden| Garden.new(garden)}
   end
   
   def self.create(garden_params)
     json = GardenService.create_garden_endpoint(garden_params)
-    UserGarden.new(json[:data], json[:data][:id].to_i)
+    Garden.new(json[:data])
   end
 
   def self.destroy(garden_id)
