@@ -92,4 +92,16 @@ RSpec.describe 'new garden page' do
     expect(page).to have_content("Zip code is not a valid US postal code")
     expect(page).to have_content("Name can't be blank")
   end
+
+  it 'throws an error when zip_code correct format but has no api data', :vcr do
+    visit new_garden_path
+    
+    fill_in :name, with: "Test Garden"
+    fill_in :zip_code, with: "99999"
+    select "VT", from: :state_code
+
+    click_button "Create Garden"
+    save_and_open_page
+    expect(current_path).to eq(gardens_path)
+  end
 end
