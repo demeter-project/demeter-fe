@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user
+  helper_method :current_user, :breadcrumbs
 
   def require_user
     if !current_user
@@ -10,5 +10,13 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def add_breadcrumb(name, path = nil)
+    breadcrumbs << Crumb.new(name, path)
+  end
+
+  def breadcrumbs
+    @breadcrumbs ||= []
   end
 end

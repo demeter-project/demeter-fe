@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DemeterFe</title>
+    <title>En Root</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link href='https://fonts.googleapis.com/css?family=Allura' rel='stylesheet'>
@@ -21,7 +21,7 @@
               </li>
             <% else %>
               <li class="<%= current_page?(dashboard_path) ? "nav-item active" : "nav_item" %>">
-                <%= link_to 'Return to Dashboard', dashboard_path, class: "nav-link" %>
+                <%= link_to 'My Gardens Dashboard', dashboard_path, class: "nav-link" %>
               </li>
               <li class="nav-item">
                 <%= link_to 'Log Out', logout_path, method: :delete, class: "nav-link" %>
