@@ -6,10 +6,12 @@ class PlotsController < ApplicationController
     @date_time_now = DateTime.now.strftime("%Y-%m-%dT%H:%M")
     @plot = PlotFacade.get_plot(@garden.id, params[:id])
     @plot_plants = PlotFacade.get_plot_plants(@garden.id, @plot.id)
+    add_breadcrumb(@plot.name)
   end
 
   def new
     @new_plot = NewPlot.new(plot_params)
+    add_breadcrumb("New Plot")
   end
 
   def create
@@ -17,6 +19,7 @@ class PlotsController < ApplicationController
     if @new_plot.save
       redirect_to garden_path(@new_plot.garden_id)
     else
+      add_breadcrumb("New Plot")
       render :new
     end
   end
@@ -34,6 +37,8 @@ class PlotsController < ApplicationController
 
   def get_garden
     @garden = GardenFacade.get_garden(params[:garden_id])
+    add_breadcrumb("My Gardens", dashboard_path)
+    add_breadcrumb(@garden.name, garden_path(@garden.id))
   end
 
 end

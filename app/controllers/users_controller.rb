@@ -1,12 +1,9 @@
 class UsersController < ApplicationController
   before_action :require_user, only: :show
 
-  # def index
-  # end
-
   def show
     @user = current_user
-    # require "pry"; binding.pry
     @gardens = GardenFacade.get_user_gardens(session[:user_id])
+    add_breadcrumb("My Gardens")
   end
 end

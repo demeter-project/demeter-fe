@@ -1,6 +1,6 @@
+<%= render partial: "/breadcrumbs" %>
 <div class="container w-50">
-    <h1>Create New Garden</h1>
-
+  <h1>Create New Garden</h1>
     <%= form_with url: gardens_path, method: :post, local: true do |f| %>
       <div class="form-row mb-3">
         <%= f.label :name, "Name Your Garden!" %>
