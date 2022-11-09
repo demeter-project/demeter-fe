@@ -1,4 +1,4 @@
-# Demeter-Fe
+# EN ROOT
 
 ## Turing Backend Engineering Group Project
 
@@ -13,7 +13,7 @@
 
 ### Description:
 
-Demeter is a garden management app that allows users to find native plants for their location, research them, and organize them into garden plots. When a user adds plants to their virtual garden they can see useful information about their garden plots like optimal soil PH levels, shade tolerance, and plant toxicity. They can also see useful information about their garden like a seven day weather forecast.
+En Root is a garden management app that allows users to find native plants for their location, research them, and organize them into garden plots. When a user adds plants to their virtual garden they can see useful information about their garden plots like optimal soil PH levels, shade tolerance, and plant toxicity. They can also see useful information about their garden like a seven day weather forecast.
 
 The app uses plant data scraped from the USDA Plant Database, weather data from the NOAA weather API, and USDA plant hardiness zone data provided by a public API from the Oregon State PRISM Climate Group. The data is aggregated on our back-end rails app and served up through an API to this Front-End Rails app. Additional Information about the backend service can be found on the backend GitHub repository linked above.
 
