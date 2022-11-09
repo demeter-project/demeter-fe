@@ -1,8 +1,6 @@
 require 'rails_helper'
-require './spec/fixtures/webmock/sample_response'
 
 RSpec.describe 'plants#index', :vcr do
-  include SampleResponses
 
   before :each do
     @api_uri = 'https://demeter-be.herokuapp.com'
@@ -18,16 +16,16 @@ RSpec.describe 'plants#index', :vcr do
   end
   
   it 'displays a list of plants native to the gardens state' do
-    expect(page).to have_button "Add Selected Plants to Plot"
+    expect(page).to have_button "Add Selected Plants to #{@plot.name}"
 
-    @plants.each do |plant|
-      within("#plant-#{plant.id}") do
-        expect(page).to have_content(plant.common_name.titleize)
-        expect(page).to have_content(plant.scientific_name.titleize)
-        expect(page).to have_content(plant.suitable_for_hz)
-        expect(page).to have_content(plant.ph_maximum)
-        expect(page).to have_content(plant.ph_minimum)
-      end
+    plant = @plants.first
+
+    within("#plant-#{plant.id}") do
+      expect(page).to have_content(plant.common_name.titleize)
+      expect(page).to have_content(plant.scientific_name.titleize)
+      expect(page).to have_content(plant.suitable_for_hz)
+      expect(page).to have_content(plant.ph_maximum)
+      expect(page).to have_content(plant.ph_minimum)
     end
   end
     
@@ -43,7 +41,7 @@ RSpec.describe 'plants#index', :vcr do
     plant_ids = selected_plants.map { |plant| plant.id }
     body = { plant_ids: plant_ids }
 
-    click_on "Add Selected Plants to Plot"
+    click_on "Add Selected Plants to #{@plot.name}"
 
     expect(current_path).to eq(garden_plot_path(@garden.id, @plot.id))
 
@@ -64,7 +62,7 @@ RSpec.describe 'plants#index', :vcr do
 
       searched_plants = PlantFacade.get_plants(state_code: @garden.state_code, zip_code: @garden.zip_code, search_name: query)
 
-      click_on "Submit"
+      click_on "Search"
 
       expect(current_path).to eq(discover_plants_path(@garden.id, @plot.id))
 
@@ -81,14 +79,14 @@ RSpec.describe 'plants#index', :vcr do
 
     select "pH Min", from: :sort_by
     select "Ascending", from: :sort_order
-    click_on "Submit"
+    click_on "Search"
 
     expect(sorted_plants[0].common_name.titleize).to appear_before(sorted_plants[1].common_name.titleize)
     expect(sorted_plants[1].common_name.titleize).to appear_before(sorted_plants[2].common_name.titleize)
 
     select "pH Min", from: :sort_by
     select "Descending", from: :sort_order
-    click_on "Submit"
+    click_on "Search"
 
     expect(sorted_plants[2].common_name.titleize).to appear_before(sorted_plants[1].common_name.titleize)
     expect(sorted_plants[1].common_name.titleize).to appear_before(sorted_plants[0].common_name.titleize)
