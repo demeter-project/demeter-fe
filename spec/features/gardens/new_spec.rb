@@ -101,7 +101,7 @@ RSpec.describe 'new garden page' do
     select "VT", from: :state_code
 
     click_button "Create Garden"
-    save_and_open_page
+
     expect(current_path).to eq(gardens_path)
   end
 end
