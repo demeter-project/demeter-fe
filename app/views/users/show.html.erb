@@ -1,14 +1,28 @@
 <%= render partial: "/breadcrumbs" %>
 
+<div class="text-center">
+  <h1><%= "#{@user.username}" %>'s Dashboard</h1>
+  <button type="button" class="btn btn-success"><%= button_to "Create New Garden", new_garden_path, method: :get %></button>
+</div>
+
 <h1><%= "#{@user.username}" %>'s Dashboard</h1>
 
-<%= button_to "Create New Garden", new_garden_path, method: :get %>
+<br>
+<br>
 
-<h3><%= "#{@user.username}" %>'s Gardens</h3>
+<% if @gardens.length > 0  %>
+  <h3><%= "#{@user.username}" %>'s Gardens</h3>
+<% end %>
 
 <% @gardens.each do |garden| %>
+
+<div class="user_garden">
   <div id="garden-<%=garden.id%>">
-  <%= link_to "#{garden.name}", "/gardens/#{garden.id}" %>
-  <%= link_to 'Delete This Garden', "/gardens/#{garden.id}", method: :delete, data: {confirm: "Are you sure you'd like to delete #{garden.name}?"} %>
+
+    <h2 class="mx-auto" style="width: 18rem;"><%= link_to "#{garden.name}", "/gardens/#{garden.id}" %></h2>
+    <h5 class="mx-auto" style="width: 18rem;"><%= link_to 'Delete This Garden', "/gardens/#{garden.id}", method: :delete, data: {confirm: "Are you sure you'd like to delete #{garden.name}?"}, class: "btn btn-outline-primary" %></h5>
+
   </div>
+</div>
+
 <% end %>
