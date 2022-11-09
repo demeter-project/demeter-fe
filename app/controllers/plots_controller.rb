@@ -3,7 +3,7 @@ class PlotsController < ApplicationController
   before_action :get_garden
 
   def show
-    @date_time_now = DateTime.now.strftime("%Y-%m-%dT%H:%M")
+    @date_time_now = DateTime.now.strftime("%Y-%m-%d")
     @plot = PlotFacade.get_plot(@garden.id, params[:id])
     @plot_plants = PlotFacade.get_plot_plants(@garden.id, @plot.id)
     add_breadcrumb(@plot.name)
