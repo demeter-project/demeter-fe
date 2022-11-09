@@ -20,12 +20,19 @@ class NewGarden
       state_code: @state_code,
       user_id: @user_id 
     )
+
     if response.has_key?(:errors)
       response[:errors].each {|error| @errors[error[:source].to_sym] = error[:detail]}
       return false
     else
       @id = response[:data][:id].to_i
-      return true
+      begin
+        GardenService.get_garden_endpoint(@id)
+      rescue JSON::ParserError
+        return false
+      else
+        return true
+      end
     end
   end
 end
