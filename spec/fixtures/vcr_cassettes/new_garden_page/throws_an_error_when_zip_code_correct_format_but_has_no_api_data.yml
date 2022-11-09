@@ -1,0 +1,87 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://demeter-be.herokuapp.com/api/v1/gardens
+    body:
+      encoding: UTF-8
+      string: '{"name":"Test Garden","zip_code":"99999","state_code":"VT","user_id":1}'
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Wed, 09 Nov 2022 13:40:57 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"95f6161212047e464183fef66defff51"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 831753d3-38d3-4014-8d9f-10c6077334f2
+      X-Runtime:
+      - '0.064925'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"13","type":"garden","attributes":{"name":"Test Garden","zip_code":"99999","state_code":"VT","user_id":1,"weather_forecast":null},"relationships":{"plots":{"data":[]}}}}'
+  recorded_at: Wed, 09 Nov 2022 13:40:58 GMT
+- request:
+    method: get
+    uri: https://demeter-be.herokuapp.com/api/v1/gardens/13
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 500
+      message: Internal Server Error
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Wed, 09 Nov 2022 13:40:58 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - text/html; charset=UTF-8
+      X-Request-Id:
+      - 8f2d3906-e5ce-480a-be2c-8437fbab7d87
+      X-Runtime:
+      - '0.007423'
+      Content-Length:
+      - '0'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Wed, 09 Nov 2022 13:40:58 GMT
+recorded_with: VCR 6.1.0
