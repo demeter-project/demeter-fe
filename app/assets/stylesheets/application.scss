@@ -15,5 +15,14 @@ body {
   margin: 0 auto; /* Added */
   float: none; /* Added */
 }
-  
+
+.user_garden {
+  background: white;
+  border: 2px solid green;
+  padding: 2rem 0;
+  text-align: center;
+  // width: 34rem;
+}
+
+
 @import "bootstrap";
