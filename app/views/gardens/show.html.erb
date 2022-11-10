@@ -1,42 +1,46 @@
 <%= render partial: "/breadcrumbs" %>
-<h1 class="text-center"><%= @garden.name %></h1>
-<div class="row">
-  <div class="col-sm-3">
-    <div class="row">
-      <div class="card" style="width: 8rem;">
-        <img class="card-img-top" src=<%= @garden.weather_forecast[0].icon%> alt="Weather icon">
-          <div class="card-body">
-            <h6 class="card-title">Current Weather</h6>
-              <p class="card-text" style="font-size: 8px;"><%= @garden.weather_forecast[0].detailed_forecast %></p>
-          </div>
+<% if @garden.weather_forecast.nil? %>
+  <h1>Whoops! We're having trouble loading weather information in your area.</h1>
+<% else %>
+  <h1 class="text-center"><%= @garden.name %></h1>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="row">
+        <div class="card" style="width: 8rem;">
+          <img class="card-img-top" src=<%= @garden.weather_forecast[0].icon%> alt="Weather icon">
+            <div class="card-body">
+              <h6 class="card-title">Current Weather</h6>
+                <p class="card-text" style="font-size: 8px;"><%= @garden.weather_forecast[0].detailed_forecast %></p>
+            </div>
+        </div>
+        <div class="card" style="width: 8rem;">
+          <img class="card-img-top" src=<%= @garden.weather_forecast[1].icon%> alt="Weather icon">
+            <div class="card-body">
+              <h6 class="card-title"><%= @garden.weather_forecast[1].day %></h6>
+                <p class="card-text" style="font-size: 8px;"><%= @garden.weather_forecast[1].detailed_forecast %></p>
+            </div>
+        </div>
       </div>
-      <div class="card" style="width: 8rem;">
-        <img class="card-img-top" src=<%= @garden.weather_forecast[1].icon%> alt="Weather icon">
-          <div class="card-body">
-            <h6 class="card-title"><%= @garden.weather_forecast[1].day %></h6>
-              <p class="card-text" style="font-size: 8px;"><%= @garden.weather_forecast[1].detailed_forecast %></p>
+      <br>
+      <div class="row">
+        <div class="col">
+          <h4 style="text-align: center;">Weekly Forecast</h4>
+          <div class="w-100 text-center">
+            <dl>
+              <ul class="list-group">
+                <li class="list-group-item"><dt><%= @garden.weather_forecast[2].day %></dt> High: <%=  @garden.weather_forecast[2].temperature %>F Low: <%=  @garden.weather_forecast[3].temperature %>F</li>
+                <li class="list-group-item"><dt><%= @garden.weather_forecast[4].day %></dt> High: <%=  @garden.weather_forecast[4].temperature %>F Low: <%=  @garden.weather_forecast[5].temperature %>F</li>
+                <li class="list-group-item"><dt><%= @garden.weather_forecast[6].day %></dt> High: <%=  @garden.weather_forecast[6].temperature %>F Low: <%=  @garden.weather_forecast[7].temperature %>F</li>
+                <li class="list-group-item"><dt><%= @garden.weather_forecast[8].day %></dt> High: <%=  @garden.weather_forecast[8].temperature %>F Low: <%=  @garden.weather_forecast[9].temperature %>F</li>
+                <li class="list-group-item"><dt><%= @garden.weather_forecast[10].day %></dt> High: <%=  @garden.weather_forecast[10].temperature %>F Low: <%=  @garden.weather_forecast[11].temperature %>F</li>
+                <li class="list-group-item"><dt><%= @garden.weather_forecast[12].day %></dt> High: <%=  @garden.weather_forecast[12].temperature %>F Low: <%=  @garden.weather_forecast[13].temperature %>F</li>
+              </ul>
+            </dl>
           </div>
-      </div>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col">
-        <h4 style="text-align: center;">Weekly Forecast</h4>
-        <div class="w-100 text-center">
-          <dl>
-            <ul class="list-group">
-              <li class="list-group-item"><dt><%= @garden.weather_forecast[2].day %></dt> High: <%=  @garden.weather_forecast[2].temperature %>F Low: <%=  @garden.weather_forecast[3].temperature %>F</li>
-              <li class="list-group-item"><dt><%= @garden.weather_forecast[4].day %></dt> High: <%=  @garden.weather_forecast[4].temperature %>F Low: <%=  @garden.weather_forecast[5].temperature %>F</li>
-              <li class="list-group-item"><dt><%= @garden.weather_forecast[6].day %></dt> High: <%=  @garden.weather_forecast[6].temperature %>F Low: <%=  @garden.weather_forecast[7].temperature %>F</li>
-              <li class="list-group-item"><dt><%= @garden.weather_forecast[8].day %></dt> High: <%=  @garden.weather_forecast[8].temperature %>F Low: <%=  @garden.weather_forecast[9].temperature %>F</li>
-              <li class="list-group-item"><dt><%= @garden.weather_forecast[10].day %></dt> High: <%=  @garden.weather_forecast[10].temperature %>F Low: <%=  @garden.weather_forecast[11].temperature %>F</li>
-              <li class="list-group-item"><dt><%= @garden.weather_forecast[12].day %></dt> High: <%=  @garden.weather_forecast[12].temperature %>F Low: <%=  @garden.weather_forecast[13].temperature %>F</li>
-            </ul>
-          </dl>
         </div>
       </div>
     </div>
-  </div>
+<% end %>
 
   <div class="col-sm-9">
     <div class="container bg-white rounded text-center">
