@@ -42,9 +42,9 @@ RSpec.describe 'The plot show page', :vcr do
     it 'displays a button to plant a new plant in the plot' do
       visit garden_plot_path(@garden.id, @plot.id)
 
-      expect(page).to have_button("Plant a new plant in #{@plot.name}")
+      expect(page).to have_button("Discover New Plants for This Plot")
 
-      click_button "Plant a new plant in #{@plot.name}"
+      click_button "Discover New Plants for This Plot"
       expect(current_path).to eq(discover_plants_path(@garden.id, @plot.id))
     end
   

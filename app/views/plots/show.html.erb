@@ -1,34 +1,47 @@
 <%= render partial: "/breadcrumbs" %>
-<div class="container w-30">
-    <h2 class="mx-auto" style="width: 18rem;"><%= @plot.name %> </h2>
-    <h4 class="mx-auto" style="width: 18rem;"> Plants</h4>
-        <% @plot_plants.each do |plant| %>
-          <div class="pb-3">
-            <div class="card text-center">
-              <div class="card-body">
-                <div id="plant-<%=plant.id%>">
-                  <div class="p-3">
-                    <h5 class=card-header><%= link_to plant.plant_name.titleize, plant_path(plant.plant_id) %></h5>
-                  </div>
-                    <% if plant.quantity.nil? && plant.date_planted.nil? %>
-                      <%= form_with url: garden_plot_plant_path(@garden.id, @plot.id, plant.id), method: :patch, local: true do |f| %>
-                        <%= f.label :quantity %>
-                        <%= f.select :quantity, (1..100) %>
-                        <%= f.label :date_planted %>
-                        <%= f.datetime_field :date_planted, value: @date_time_now %>
-                        <br>
-                        <%= f.submit "Plant it", class: "btn btn-primary" %>
-                      <% end %>
-                    <% else %>
-                      <p>Quantity: <%= plant.quantity %></p>
-                      <p>Date planted: <%= plant.date_planted %></p>
-                    <% end %>
-                  <p><%= button_to "Remove Plant", garden_plot_plant_path(@garden.id, @plot.id, plant.id), class: "btn btn-primary", method: :delete, params: {garden_id: @garden.id, plot_id: @plot.id, plant_id: plant.id}, data: {confirm: "Are you sure you'd like to delete #{plant.plant_name}?"} %></p>
-                </div>
-              </div>
-            </div>
+
+<h1 class="text-center" style="font-weight: bold; color: #067f0e">Plants in <%= @plot.name %></h1>
+
+<div class="text-center"><%= button_to "Discover New Plants for This Plot", discover_plants_path(@garden.id, @plot.id), method: :get, params: { state_code: @garden.state_code, zip_code: @garden.zip_code }, class: "btn btn-outline-primary btn-lg" %></div>
+
+<div class="row">
+  <div class="p-3 col-6 offset-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-header">Plot Information: </h5>
+          <dl>
+            <dt>Minimum Soil pH: </dt><dd><%= @plot.soil_ph_min %></dd>
+            <dt>Maximum Soil pH: </dt><dd><%= @plot.soil_ph_max %></dd>
+            <dt>Shade Tolerant: </dt><dd><%= @plot.shade_tolerant? %></dd>
+            <dt>Contains Toxic Plant: </dt><dd><%= @plot.contains_toxic? %></dd>
+          </dl>
+      </div>
+    </div>
+  </div>
+  <% @plot_plants.each do |plant| %>
+    <div class="p-3 col-4">
+      <div class="card text-center" style="height: 425px;" id="plant-<%=plant.id%>">
+        <div class="card-body d-flex flex-column">
+          <div class="p-3">
+            <h5 class="card-header"><%= link_to plant.plant_name.titleize, plant_path(plant.plant_id) %></h5>
           </div>
-        <% end %>
-  <br>
-  <%= button_to "Plant a new plant in #{@plot.name}", discover_plants_path(@garden.id, @plot.id), method: :get, params: { state_code: @garden.state_code, zip_code: @garden.zip_code }, class: "btn btn-primary" %>
+          <% if plant.quantity.nil? && plant.date_planted.nil? %>
+            <%= form_with url: garden_plot_plant_path(@garden.id, @plot.id, plant.id), method: :patch, local: true do |f| %>
+              <%= f.label :quantity %>
+              <%= f.select :quantity, (1..100), {}, class: "form-control" %>
+              <%= f.label :date_planted %>
+              <%= f.date_field :date_planted, class: "form-control", value: @date_time_now %>
+              <%= f.submit "Plant it", class: "btn btn-outline-primary mt-3" %>
+            <% end %>
+          <% else %>
+          <dl>
+            <dt>Quantity: </dt><dd><%= plant.quantity %></dd>
+            <dt>Date planted: </dt><dd><%= plant.date_planted %></dd>
+          </dl>
+          <% end %>
+          <div class="mt-auto"><%= button_to "Remove Plant", garden_plot_plant_path(@garden.id, @plot.id, plant.id), class: "btn btn-outline-danger btn-sm", method: :delete, params: {garden_id: @garden.id, plot_id: @plot.id, plant_id: plant.id}, data: {confirm: "Are you sure you'd like to delete #{plant.plant_name}?"} %></div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

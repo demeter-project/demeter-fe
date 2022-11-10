@@ -17,9 +17,21 @@ body {
   margin: 0 auto; /* Added */
   float: none; /* Added */
 }
+
   
 @import "bootstrap";
 
 h1, h2, h3, h4, h5, h6 {
   color: #067f0e;
 }
+
+
+.user_garden {
+  background: white;
+  border: 2px solid green;
+  padding: 2rem 0;
+  text-align: center;
+  // width: 34rem;
+}
+
+
