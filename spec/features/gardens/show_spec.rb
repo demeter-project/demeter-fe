@@ -61,12 +61,31 @@ RSpec.describe 'garden show page' do
     stub_request(:get, "#{@api_uri}/api/v1/gardens/1/plots/1/plot_plants")
       .to_return(body: plot_plant_index.to_json)
 
-
     garden = GardenFacade.get_garden(1)
-    visit "/gardens/1?user_id=#{@user.id}"
-     click_on 'Plot 1'
 
-     expect(current_path).to eq(garden_plot_path(garden_id: garden.id, id: 1))
+    visit "/gardens/1"
+
+    click_on 'Plot 1'
+    
+    expect(current_path).to eq(garden_plot_path(garden_id: garden.id, id: 1))
   end
 
+  it 'displays an error message if the weather forecast for a garden is nil' do
+    stub_request(:get, "#{@api_uri}/api/v1/gardens/1")
+    .to_return(body: garden_weather_nil.to_json)
+
+    stub_request(:get, "#{@api_uri}/api/v1/gardens/1/plots")
+    .to_return(body: plot_index.to_json)
+
+    garden = GardenFacade.get_garden(1)
+    plots = GardenFacade.get_garden_plots(garden.id)
+
+    visit "/gardens/1"
+
+    expect(page).to have_content("Whoops! We're having trouble loading weather information in your area.")
+    
+    plots.each do |plot|
+      expect(page).to have_content(plot.name)
+    end
+  end
 end

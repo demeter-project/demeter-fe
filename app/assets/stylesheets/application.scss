@@ -1,7 +1,9 @@
 
 $theme-colors: (
-  "primary": #067f0e,
+  "primary": #067f0e
 );
+
+
 
 body {
   background: url(asset-path("bg.jpg")) no-repeat center center fixed;
@@ -16,6 +18,14 @@ body {
   float: none; /* Added */
 }
 
+  
+@import "bootstrap";
+
+h1, h2, h3, h4, h5, h6 {
+  color: #067f0e;
+}
+
+
 .user_garden {
   background: white;
   border: 2px solid green;
@@ -25,4 +35,3 @@ body {
 }
 
 
-@import "bootstrap";

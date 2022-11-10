@@ -1,63 +1,79 @@
-
 <%= render partial: "/breadcrumbs" %>
-<div class="container">
-<h1 class="text-center" style="color: #067f0e"><%= @garden.name %></h1>
-<div class="w-85 p-3">
-  <div class="card-deck">
-    <div class="card" style="width: 12rem;">
-      <img class="card-img-top" src=<%= @garden.weather_forecast[0].icon%> alt="Weather icon">
-      <div class="card-body">
-        <h5 class="card-title">Current Weather</h5>
-        <p class="card-text"><%= @garden.weather_forecast[0].detailed_forecast %></p>
-      </div>
-    </div>
-    <div class="card" style="width: 12rem;">
-      <img class="card-img-top" src=<%= @garden.weather_forecast[1].icon%> alt="Weather icon">
-      <div class="card-body">
-        <h5 class="card-title"><%= @garden.weather_forecast[1].day %></h5>
-        <p class="card-text"><%= @garden.weather_forecast[1].detailed_forecast %></p>
-      </div>
-    </div>
-  </div>
-</div>
-<br>
-<h2 class="text-center" style="color: #067f0e">Weekly Forecast</h2>
-<div class="w-80 p-3 text-center";>
-  <ul class="list-group">
-    <li class="list-group-item"><%= @garden.weather_forecast[2].day %> High: <%=  @garden.weather_forecast[2].temperature %>F Low: <%=  @garden.weather_forecast[3].temperature %>F</li>
-    <li class="list-group-item"><%= @garden.weather_forecast[4].day %> High: <%=  @garden.weather_forecast[2].temperature %>F Low: <%=  @garden.weather_forecast[5].temperature %>F</li>
-    <li class="list-group-item"><%= @garden.weather_forecast[6].day %> High: <%=  @garden.weather_forecast[2].temperature %>F Low: <%=  @garden.weather_forecast[7].temperature %>F</li>
-    <li class="list-group-item"><%= @garden.weather_forecast[8].day %> High: <%=  @garden.weather_forecast[2].temperature %>F Low: <%=  @garden.weather_forecast[9].temperature %>F</li>
-    <li class="list-group-item"><%= @garden.weather_forecast[10].day %> High: <%=  @garden.weather_forecast[2].temperature %>F Low: <%=  @garden.weather_forecast[11].temperature %>F</li>
-    <li class="list-group-item"><%= @garden.weather_forecast[12].day %> High: <%=  @garden.weather_forecast[2].temperature %>F Low: <%=  @garden.weather_forecast[13].temperature %>F</li>
-  </ul>
-</div>
-<br>
-<% if !@plots.empty? %>
-  <% @plots.each do |plot| %>
-    <div id="plot-<%= plot.id %>">
-      <div class="card" style="width: 18rem;">
-        <div class="card-body text-center">
-          <h2 class="card-title"><%= link_to plot.name, garden_plot_path(@garden.id, plot.id) %></h2>
-            <p class="card-text">
-            <% if !plot.soil_ph_min.nil? %>
-              <p>Minimum Soil pH: <%= plot.soil_ph_min %></p>
-              <p>Maximum Soil pH: <%= plot.soil_ph_max %></p>
-              <p>Shade Tolerant: <%= plot.shade_tolerant? %></p>
-              <p>Toxic? <%= plot.contains_toxic? %></p>
-            <% end %>
-            </p>
-          <%= button_to "Delete #{plot.name}", garden_plot_path(@garden.id, plot.id), method: :delete, params: {garden_id: @garden.id, plot_id: plot.id}, data: { confirm: "Are you sure you want to remove plot: #{plot.name}?" }, class: "btn btn-outline-primary" %></p></a>
+<% if @garden.weather_forecast.nil? %>
+  <h1>Whoops! We're having trouble loading weather information in your area.</h1>
+<% else %>
+  <h1 class="text-center"><%= @garden.name %></h1>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="row">
+        <div class="card" style="width: 8rem;">
+          <img class="card-img-top" src=<%= @garden.weather_forecast[0].icon%> alt="Weather icon">
+            <div class="card-body">
+              <h6 class="card-title">Current Weather</h6>
+                <p class="card-text" style="font-size: 8px;"><%= @garden.weather_forecast[0].detailed_forecast %></p>
+            </div>
         </div>
+        <div class="card" style="width: 8rem;">
+          <img class="card-img-top" src=<%= @garden.weather_forecast[1].icon%> alt="Weather icon">
+            <div class="card-body">
+              <h6 class="card-title"><%= @garden.weather_forecast[1].day %></h6>
+                <p class="card-text" style="font-size: 8px;"><%= @garden.weather_forecast[1].detailed_forecast %></p>
+            </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <h4 style="text-align: center;">Weekly Forecast</h4>
+          <div class="w-100 text-center">
+            <dl>
+              <ul class="list-group">
+                <li class="list-group-item"><dt><%= @garden.weather_forecast[2].day %></dt> High: <%=  @garden.weather_forecast[2].temperature %>F Low: <%=  @garden.weather_forecast[3].temperature %>F</li>
+                <li class="list-group-item"><dt><%= @garden.weather_forecast[4].day %></dt> High: <%=  @garden.weather_forecast[4].temperature %>F Low: <%=  @garden.weather_forecast[5].temperature %>F</li>
+                <li class="list-group-item"><dt><%= @garden.weather_forecast[6].day %></dt> High: <%=  @garden.weather_forecast[6].temperature %>F Low: <%=  @garden.weather_forecast[7].temperature %>F</li>
+                <li class="list-group-item"><dt><%= @garden.weather_forecast[8].day %></dt> High: <%=  @garden.weather_forecast[8].temperature %>F Low: <%=  @garden.weather_forecast[9].temperature %>F</li>
+                <li class="list-group-item"><dt><%= @garden.weather_forecast[10].day %></dt> High: <%=  @garden.weather_forecast[10].temperature %>F Low: <%=  @garden.weather_forecast[11].temperature %>F</li>
+                <li class="list-group-item"><dt><%= @garden.weather_forecast[12].day %></dt> High: <%=  @garden.weather_forecast[12].temperature %>F Low: <%=  @garden.weather_forecast[13].temperature %>F</li>
+              </ul>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
+
+  <div class="col-sm-9">
+    <div class="container bg-white rounded text-center">
+      <h2>Plots</h2>
+      <p><div class="text-center"><%= button_to "Add a new plot", new_garden_plot_path(@garden.id), method: :get, class: "btn btn-outline-primary"  %></div></p>
+      <div class="row">
+      <% if !@plots.empty? %>
+        <% @plots.each do |plot| %>
+          <div class="col-sm-4 pb-3">
+            <div class="card" id="plot-<%= plot.id %>" style="height: 235px;">
+              <div class="card-body d-flex flex-column text-center">
+                <h4 class="card-title"><%= link_to plot.name, garden_plot_path(@garden.id, plot.id) %></h4>
+                <p class="card-text" style="font-size: 12px;">
+                  <% if !plot.soil_ph_min.nil? %>
+                    Minimum Soil pH: <%= plot.soil_ph_min %> <br>
+                    Maximum Soil pH: <%= plot.soil_ph_max %> <br>
+                    Shade Tolerant: <%= plot.shade_tolerant? %> <br>
+                    Contains toxic plant?: <%= plot.contains_toxic? %> <br>
+                  <% end %>
+                </p>
+                <div class="mt-auto"><%= button_to "Delete #{plot.name}", garden_plot_path(@garden.id, plot.id), method: :delete, params: {garden_id: @garden.id, plot_id: plot.id}, data: { confirm: "Are you sure you want to remove plot: #{plot.name}?" }, class: "btn btn-outline-danger btn-sm" %></div>
+              </div>
+            </div>
+          </div>
         <% end %>
-        <p><div class="text-center"><%= button_to "Add a new plot", new_garden_plot_path(@garden.id), method: :get, class: "btn btn-outline-primary"  %></div></p>
-  <% else %>
-    <div class="card text-center" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title" style="color: #067f0e">It looks like your garden doesn't have any plots.</h5>
-        <%= button_to "Add a new plot", new_garden_plot_path(@garden.id), method: :get, class: "btn btn-outline-primary" %></h5>
-        <p class="card-text">
-        <% end %>
+      <% else %>
+        <div class="col-sm-4 pb-3 offset-4">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">It looks like your garden doesn't have any plots.</h5>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
-</div>

@@ -340,4 +340,18 @@ module GardenShowResponse
         ]
       }
   end
+
+  def garden_weather_nil
+    { "data": {
+        "id": "1",
+        "type": "garden",
+        "attributes": {
+            "name": "Big Garden",
+            "zip_code": "05408",
+            "state_code": "VT",
+            "user_id": 1,
+            "weather_forecast": nil }
+            }
+        }
+  end
 end
