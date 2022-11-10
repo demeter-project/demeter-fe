@@ -28,7 +28,7 @@ RSpec.describe 'User Dashboard', type: :feature do
       @gardens.each do |garden|
         within "#garden-#{garden.id}" do
           expect(page).to have_link("#{garden.name}")
-          expect(page).to have_link "Delete This Garden"
+          expect(page).to have_button "Delete Garden"
         end
       end
     end

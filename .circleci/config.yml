@@ -7,7 +7,7 @@ jobs: # a collection of steps
     executor: heroku/default
     steps:
       - attach_workspace:
-          at: ~/demeter-fe
+          at: ~/en-root
       - heroku/deploy-via-git:
           force: true # force push when pushing to the heroku remote, see: https://devcenter.heroku.com/articles/git
 
@@ -64,7 +64,7 @@ workflows:
           post-steps:
             - run:
                 name: migrate
-                command: heroku run -a demeter-fe rails db:migrate
+                command: heroku run -a en-root rails db:migrate
           filters:
             branches:
               only:
