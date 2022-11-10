@@ -1,4 +1,4 @@
-# EN ROOT
+<img src="app/assets/images/logo.png">
 
 <img src="app/assets/images/enroot-demo-gif.gif" style="width: 600px;">
 
