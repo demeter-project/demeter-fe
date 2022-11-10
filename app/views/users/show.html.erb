@@ -1,28 +1,33 @@
 <%= render partial: "/breadcrumbs" %>
 
-<div class="text-center">
-  <h1><%= "#{@user.username}" %>'s Dashboard</h1>
-  <button type="button" class="btn btn-success"><%= button_to "Create New Garden", new_garden_path, method: :get %></button>
-</div>
-
-<h1><%= "#{@user.username}" %>'s Dashboard</h1>
-
-<br>
-<br>
-
-<% if @gardens.length > 0  %>
-  <h3><%= "#{@user.username}" %>'s Gardens</h3>
-<% end %>
-
-<% @gardens.each do |garden| %>
-
-<div class="user_garden">
-  <div id="garden-<%=garden.id%>">
-
-    <h2 class="mx-auto" style="width: 18rem;"><%= link_to "#{garden.name}", "/gardens/#{garden.id}" %></h2>
-    <h5 class="mx-auto" style="width: 18rem;"><%= link_to 'Delete This Garden', "/gardens/#{garden.id}", method: :delete, data: {confirm: "Are you sure you'd like to delete #{garden.name}?"}, class: "btn btn-outline-primary" %></h5>
-
+<div class="container text-center">
+  <h1>My Gardens Dashboard</h1>
+  <%= button_to "Create New Garden", new_garden_path, method: :get, class: "btn btn-outline-primary" %>
+  <div class="row">
+    <% if !@gardens.empty? %>
+      <% @gardens.each do |garden| %>
+        <div class="col-6 p-3">
+          <div class="card text-center" id="garden-<%=garden.id%>">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-header mb-3"><%= link_to garden.name, garden_path(garden.id) %></h5>
+              <p class="card-text">
+                <dl>
+                  <dt>Garden Location:</dt><dd><%= garden.state_code + ", " + garden.zip_code %></dd>
+                </dl>
+              </p>
+              <%= button_to 'Delete Garden', garden_path(garden.id), method: :delete, class: "btn btn-outline-danger btn-sm" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="col-8 p-3 offset-2">
+        <div class="card text-center">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-header mb-3">Looks like you don't have any gardens!</h5>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
-
-<% end %>

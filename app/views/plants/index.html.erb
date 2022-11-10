@@ -1,19 +1,19 @@
 <%= render partial: "/breadcrumbs" %>
 <div class="container bg-light">
   <div class="container-sm">
-    <h1 class="text-center" style="font-family: allura; font-size: 70px; font-weight: bold;">Discover Native Plants in Your State</h1>
+    <h1 class="text-center">Discover Native Plants in Your State</h1>
   </div>
   <div id ="display_options" class="container-md">
     <div id="search"><p>
       <%= form_with url: discover_plants_path(@garden.id, @plot.id), method: :get, local: :true do |f| %>
         <br>
         <div class="container-sm">
-          <%= f.label :search_name, "Search by name (common & scientific)", class: "form-label", style: "font-family: allura; font-size: 34px; font-weight: bold;" %>
+          <%= f.label :search_name, "Search by name (common & scientific)", class: "form-label", style: "font-size: 20px;" %>
           <%= f.text_field :search_name, value: @search_name, class: "form-control", style: "font-family: arial; font-weight: light;" %>
         </div>
         <br>
         <div>
-          <%= f.label :sort_by, "Sort by ", style: "font-family: allura; font-size: 30px; font-weight: bold;" %>
+          <%= f.label :sort_by, "Sort by ", style: "font-size: 20px;" %>
           <%= f.select :sort_by, options_for_select([
             ["Common Name", :common_name],
             ["Scientific Name", :scientific_name],

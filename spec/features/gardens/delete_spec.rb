@@ -29,7 +29,7 @@ RSpec.describe 'delete garden method' do
         .to_return(body: user_gardens_updated.to_json)
 
       within "#garden-#{garden_1.id}" do
-        click_on "Delete This Garden"
+        click_on "Delete Garden"
       end
 
       expect(current_path).to eq(dashboard_path)
