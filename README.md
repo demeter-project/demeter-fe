@@ -8,7 +8,7 @@
 
 ### Links:
 
-- [View the Project Deployed on Heroku](https://demeter-fe.herokuapp.com/)
+- [View the Project Deployed on Heroku](https://en-root.herokuapp.com/)
 - [Backend GitHub Repository](https://github.com/demeter-project/demeter-be)
 
 ### Description:
