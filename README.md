@@ -46,4 +46,8 @@ This project was accomplished as part of the Curriculum for the Turing School of
 
 ### Notable Features and Screenshots
 
-Coming Soon
+Service and Facade Structure
+
+<img src="app/assets/images/Screen Shot 2022-11-10 at 8.52.03 AM.png" style="width: 600px;">
+
+<img src="app/assets/images/Screen Shot 2022-11-10 at 8.53.39 AM.png" style="width: 600px;">
