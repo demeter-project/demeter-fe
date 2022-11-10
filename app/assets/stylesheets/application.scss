@@ -1,7 +1,9 @@
 
 $theme-colors: (
-  "primary": #067f0e,
+  "primary": #067f0e
 );
+
+
 
 body {
   background: url(asset-path("bg.jpg")) no-repeat center center fixed;
@@ -17,3 +19,7 @@ body {
 }
   
 @import "bootstrap";
+
+h1, h2, h3, h4, h5, h6 {
+  color: #067f0e;
+}
