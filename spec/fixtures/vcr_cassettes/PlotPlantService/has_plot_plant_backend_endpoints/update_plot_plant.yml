@@ -45,4 +45,41 @@ http_interactions:
       string: '{"data":{"id":"2","type":"plot_plant","attributes":{"quantity":10,"date_planted":"1999/11/07","plant_name":"whitestem
         gooseberry","plant_id":"869"}}}'
   recorded_at: Tue, 08 Nov 2022 02:23:54 GMT
+- request:
+    method: patch
+    uri: http://localhost:5000/api/v1/gardens/5/plots/1/plot_plants/2
+    body:
+      encoding: UTF-8
+      string: '{"date_planted":"1999/11/07","quantity":10}'
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"53b01e5078af83e2e6740d98f12a705c"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 299ecd8d-c46d-40d0-a7d6-d16bbc04643c
+      X-Runtime:
+      - '0.006678'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"2","type":"plot_plant","attributes":{"quantity":10,"date_planted":"1999/11/07","plant_name":"whitestem
+        gooseberry","plant_id":"869"}}}'
+  recorded_at: Thu, 17 Nov 2022 00:20:56 GMT
 recorded_with: VCR 6.1.0

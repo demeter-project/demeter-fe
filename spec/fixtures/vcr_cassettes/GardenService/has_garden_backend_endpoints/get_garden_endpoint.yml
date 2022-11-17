@@ -87,4 +87,51 @@ http_interactions:
         mph","wind_direction":"WNW","icon":"https://api.weather.gov/icons/land/night/sct?size=medium","short_forecast":"Partly
         Cloudy","detailed_forecast":"Partly cloudy, with a low around 21."}]},"relationships":{"plots":{"data":[{"id":"1","type":"plot"},{"id":"2","type":"plot"},{"id":"3","type":"plot"}]}}}}'
   recorded_at: Mon, 07 Nov 2022 23:35:05 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/api/v1/gardens/5
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"a5bf9324f2aa4cf4b182afd8219cfa84"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 0cb80852-70da-4df0-a3ec-320d048c84b7
+      X-Runtime:
+      - '0.517936'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"5","type":"garden","attributes":{"name":"Testing 123","zip_code":"80223","state_code":"CO","user_id":1,"weather_forecast":[{"period":"2022-11-17T03:00:00.000Z","temp":33.28,"weather":"Scattered
+        Clouds","icon_path":"http://openweathermap.org/img/wn/03n.png"},{"period":"2022-11-17T09:00:00.000Z","temp":30.7,"weather":"Overcast
+        Clouds","icon_path":"http://openweathermap.org/img/wn/04n.png"},{"period":"2022-11-17T15:00:00.000Z","temp":25.59,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13d.png"},{"period":"2022-11-17T21:00:00.000Z","temp":27.37,"weather":"Overcast
+        Clouds","icon_path":"http://openweathermap.org/img/wn/04d.png"},{"period":"2022-11-18T03:00:00.000Z","temp":21.07,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13n.png"},{"period":"2022-11-18T09:00:00.000Z","temp":17.1,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13n.png"},{"period":"2022-11-18T15:00:00.000Z","temp":16.25,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13d.png"},{"period":"2022-11-18T21:00:00.000Z","temp":25.86,"weather":"Scattered
+        Clouds","icon_path":"http://openweathermap.org/img/wn/03d.png"},{"period":"2022-11-19T03:00:00.000Z","temp":21.79,"weather":"Clear
+        Sky","icon_path":"http://openweathermap.org/img/wn/01n.png"},{"period":"2022-11-19T09:00:00.000Z","temp":21.52,"weather":"Clear
+        Sky","icon_path":"http://openweathermap.org/img/wn/01n.png"},{"period":"2022-11-19T15:00:00.000Z","temp":24.51,"weather":"Clear
+        Sky","icon_path":"http://openweathermap.org/img/wn/01d.png"}]},"relationships":{"plots":{"data":[]}}}}'
+  recorded_at: Thu, 17 Nov 2022 00:20:54 GMT
 recorded_with: VCR 6.1.0

@@ -40,7 +40,7 @@ RSpec.describe 'garden show page' do
         end
       end
 
-      expect(page).to have_content(garden.weather_forecast.first.detailed_forecast)
+      expect(page).to have_content(garden.weather_forecast.first.temp.to_i)
       expect(page).to have_button("Add a new plot")
 
       click_on "Add a new plot"
@@ -82,7 +82,7 @@ RSpec.describe 'garden show page' do
 
     visit "/gardens/1"
 
-    expect(page).to have_content("Whoops! We're having trouble loading weather information in your area.")
+    expect(page).to have_content("Whoops! Unable to get a weather forecast for your area.")
     
     plots.each do |plot|
       expect(page).to have_content(plot.name)

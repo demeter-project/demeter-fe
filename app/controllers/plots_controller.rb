@@ -17,7 +17,7 @@ class PlotsController < ApplicationController
   def create
     @new_plot = NewPlot.new(plot_params)
     if @new_plot.save
-      redirect_to garden_path(@new_plot.garden_id)
+      redirect_to garden_plot_path(@new_plot.garden_id, @new_plot.id)
     else
       add_breadcrumb("New Plot")
       render :new

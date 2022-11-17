@@ -2,41 +2,31 @@ require 'rails_helper'
 
 RSpec.describe Garden do
   before :each do
-    @garden = Garden.new(
-    {:id=>"1",
-      :type=>"garden",
-      :attributes=>
-       {:name=>"Big Garden",
-        :zip_code=>"05408",
-        :state_code=>"VT",
-        :user_id=>1,
-        :weather_forecast=>
-         [{:id=>1,
-           :day=>"This Afternoon",
-           :start_time=>"2022-11-04T15:00:00-04:00",
-           :end_time=>"2022-11-04T18:00:00-04:00",
-           :day_time=>true,
-           :temperature=>68,
-           :temperature_unit=>"F",
-           :temperature_trend=>nil,
-           :wind_speed=>"15 mph",
-           :wind_direction=>"S",
-           :icon=>"https://api.weather.gov/icons/land/day/sct?size=medium",
-           :short_forecast=>"Mostly Sunny",
-           :detailed_forecast=>"Mostly sunny, with a high near 68. South wind around 15 mph."},
-          {:id=>2,
-           :day=>"Tonight",
-           :start_time=>"2022-11-04T18:00:00-04:00",
-           :end_time=>"2022-11-05T06:00:00-04:00",
-           :day_time=>false,
-           :temperature=>58,
-           :temperature_unit=>"F",
-           :temperature_trend=>nil,
-           :wind_speed=>"16 mph",
-           :wind_direction=>"S",
-           :icon=>"https://api.weather.gov/icons/land/night/sct?size=medium",
-           :short_forecast=>"Partly Cloudy",
-           :detailed_forecast=>"Partly cloudy, with a low around 58. South wind around 16 mph."}]}})
+    data = {
+      id: "1",
+      attributes: {
+        name: "Big Garden",
+        zip_code: "05408",
+        state_code: "VT",
+        user_id: 1,
+        weather_forecast: [
+          {
+            period: "2022-11-17T03:00:00.000Z",
+            temp: 32.56,
+            weather: "Few Clouds",
+            icon_path: "http://openweathermap.org/img/wn/02n.png"
+          },
+          {
+            period: "2022-11-17T09:00:00.000Z",
+            temp: 30.7,
+            weather: "Overcast Clouds",
+            icon_path: "http://openweathermap.org/img/wn/04n.png"
+          }
+        ]
+      }
+    }
+    @garden = Garden.new(data)
+
   end
 
   it 'exists' do

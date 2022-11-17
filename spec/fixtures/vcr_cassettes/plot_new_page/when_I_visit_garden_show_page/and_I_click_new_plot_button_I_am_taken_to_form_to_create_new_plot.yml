@@ -1,0 +1,94 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://demeter-be.herokuapp.com/api/v1/gardens/1/plots/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Thu, 17 Nov 2022 01:10:30 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"1fb8d6b42ddc11ddfc0274cbf6b5ad47"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - d63cc443-309c-4ee2-a875-db9092a95517
+      X-Runtime:
+      - '0.247309'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"1","type":"plot","attributes":{"name":"Native Wildflowers","soil_ph_min":"6.8","soil_ph_max":"7.5","shade_tolerant?":false,"contains_toxic?":false},"relationships":{"plants":{"data":[{"id":"692","type":"plant"},{"id":"869","type":"plant"},{"id":"876","type":"plant"}]}}}}'
+  recorded_at: Thu, 17 Nov 2022 01:10:31 GMT
+- request:
+    method: get
+    uri: https://demeter-be.herokuapp.com/api/v1/gardens/1/plots/1/plot_plants
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Thu, 17 Nov 2022 01:10:31 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"f11e044a8c92bbf5d39318e2155627eb"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 6d150aad-3212-4b75-a3d1-ce5550c0c7a3
+      X-Runtime:
+      - '0.015435'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"1","type":"plot_plant","attributes":{"quantity":null,"date_planted":null,"plant_name":"tufted
+        evening primrose","plant_id":"692"}},{"id":"2","type":"plot_plant","attributes":{"quantity":null,"date_planted":null,"plant_name":"whitestem
+        gooseberry","plant_id":"869"}},{"id":"3","type":"plot_plant","attributes":{"quantity":null,"date_planted":null,"plant_name":"prickly
+        rose","plant_id":"876"}}]}'
+  recorded_at: Thu, 17 Nov 2022 01:10:32 GMT
+recorded_with: VCR 6.1.0

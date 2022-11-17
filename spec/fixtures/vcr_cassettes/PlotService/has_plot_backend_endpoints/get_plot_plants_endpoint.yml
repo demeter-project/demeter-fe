@@ -53,4 +53,45 @@ http_interactions:
         fir","plant_id":"2"}},{"id":"16","type":"plot_plant","attributes":{"quantity":null,"date_planted":null,"plant_name":"subalpine
         fir","plant_id":"6"}},{"id":"17","type":"plot_plant","attributes":{"quantity":null,"date_planted":null,"plant_name":"calamus","plant_id":"9"}}]}'
   recorded_at: Tue, 08 Nov 2022 18:00:26 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/api/v1/gardens/5/plots/1/plot_plants
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"2a75f79ce1d2c6201d0214e01426476c"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 12cd8e55-5b53-40dd-8061-f10eee67dec5
+      X-Runtime:
+      - '0.005251'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"2","type":"plot_plant","attributes":{"quantity":10,"date_planted":"1999/11/07","plant_name":"whitestem
+        gooseberry","plant_id":"869"}},{"id":"3","type":"plot_plant","attributes":{"quantity":null,"date_planted":null,"plant_name":"prickly
+        rose","plant_id":"876"}},{"id":"13","type":"plot_plant","attributes":{"quantity":null,"date_planted":null,"plant_name":"shortawn
+        foxtail","plant_id":"57"}},{"id":"14","type":"plot_plant","attributes":{"quantity":null,"date_planted":null,"plant_name":"creeping
+        meadow foxtail","plant_id":"58"}},{"id":"15","type":"plot_plant","attributes":{"quantity":null,"date_planted":null,"plant_name":"meadow
+        foxtail","plant_id":"66"}}]}'
+  recorded_at: Thu, 17 Nov 2022 00:20:56 GMT
 recorded_with: VCR 6.1.0

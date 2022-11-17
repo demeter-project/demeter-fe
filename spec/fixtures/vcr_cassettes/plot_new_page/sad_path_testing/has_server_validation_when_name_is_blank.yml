@@ -23,71 +23,38 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Tue, 08 Nov 2022 06:00:30 GMT
+      - Thu, 17 Nov 2022 00:58:05 GMT
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"cb26136cf5ce4dcafb4321f1d4d6d0ce"
+      - W/"285cfb8603bb16c4b65febcbce3b974b"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 5b88d5af-e56f-4a00-994a-4ab947eee5f6
+      - 790df1c5-6835-4e0f-bba8-35038e257413
       X-Runtime:
-      - '0.973161'
+      - '0.522490'
       Transfer-Encoding:
       - chunked
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"1","type":"garden","attributes":{"name":"Backyard Garden","zip_code":"80223","state_code":"CO","user_id":1,"weather_forecast":[{"id":1,"day":"Tonight","start_time":"2022-11-07T22:00:00-07:00","end_time":"2022-11-08T06:00:00-07:00","day_time":false,"temperature":38,"temperature_unit":"F","temperature_trend":"rising","wind_speed":"10
-        mph","wind_direction":"S","icon":"https://api.weather.gov/icons/land/night/bkn?size=medium","short_forecast":"Mostly
-        Cloudy","detailed_forecast":"Mostly cloudy. Low around 38, with temperatures
-        rising to around 42 overnight. South wind around 10 mph, with gusts as high
-        as 16 mph."},{"id":2,"day":"Tuesday","start_time":"2022-11-08T06:00:00-07:00","end_time":"2022-11-08T18:00:00-07:00","day_time":true,"temperature":68,"temperature_unit":"F","temperature_trend":"falling","wind_speed":"12
-        mph","wind_direction":"S","icon":"https://api.weather.gov/icons/land/day/sct?size=medium","short_forecast":"Mostly
-        Sunny","detailed_forecast":"Mostly sunny. High near 68, with temperatures
-        falling to around 61 in the afternoon. South wind around 12 mph, with gusts
-        as high as 18 mph."},{"id":3,"day":"Tuesday Night","start_time":"2022-11-08T18:00:00-07:00","end_time":"2022-11-09T06:00:00-07:00","day_time":false,"temperature":39,"temperature_unit":"F","temperature_trend":"rising","wind_speed":"13
-        mph","wind_direction":"S","icon":"https://api.weather.gov/icons/land/night/few?size=medium","short_forecast":"Mostly
-        Clear","detailed_forecast":"Mostly clear. Low around 39, with temperatures
-        rising to around 41 overnight. South wind around 13 mph, with gusts as high
-        as 21 mph."},{"id":4,"day":"Wednesday","start_time":"2022-11-09T06:00:00-07:00","end_time":"2022-11-09T18:00:00-07:00","day_time":true,"temperature":70,"temperature_unit":"F","temperature_trend":null,"wind_speed":"12
-        to 18 mph","wind_direction":"S","icon":"https://api.weather.gov/icons/land/day/few?size=medium","short_forecast":"Sunny","detailed_forecast":"Sunny,
-        with a high near 70. South wind 12 to 18 mph, with gusts as high as 30 mph."},{"id":5,"day":"Wednesday
-        Night","start_time":"2022-11-09T18:00:00-07:00","end_time":"2022-11-10T06:00:00-07:00","day_time":false,"temperature":30,"temperature_unit":"F","temperature_trend":null,"wind_speed":"14
-        mph","wind_direction":"WSW","icon":"https://api.weather.gov/icons/land/night/rain,20/snow,50?size=medium","short_forecast":"Slight
-        Chance Light Rain then Chance Rain And Snow","detailed_forecast":"A slight
-        chance of rain between 11pm and 3am, then a chance of rain and snow. Partly
-        cloudy, with a low around 30. West southwest wind around 14 mph, with gusts
-        as high as 22 mph. Chance of precipitation is 50%. Little or no snow accumulation
-        expected."},{"id":6,"day":"Thursday","start_time":"2022-11-10T06:00:00-07:00","end_time":"2022-11-10T18:00:00-07:00","day_time":true,"temperature":42,"temperature_unit":"F","temperature_trend":null,"wind_speed":"13
-        mph","wind_direction":"N","icon":"https://api.weather.gov/icons/land/day/snow,50/snow,20?size=medium","short_forecast":"Chance
-        Light Snow","detailed_forecast":"A chance of snow before 5pm. Partly sunny,
-        with a high near 42. Chance of precipitation is 50%. Little or no snow accumulation
-        expected."},{"id":7,"day":"Thursday Night","start_time":"2022-11-10T18:00:00-07:00","end_time":"2022-11-11T06:00:00-07:00","day_time":false,"temperature":19,"temperature_unit":"F","temperature_trend":null,"wind_speed":"6
-        to 10 mph","wind_direction":"SSE","icon":"https://api.weather.gov/icons/land/night/sct?size=medium","short_forecast":"Partly
-        Cloudy","detailed_forecast":"Partly cloudy, with a low around 19."},{"id":8,"day":"Veterans
-        Day","start_time":"2022-11-11T06:00:00-07:00","end_time":"2022-11-11T18:00:00-07:00","day_time":true,"temperature":41,"temperature_unit":"F","temperature_trend":null,"wind_speed":"6
-        to 9 mph","wind_direction":"ESE","icon":"https://api.weather.gov/icons/land/day/few?size=medium","short_forecast":"Sunny","detailed_forecast":"Sunny,
-        with a high near 41."},{"id":9,"day":"Friday Night","start_time":"2022-11-11T18:00:00-07:00","end_time":"2022-11-12T06:00:00-07:00","day_time":false,"temperature":19,"temperature_unit":"F","temperature_trend":null,"wind_speed":"6
-        mph","wind_direction":"SSE","icon":"https://api.weather.gov/icons/land/night/few?size=medium","short_forecast":"Mostly
-        Clear","detailed_forecast":"Mostly clear, with a low around 19."},{"id":10,"day":"Saturday","start_time":"2022-11-12T06:00:00-07:00","end_time":"2022-11-12T18:00:00-07:00","day_time":true,"temperature":47,"temperature_unit":"F","temperature_trend":null,"wind_speed":"7
-        mph","wind_direction":"SE","icon":"https://api.weather.gov/icons/land/day/few?size=medium","short_forecast":"Sunny","detailed_forecast":"Sunny,
-        with a high near 47."},{"id":11,"day":"Saturday Night","start_time":"2022-11-12T18:00:00-07:00","end_time":"2022-11-13T06:00:00-07:00","day_time":false,"temperature":22,"temperature_unit":"F","temperature_trend":null,"wind_speed":"6
-        mph","wind_direction":"SSW","icon":"https://api.weather.gov/icons/land/night/sct?size=medium","short_forecast":"Partly
-        Cloudy","detailed_forecast":"Partly cloudy, with a low around 22."},{"id":12,"day":"Sunday","start_time":"2022-11-13T06:00:00-07:00","end_time":"2022-11-13T18:00:00-07:00","day_time":true,"temperature":46,"temperature_unit":"F","temperature_trend":null,"wind_speed":"5
-        to 8 mph","wind_direction":"NNE","icon":"https://api.weather.gov/icons/land/day/sct?size=medium","short_forecast":"Mostly
-        Sunny","detailed_forecast":"Mostly sunny, with a high near 46."},{"id":13,"day":"Sunday
-        Night","start_time":"2022-11-13T18:00:00-07:00","end_time":"2022-11-14T06:00:00-07:00","day_time":false,"temperature":21,"temperature_unit":"F","temperature_trend":null,"wind_speed":"5
-        mph","wind_direction":"WNW","icon":"https://api.weather.gov/icons/land/night/sct?size=medium","short_forecast":"Partly
-        Cloudy","detailed_forecast":"Partly cloudy, with a low around 21."},{"id":14,"day":"Monday","start_time":"2022-11-14T06:00:00-07:00","end_time":"2022-11-14T18:00:00-07:00","day_time":true,"temperature":43,"temperature_unit":"F","temperature_trend":null,"wind_speed":"7
-        mph","wind_direction":"NW","icon":"https://api.weather.gov/icons/land/day/sct/snow?size=medium","short_forecast":"Mostly
-        Sunny then Slight Chance Light Snow","detailed_forecast":"A slight chance
-        of snow after 5pm. Mostly sunny, with a high near 43."}]},"relationships":{"plots":{"data":[{"id":"1","type":"plot"},{"id":"2","type":"plot"},{"id":"3","type":"plot"}]}}}}'
-  recorded_at: Tue, 08 Nov 2022 06:00:31 GMT
+      string: '{"data":{"id":"1","type":"garden","attributes":{"name":"Backyard Garden","zip_code":"80223","state_code":"CO","user_id":1,"weather_forecast":[{"period":"2022-11-17T03:00:00.000Z","temp":31.95,"weather":"Few
+        Clouds","icon_path":"http://openweathermap.org/img/wn/02n.png"},{"period":"2022-11-17T09:00:00.000Z","temp":30.7,"weather":"Overcast
+        Clouds","icon_path":"http://openweathermap.org/img/wn/04n.png"},{"period":"2022-11-17T15:00:00.000Z","temp":25.59,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13d.png"},{"period":"2022-11-17T21:00:00.000Z","temp":27.37,"weather":"Overcast
+        Clouds","icon_path":"http://openweathermap.org/img/wn/04d.png"},{"period":"2022-11-18T03:00:00.000Z","temp":21.07,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13n.png"},{"period":"2022-11-18T09:00:00.000Z","temp":17.1,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13n.png"},{"period":"2022-11-18T15:00:00.000Z","temp":16.25,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13d.png"},{"period":"2022-11-18T21:00:00.000Z","temp":25.86,"weather":"Scattered
+        Clouds","icon_path":"http://openweathermap.org/img/wn/03d.png"},{"period":"2022-11-19T03:00:00.000Z","temp":21.79,"weather":"Clear
+        Sky","icon_path":"http://openweathermap.org/img/wn/01n.png"},{"period":"2022-11-19T09:00:00.000Z","temp":21.52,"weather":"Clear
+        Sky","icon_path":"http://openweathermap.org/img/wn/01n.png"},{"period":"2022-11-19T15:00:00.000Z","temp":24.51,"weather":"Clear
+        Sky","icon_path":"http://openweathermap.org/img/wn/01d.png"}]},"relationships":{"plots":{"data":[{"id":"1","type":"plot"},{"id":"2","type":"plot"},{"id":"3","type":"plot"}]}}}}'
+  recorded_at: Thu, 17 Nov 2022 00:58:06 GMT
 - request:
     method: get
     uri: https://demeter-be.herokuapp.com/api/v1/gardens/1
@@ -111,71 +78,38 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Tue, 08 Nov 2022 06:00:33 GMT
+      - Thu, 17 Nov 2022 00:58:06 GMT
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"cb26136cf5ce4dcafb4321f1d4d6d0ce"
+      - W/"285cfb8603bb16c4b65febcbce3b974b"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - fa5771a9-4710-43b5-899b-5c033d5c41b8
+      - 9b3d27d7-2ee5-459a-9fab-e6cfe40215c8
       X-Runtime:
-      - '0.977449'
+      - '0.361569'
       Transfer-Encoding:
       - chunked
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"1","type":"garden","attributes":{"name":"Backyard Garden","zip_code":"80223","state_code":"CO","user_id":1,"weather_forecast":[{"id":1,"day":"Tonight","start_time":"2022-11-07T22:00:00-07:00","end_time":"2022-11-08T06:00:00-07:00","day_time":false,"temperature":38,"temperature_unit":"F","temperature_trend":"rising","wind_speed":"10
-        mph","wind_direction":"S","icon":"https://api.weather.gov/icons/land/night/bkn?size=medium","short_forecast":"Mostly
-        Cloudy","detailed_forecast":"Mostly cloudy. Low around 38, with temperatures
-        rising to around 42 overnight. South wind around 10 mph, with gusts as high
-        as 16 mph."},{"id":2,"day":"Tuesday","start_time":"2022-11-08T06:00:00-07:00","end_time":"2022-11-08T18:00:00-07:00","day_time":true,"temperature":68,"temperature_unit":"F","temperature_trend":"falling","wind_speed":"12
-        mph","wind_direction":"S","icon":"https://api.weather.gov/icons/land/day/sct?size=medium","short_forecast":"Mostly
-        Sunny","detailed_forecast":"Mostly sunny. High near 68, with temperatures
-        falling to around 61 in the afternoon. South wind around 12 mph, with gusts
-        as high as 18 mph."},{"id":3,"day":"Tuesday Night","start_time":"2022-11-08T18:00:00-07:00","end_time":"2022-11-09T06:00:00-07:00","day_time":false,"temperature":39,"temperature_unit":"F","temperature_trend":"rising","wind_speed":"13
-        mph","wind_direction":"S","icon":"https://api.weather.gov/icons/land/night/few?size=medium","short_forecast":"Mostly
-        Clear","detailed_forecast":"Mostly clear. Low around 39, with temperatures
-        rising to around 41 overnight. South wind around 13 mph, with gusts as high
-        as 21 mph."},{"id":4,"day":"Wednesday","start_time":"2022-11-09T06:00:00-07:00","end_time":"2022-11-09T18:00:00-07:00","day_time":true,"temperature":70,"temperature_unit":"F","temperature_trend":null,"wind_speed":"12
-        to 18 mph","wind_direction":"S","icon":"https://api.weather.gov/icons/land/day/few?size=medium","short_forecast":"Sunny","detailed_forecast":"Sunny,
-        with a high near 70. South wind 12 to 18 mph, with gusts as high as 30 mph."},{"id":5,"day":"Wednesday
-        Night","start_time":"2022-11-09T18:00:00-07:00","end_time":"2022-11-10T06:00:00-07:00","day_time":false,"temperature":30,"temperature_unit":"F","temperature_trend":null,"wind_speed":"14
-        mph","wind_direction":"WSW","icon":"https://api.weather.gov/icons/land/night/rain,20/snow,50?size=medium","short_forecast":"Slight
-        Chance Light Rain then Chance Rain And Snow","detailed_forecast":"A slight
-        chance of rain between 11pm and 3am, then a chance of rain and snow. Partly
-        cloudy, with a low around 30. West southwest wind around 14 mph, with gusts
-        as high as 22 mph. Chance of precipitation is 50%. Little or no snow accumulation
-        expected."},{"id":6,"day":"Thursday","start_time":"2022-11-10T06:00:00-07:00","end_time":"2022-11-10T18:00:00-07:00","day_time":true,"temperature":42,"temperature_unit":"F","temperature_trend":null,"wind_speed":"13
-        mph","wind_direction":"N","icon":"https://api.weather.gov/icons/land/day/snow,50/snow,20?size=medium","short_forecast":"Chance
-        Light Snow","detailed_forecast":"A chance of snow before 5pm. Partly sunny,
-        with a high near 42. Chance of precipitation is 50%. Little or no snow accumulation
-        expected."},{"id":7,"day":"Thursday Night","start_time":"2022-11-10T18:00:00-07:00","end_time":"2022-11-11T06:00:00-07:00","day_time":false,"temperature":19,"temperature_unit":"F","temperature_trend":null,"wind_speed":"6
-        to 10 mph","wind_direction":"SSE","icon":"https://api.weather.gov/icons/land/night/sct?size=medium","short_forecast":"Partly
-        Cloudy","detailed_forecast":"Partly cloudy, with a low around 19."},{"id":8,"day":"Veterans
-        Day","start_time":"2022-11-11T06:00:00-07:00","end_time":"2022-11-11T18:00:00-07:00","day_time":true,"temperature":41,"temperature_unit":"F","temperature_trend":null,"wind_speed":"6
-        to 9 mph","wind_direction":"ESE","icon":"https://api.weather.gov/icons/land/day/few?size=medium","short_forecast":"Sunny","detailed_forecast":"Sunny,
-        with a high near 41."},{"id":9,"day":"Friday Night","start_time":"2022-11-11T18:00:00-07:00","end_time":"2022-11-12T06:00:00-07:00","day_time":false,"temperature":19,"temperature_unit":"F","temperature_trend":null,"wind_speed":"6
-        mph","wind_direction":"SSE","icon":"https://api.weather.gov/icons/land/night/few?size=medium","short_forecast":"Mostly
-        Clear","detailed_forecast":"Mostly clear, with a low around 19."},{"id":10,"day":"Saturday","start_time":"2022-11-12T06:00:00-07:00","end_time":"2022-11-12T18:00:00-07:00","day_time":true,"temperature":47,"temperature_unit":"F","temperature_trend":null,"wind_speed":"7
-        mph","wind_direction":"SE","icon":"https://api.weather.gov/icons/land/day/few?size=medium","short_forecast":"Sunny","detailed_forecast":"Sunny,
-        with a high near 47."},{"id":11,"day":"Saturday Night","start_time":"2022-11-12T18:00:00-07:00","end_time":"2022-11-13T06:00:00-07:00","day_time":false,"temperature":22,"temperature_unit":"F","temperature_trend":null,"wind_speed":"6
-        mph","wind_direction":"SSW","icon":"https://api.weather.gov/icons/land/night/sct?size=medium","short_forecast":"Partly
-        Cloudy","detailed_forecast":"Partly cloudy, with a low around 22."},{"id":12,"day":"Sunday","start_time":"2022-11-13T06:00:00-07:00","end_time":"2022-11-13T18:00:00-07:00","day_time":true,"temperature":46,"temperature_unit":"F","temperature_trend":null,"wind_speed":"5
-        to 8 mph","wind_direction":"NNE","icon":"https://api.weather.gov/icons/land/day/sct?size=medium","short_forecast":"Mostly
-        Sunny","detailed_forecast":"Mostly sunny, with a high near 46."},{"id":13,"day":"Sunday
-        Night","start_time":"2022-11-13T18:00:00-07:00","end_time":"2022-11-14T06:00:00-07:00","day_time":false,"temperature":21,"temperature_unit":"F","temperature_trend":null,"wind_speed":"5
-        mph","wind_direction":"WNW","icon":"https://api.weather.gov/icons/land/night/sct?size=medium","short_forecast":"Partly
-        Cloudy","detailed_forecast":"Partly cloudy, with a low around 21."},{"id":14,"day":"Monday","start_time":"2022-11-14T06:00:00-07:00","end_time":"2022-11-14T18:00:00-07:00","day_time":true,"temperature":43,"temperature_unit":"F","temperature_trend":null,"wind_speed":"7
-        mph","wind_direction":"NW","icon":"https://api.weather.gov/icons/land/day/sct/snow?size=medium","short_forecast":"Mostly
-        Sunny then Slight Chance Light Snow","detailed_forecast":"A slight chance
-        of snow after 5pm. Mostly sunny, with a high near 43."}]},"relationships":{"plots":{"data":[{"id":"1","type":"plot"},{"id":"2","type":"plot"},{"id":"3","type":"plot"}]}}}}'
-  recorded_at: Tue, 08 Nov 2022 06:00:33 GMT
+      string: '{"data":{"id":"1","type":"garden","attributes":{"name":"Backyard Garden","zip_code":"80223","state_code":"CO","user_id":1,"weather_forecast":[{"period":"2022-11-17T03:00:00.000Z","temp":31.95,"weather":"Few
+        Clouds","icon_path":"http://openweathermap.org/img/wn/02n.png"},{"period":"2022-11-17T09:00:00.000Z","temp":30.7,"weather":"Overcast
+        Clouds","icon_path":"http://openweathermap.org/img/wn/04n.png"},{"period":"2022-11-17T15:00:00.000Z","temp":25.59,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13d.png"},{"period":"2022-11-17T21:00:00.000Z","temp":27.37,"weather":"Overcast
+        Clouds","icon_path":"http://openweathermap.org/img/wn/04d.png"},{"period":"2022-11-18T03:00:00.000Z","temp":21.07,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13n.png"},{"period":"2022-11-18T09:00:00.000Z","temp":17.1,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13n.png"},{"period":"2022-11-18T15:00:00.000Z","temp":16.25,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13d.png"},{"period":"2022-11-18T21:00:00.000Z","temp":25.86,"weather":"Scattered
+        Clouds","icon_path":"http://openweathermap.org/img/wn/03d.png"},{"period":"2022-11-19T03:00:00.000Z","temp":21.79,"weather":"Clear
+        Sky","icon_path":"http://openweathermap.org/img/wn/01n.png"},{"period":"2022-11-19T09:00:00.000Z","temp":21.52,"weather":"Clear
+        Sky","icon_path":"http://openweathermap.org/img/wn/01n.png"},{"period":"2022-11-19T15:00:00.000Z","temp":24.51,"weather":"Clear
+        Sky","icon_path":"http://openweathermap.org/img/wn/01d.png"}]},"relationships":{"plots":{"data":[{"id":"1","type":"plot"},{"id":"2","type":"plot"},{"id":"3","type":"plot"}]}}}}'
+  recorded_at: Thu, 17 Nov 2022 00:58:07 GMT
 - request:
     method: get
     uri: https://demeter-be.herokuapp.com/api/v1/gardens/1
@@ -199,71 +133,38 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Tue, 08 Nov 2022 06:00:35 GMT
+      - Thu, 17 Nov 2022 00:58:07 GMT
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"cb26136cf5ce4dcafb4321f1d4d6d0ce"
+      - W/"285cfb8603bb16c4b65febcbce3b974b"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - ca421992-c258-483c-a00f-6471afdf37c9
+      - 43545f24-60bf-4ae5-940c-22ca47f27931
       X-Runtime:
-      - '0.749363'
+      - '0.517534'
       Transfer-Encoding:
       - chunked
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"1","type":"garden","attributes":{"name":"Backyard Garden","zip_code":"80223","state_code":"CO","user_id":1,"weather_forecast":[{"id":1,"day":"Tonight","start_time":"2022-11-07T22:00:00-07:00","end_time":"2022-11-08T06:00:00-07:00","day_time":false,"temperature":38,"temperature_unit":"F","temperature_trend":"rising","wind_speed":"10
-        mph","wind_direction":"S","icon":"https://api.weather.gov/icons/land/night/bkn?size=medium","short_forecast":"Mostly
-        Cloudy","detailed_forecast":"Mostly cloudy. Low around 38, with temperatures
-        rising to around 42 overnight. South wind around 10 mph, with gusts as high
-        as 16 mph."},{"id":2,"day":"Tuesday","start_time":"2022-11-08T06:00:00-07:00","end_time":"2022-11-08T18:00:00-07:00","day_time":true,"temperature":68,"temperature_unit":"F","temperature_trend":"falling","wind_speed":"12
-        mph","wind_direction":"S","icon":"https://api.weather.gov/icons/land/day/sct?size=medium","short_forecast":"Mostly
-        Sunny","detailed_forecast":"Mostly sunny. High near 68, with temperatures
-        falling to around 61 in the afternoon. South wind around 12 mph, with gusts
-        as high as 18 mph."},{"id":3,"day":"Tuesday Night","start_time":"2022-11-08T18:00:00-07:00","end_time":"2022-11-09T06:00:00-07:00","day_time":false,"temperature":39,"temperature_unit":"F","temperature_trend":"rising","wind_speed":"13
-        mph","wind_direction":"S","icon":"https://api.weather.gov/icons/land/night/few?size=medium","short_forecast":"Mostly
-        Clear","detailed_forecast":"Mostly clear. Low around 39, with temperatures
-        rising to around 41 overnight. South wind around 13 mph, with gusts as high
-        as 21 mph."},{"id":4,"day":"Wednesday","start_time":"2022-11-09T06:00:00-07:00","end_time":"2022-11-09T18:00:00-07:00","day_time":true,"temperature":70,"temperature_unit":"F","temperature_trend":null,"wind_speed":"12
-        to 18 mph","wind_direction":"S","icon":"https://api.weather.gov/icons/land/day/few?size=medium","short_forecast":"Sunny","detailed_forecast":"Sunny,
-        with a high near 70. South wind 12 to 18 mph, with gusts as high as 30 mph."},{"id":5,"day":"Wednesday
-        Night","start_time":"2022-11-09T18:00:00-07:00","end_time":"2022-11-10T06:00:00-07:00","day_time":false,"temperature":30,"temperature_unit":"F","temperature_trend":null,"wind_speed":"14
-        mph","wind_direction":"WSW","icon":"https://api.weather.gov/icons/land/night/rain,20/snow,50?size=medium","short_forecast":"Slight
-        Chance Light Rain then Chance Rain And Snow","detailed_forecast":"A slight
-        chance of rain between 11pm and 3am, then a chance of rain and snow. Partly
-        cloudy, with a low around 30. West southwest wind around 14 mph, with gusts
-        as high as 22 mph. Chance of precipitation is 50%. Little or no snow accumulation
-        expected."},{"id":6,"day":"Thursday","start_time":"2022-11-10T06:00:00-07:00","end_time":"2022-11-10T18:00:00-07:00","day_time":true,"temperature":42,"temperature_unit":"F","temperature_trend":null,"wind_speed":"13
-        mph","wind_direction":"N","icon":"https://api.weather.gov/icons/land/day/snow,50/snow,20?size=medium","short_forecast":"Chance
-        Light Snow","detailed_forecast":"A chance of snow before 5pm. Partly sunny,
-        with a high near 42. Chance of precipitation is 50%. Little or no snow accumulation
-        expected."},{"id":7,"day":"Thursday Night","start_time":"2022-11-10T18:00:00-07:00","end_time":"2022-11-11T06:00:00-07:00","day_time":false,"temperature":19,"temperature_unit":"F","temperature_trend":null,"wind_speed":"6
-        to 10 mph","wind_direction":"SSE","icon":"https://api.weather.gov/icons/land/night/sct?size=medium","short_forecast":"Partly
-        Cloudy","detailed_forecast":"Partly cloudy, with a low around 19."},{"id":8,"day":"Veterans
-        Day","start_time":"2022-11-11T06:00:00-07:00","end_time":"2022-11-11T18:00:00-07:00","day_time":true,"temperature":41,"temperature_unit":"F","temperature_trend":null,"wind_speed":"6
-        to 9 mph","wind_direction":"ESE","icon":"https://api.weather.gov/icons/land/day/few?size=medium","short_forecast":"Sunny","detailed_forecast":"Sunny,
-        with a high near 41."},{"id":9,"day":"Friday Night","start_time":"2022-11-11T18:00:00-07:00","end_time":"2022-11-12T06:00:00-07:00","day_time":false,"temperature":19,"temperature_unit":"F","temperature_trend":null,"wind_speed":"6
-        mph","wind_direction":"SSE","icon":"https://api.weather.gov/icons/land/night/few?size=medium","short_forecast":"Mostly
-        Clear","detailed_forecast":"Mostly clear, with a low around 19."},{"id":10,"day":"Saturday","start_time":"2022-11-12T06:00:00-07:00","end_time":"2022-11-12T18:00:00-07:00","day_time":true,"temperature":47,"temperature_unit":"F","temperature_trend":null,"wind_speed":"7
-        mph","wind_direction":"SE","icon":"https://api.weather.gov/icons/land/day/few?size=medium","short_forecast":"Sunny","detailed_forecast":"Sunny,
-        with a high near 47."},{"id":11,"day":"Saturday Night","start_time":"2022-11-12T18:00:00-07:00","end_time":"2022-11-13T06:00:00-07:00","day_time":false,"temperature":22,"temperature_unit":"F","temperature_trend":null,"wind_speed":"6
-        mph","wind_direction":"SSW","icon":"https://api.weather.gov/icons/land/night/sct?size=medium","short_forecast":"Partly
-        Cloudy","detailed_forecast":"Partly cloudy, with a low around 22."},{"id":12,"day":"Sunday","start_time":"2022-11-13T06:00:00-07:00","end_time":"2022-11-13T18:00:00-07:00","day_time":true,"temperature":46,"temperature_unit":"F","temperature_trend":null,"wind_speed":"5
-        to 8 mph","wind_direction":"NNE","icon":"https://api.weather.gov/icons/land/day/sct?size=medium","short_forecast":"Mostly
-        Sunny","detailed_forecast":"Mostly sunny, with a high near 46."},{"id":13,"day":"Sunday
-        Night","start_time":"2022-11-13T18:00:00-07:00","end_time":"2022-11-14T06:00:00-07:00","day_time":false,"temperature":21,"temperature_unit":"F","temperature_trend":null,"wind_speed":"5
-        mph","wind_direction":"WNW","icon":"https://api.weather.gov/icons/land/night/sct?size=medium","short_forecast":"Partly
-        Cloudy","detailed_forecast":"Partly cloudy, with a low around 21."},{"id":14,"day":"Monday","start_time":"2022-11-14T06:00:00-07:00","end_time":"2022-11-14T18:00:00-07:00","day_time":true,"temperature":43,"temperature_unit":"F","temperature_trend":null,"wind_speed":"7
-        mph","wind_direction":"NW","icon":"https://api.weather.gov/icons/land/day/sct/snow?size=medium","short_forecast":"Mostly
-        Sunny then Slight Chance Light Snow","detailed_forecast":"A slight chance
-        of snow after 5pm. Mostly sunny, with a high near 43."}]},"relationships":{"plots":{"data":[{"id":"1","type":"plot"},{"id":"2","type":"plot"},{"id":"3","type":"plot"}]}}}}'
-  recorded_at: Tue, 08 Nov 2022 06:00:36 GMT
+      string: '{"data":{"id":"1","type":"garden","attributes":{"name":"Backyard Garden","zip_code":"80223","state_code":"CO","user_id":1,"weather_forecast":[{"period":"2022-11-17T03:00:00.000Z","temp":31.95,"weather":"Few
+        Clouds","icon_path":"http://openweathermap.org/img/wn/02n.png"},{"period":"2022-11-17T09:00:00.000Z","temp":30.7,"weather":"Overcast
+        Clouds","icon_path":"http://openweathermap.org/img/wn/04n.png"},{"period":"2022-11-17T15:00:00.000Z","temp":25.59,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13d.png"},{"period":"2022-11-17T21:00:00.000Z","temp":27.37,"weather":"Overcast
+        Clouds","icon_path":"http://openweathermap.org/img/wn/04d.png"},{"period":"2022-11-18T03:00:00.000Z","temp":21.07,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13n.png"},{"period":"2022-11-18T09:00:00.000Z","temp":17.1,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13n.png"},{"period":"2022-11-18T15:00:00.000Z","temp":16.25,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13d.png"},{"period":"2022-11-18T21:00:00.000Z","temp":25.86,"weather":"Scattered
+        Clouds","icon_path":"http://openweathermap.org/img/wn/03d.png"},{"period":"2022-11-19T03:00:00.000Z","temp":21.79,"weather":"Clear
+        Sky","icon_path":"http://openweathermap.org/img/wn/01n.png"},{"period":"2022-11-19T09:00:00.000Z","temp":21.52,"weather":"Clear
+        Sky","icon_path":"http://openweathermap.org/img/wn/01n.png"},{"period":"2022-11-19T15:00:00.000Z","temp":24.51,"weather":"Clear
+        Sky","icon_path":"http://openweathermap.org/img/wn/01d.png"}]},"relationships":{"plots":{"data":[{"id":"1","type":"plot"},{"id":"2","type":"plot"},{"id":"3","type":"plot"}]}}}}'
+  recorded_at: Thu, 17 Nov 2022 00:58:08 GMT
 - request:
     method: post
     uri: https://demeter-be.herokuapp.com/api/v1/gardens/1/plots
@@ -287,7 +188,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Tue, 08 Nov 2022 06:00:36 GMT
+      - Thu, 17 Nov 2022 00:58:07 GMT
       Connection:
       - keep-alive
       Content-Type:
@@ -295,9 +196,9 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 5fc38a89-be0e-4ab6-809d-68a7fc320b94
+      - 1f2b7a0a-294c-41d2-bb59-5d0fa7250524
       X-Runtime:
-      - '0.007629'
+      - '0.043737'
       Transfer-Encoding:
       - chunked
       Via:
@@ -306,5 +207,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"errors":[{"title":"Name","source":"name","detail":["Name can''t be
         blank"]}]}'
-  recorded_at: Tue, 08 Nov 2022 06:00:37 GMT
+  recorded_at: Thu, 17 Nov 2022 00:58:08 GMT
 recorded_with: VCR 6.1.0
