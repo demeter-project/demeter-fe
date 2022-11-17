@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:5000/api/v1/gardens?user_id=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"4fbd356f09eea5f15a10bfafeff97694"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - '038a1e4a-8666-4957-a637-1519d8596bfe'
+      X-Runtime:
+      - '0.003874'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"1","type":"garden","attributes":{"name":"Backyard Garden","zip_code":"80223","state_code":"CO","user_id":1,"weather_forecast":null},"relationships":{"plots":{"data":[{"id":"1","type":"plot"},{"id":"2","type":"plot"},{"id":"3","type":"plot"}]}}},{"id":"4","type":"garden","attributes":{"name":"test","zip_code":"49684","state_code":"CO","user_id":1,"weather_forecast":null},"relationships":{"plots":{"data":[{"id":"6","type":"plot"},{"id":"7","type":"plot"},{"id":"8","type":"plot"},{"id":"9","type":"plot"}]}}},{"id":"5","type":"garden","attributes":{"name":"Testing
+        123","zip_code":"80223","state_code":"CO","user_id":1,"weather_forecast":null},"relationships":{"plots":{"data":[]}}}]}'
+  recorded_at: Thu, 17 Nov 2022 00:20:55 GMT
+recorded_with: VCR 6.1.0

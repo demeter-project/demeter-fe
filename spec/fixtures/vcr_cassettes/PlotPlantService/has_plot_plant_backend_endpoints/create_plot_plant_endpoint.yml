@@ -44,4 +44,40 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"id":"1","type":"plot","attributes":{"name":"Native Wildflowers","soil_ph_min":"6.8","soil_ph_max":"7.5","shade_tolerant?":false,"contains_toxic?":false},"relationships":{"plants":{"data":[{"id":"692","type":"plant"},{"id":"869","type":"plant"},{"id":"876","type":"plant"},{"id":"57","type":"plant"},{"id":"58","type":"plant"},{"id":"66","type":"plant"}]}}}}'
   recorded_at: Tue, 08 Nov 2022 02:10:26 GMT
+- request:
+    method: patch
+    uri: http://localhost:5000/api/v1/gardens/5/plots/1
+    body:
+      encoding: UTF-8
+      string: '{"plant_ids":[57,58,66]}'
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"1461a2483c1893c1cf3593a1140641b0"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 108ee6eb-caea-41d1-9b7f-4a43ff0d3195
+      X-Runtime:
+      - '0.039785'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"1","type":"plot","attributes":{"name":"Native Wildflowers","soil_ph_min":"6.8","soil_ph_max":"7.5","shade_tolerant?":false,"contains_toxic?":false},"relationships":{"plants":{"data":[{"id":"869","type":"plant"},{"id":"876","type":"plant"},{"id":"57","type":"plant"},{"id":"58","type":"plant"},{"id":"66","type":"plant"}]}}}}'
+  recorded_at: Thu, 17 Nov 2022 00:20:56 GMT
 recorded_with: VCR 6.1.0

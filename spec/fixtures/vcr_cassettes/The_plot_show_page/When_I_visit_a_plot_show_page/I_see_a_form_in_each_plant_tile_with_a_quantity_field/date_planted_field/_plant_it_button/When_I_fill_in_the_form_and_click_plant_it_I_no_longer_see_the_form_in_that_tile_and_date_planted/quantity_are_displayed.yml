@@ -1,0 +1,440 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:5000/api/v1/gardens?user_id=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"4fbd356f09eea5f15a10bfafeff97694"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 39e80bd6-6081-42e4-b5b5-2e7e94ccae0a
+      X-Runtime:
+      - '0.004733'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"1","type":"garden","attributes":{"name":"Backyard Garden","zip_code":"80223","state_code":"CO","user_id":1,"weather_forecast":null},"relationships":{"plots":{"data":[{"id":"1","type":"plot"},{"id":"2","type":"plot"},{"id":"3","type":"plot"}]}}},{"id":"4","type":"garden","attributes":{"name":"test","zip_code":"49684","state_code":"CO","user_id":1,"weather_forecast":null},"relationships":{"plots":{"data":[{"id":"6","type":"plot"},{"id":"7","type":"plot"},{"id":"8","type":"plot"},{"id":"9","type":"plot"}]}}},{"id":"5","type":"garden","attributes":{"name":"Testing
+        123","zip_code":"80223","state_code":"CO","user_id":1,"weather_forecast":null},"relationships":{"plots":{"data":[]}}}]}'
+  recorded_at: Thu, 17 Nov 2022 00:20:52 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/api/v1/gardens/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"632430d68243dbe03937b2f91402170f"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 30ca939c-8090-48d1-bb88-7c2ea6c07e39
+      X-Runtime:
+      - '0.466633'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"1","type":"garden","attributes":{"name":"Backyard Garden","zip_code":"80223","state_code":"CO","user_id":1,"weather_forecast":[{"period":"2022-11-17T03:00:00.000Z","temp":33.28,"weather":"Scattered
+        Clouds","icon_path":"http://openweathermap.org/img/wn/03n.png"},{"period":"2022-11-17T09:00:00.000Z","temp":30.7,"weather":"Overcast
+        Clouds","icon_path":"http://openweathermap.org/img/wn/04n.png"},{"period":"2022-11-17T15:00:00.000Z","temp":25.59,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13d.png"},{"period":"2022-11-17T21:00:00.000Z","temp":27.37,"weather":"Overcast
+        Clouds","icon_path":"http://openweathermap.org/img/wn/04d.png"},{"period":"2022-11-18T03:00:00.000Z","temp":21.07,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13n.png"},{"period":"2022-11-18T09:00:00.000Z","temp":17.1,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13n.png"},{"period":"2022-11-18T15:00:00.000Z","temp":16.25,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13d.png"},{"period":"2022-11-18T21:00:00.000Z","temp":25.86,"weather":"Scattered
+        Clouds","icon_path":"http://openweathermap.org/img/wn/03d.png"},{"period":"2022-11-19T03:00:00.000Z","temp":21.79,"weather":"Clear
+        Sky","icon_path":"http://openweathermap.org/img/wn/01n.png"},{"period":"2022-11-19T09:00:00.000Z","temp":21.52,"weather":"Clear
+        Sky","icon_path":"http://openweathermap.org/img/wn/01n.png"},{"period":"2022-11-19T15:00:00.000Z","temp":24.51,"weather":"Clear
+        Sky","icon_path":"http://openweathermap.org/img/wn/01d.png"}]},"relationships":{"plots":{"data":[{"id":"1","type":"plot"},{"id":"2","type":"plot"},{"id":"3","type":"plot"}]}}}}'
+  recorded_at: Thu, 17 Nov 2022 00:20:53 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/api/v1/gardens/1/plots/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"0ab4502a92b9b980c08e56f0f1f496f6"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 9aefa8e1-234c-4b06-9ec8-ba9d6db48479
+      X-Runtime:
+      - '0.007114'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"1","type":"plot","attributes":{"name":"Native Wildflowers","soil_ph_min":"6.8","soil_ph_max":"7.5","shade_tolerant?":true,"contains_toxic?":false},"relationships":{"plants":{"data":[{"id":"869","type":"plant"},{"id":"876","type":"plant"}]}}}}'
+  recorded_at: Thu, 17 Nov 2022 00:20:53 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/api/v1/gardens/1/plots/1/plot_plants
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"f3e5c828e1d538e3fe224a25567b848b"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - aaa6ce7a-b216-4f12-ab5c-e12d0456a0d3
+      X-Runtime:
+      - '0.004779'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"2","type":"plot_plant","attributes":{"quantity":null,"date_planted":null,"plant_name":"whitestem
+        gooseberry","plant_id":"869"}},{"id":"3","type":"plot_plant","attributes":{"quantity":null,"date_planted":null,"plant_name":"prickly
+        rose","plant_id":"876"}}]}'
+  recorded_at: Thu, 17 Nov 2022 00:20:53 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/api/v1/gardens/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"632430d68243dbe03937b2f91402170f"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 87392b24-c5aa-4290-a9a3-da8cd00ea317
+      X-Runtime:
+      - '0.468962'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"1","type":"garden","attributes":{"name":"Backyard Garden","zip_code":"80223","state_code":"CO","user_id":1,"weather_forecast":[{"period":"2022-11-17T03:00:00.000Z","temp":33.28,"weather":"Scattered
+        Clouds","icon_path":"http://openweathermap.org/img/wn/03n.png"},{"period":"2022-11-17T09:00:00.000Z","temp":30.7,"weather":"Overcast
+        Clouds","icon_path":"http://openweathermap.org/img/wn/04n.png"},{"period":"2022-11-17T15:00:00.000Z","temp":25.59,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13d.png"},{"period":"2022-11-17T21:00:00.000Z","temp":27.37,"weather":"Overcast
+        Clouds","icon_path":"http://openweathermap.org/img/wn/04d.png"},{"period":"2022-11-18T03:00:00.000Z","temp":21.07,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13n.png"},{"period":"2022-11-18T09:00:00.000Z","temp":17.1,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13n.png"},{"period":"2022-11-18T15:00:00.000Z","temp":16.25,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13d.png"},{"period":"2022-11-18T21:00:00.000Z","temp":25.86,"weather":"Scattered
+        Clouds","icon_path":"http://openweathermap.org/img/wn/03d.png"},{"period":"2022-11-19T03:00:00.000Z","temp":21.79,"weather":"Clear
+        Sky","icon_path":"http://openweathermap.org/img/wn/01n.png"},{"period":"2022-11-19T09:00:00.000Z","temp":21.52,"weather":"Clear
+        Sky","icon_path":"http://openweathermap.org/img/wn/01n.png"},{"period":"2022-11-19T15:00:00.000Z","temp":24.51,"weather":"Clear
+        Sky","icon_path":"http://openweathermap.org/img/wn/01d.png"}]},"relationships":{"plots":{"data":[{"id":"1","type":"plot"},{"id":"2","type":"plot"},{"id":"3","type":"plot"}]}}}}'
+  recorded_at: Thu, 17 Nov 2022 00:20:53 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/api/v1/gardens/1/plots/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"0ab4502a92b9b980c08e56f0f1f496f6"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - bba76d77-bb73-4b20-bffd-f113f63c7ccb
+      X-Runtime:
+      - '0.007903'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"1","type":"plot","attributes":{"name":"Native Wildflowers","soil_ph_min":"6.8","soil_ph_max":"7.5","shade_tolerant?":true,"contains_toxic?":false},"relationships":{"plants":{"data":[{"id":"869","type":"plant"},{"id":"876","type":"plant"}]}}}}'
+  recorded_at: Thu, 17 Nov 2022 00:20:53 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/api/v1/gardens/1/plots/1/plot_plants
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"f3e5c828e1d538e3fe224a25567b848b"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - fbbe50ad-d5ae-4426-9776-a85533b54d9e
+      X-Runtime:
+      - '0.004630'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"2","type":"plot_plant","attributes":{"quantity":null,"date_planted":null,"plant_name":"whitestem
+        gooseberry","plant_id":"869"}},{"id":"3","type":"plot_plant","attributes":{"quantity":null,"date_planted":null,"plant_name":"prickly
+        rose","plant_id":"876"}}]}'
+  recorded_at: Thu, 17 Nov 2022 00:20:53 GMT
+- request:
+    method: patch
+    uri: http://localhost:5000/api/v1/gardens/1/plots/1/plot_plants/2
+    body:
+      encoding: UTF-8
+      string: '{"date_planted":"2022-11-16","quantity":"2"}'
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"7da02fd09164d0e7ce0f1cf5400fe975"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 8cde56ee-6de6-4857-b1d7-99b5c61886e2
+      X-Runtime:
+      - '0.017408'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"2","type":"plot_plant","attributes":{"quantity":2,"date_planted":"2022/11/16","plant_name":"whitestem
+        gooseberry","plant_id":"869"}}}'
+  recorded_at: Thu, 17 Nov 2022 00:20:53 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/api/v1/gardens/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"632430d68243dbe03937b2f91402170f"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 0227a99b-694c-4ab1-b9bc-ea1601ac22a0
+      X-Runtime:
+      - '0.480396'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"1","type":"garden","attributes":{"name":"Backyard Garden","zip_code":"80223","state_code":"CO","user_id":1,"weather_forecast":[{"period":"2022-11-17T03:00:00.000Z","temp":33.28,"weather":"Scattered
+        Clouds","icon_path":"http://openweathermap.org/img/wn/03n.png"},{"period":"2022-11-17T09:00:00.000Z","temp":30.7,"weather":"Overcast
+        Clouds","icon_path":"http://openweathermap.org/img/wn/04n.png"},{"period":"2022-11-17T15:00:00.000Z","temp":25.59,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13d.png"},{"period":"2022-11-17T21:00:00.000Z","temp":27.37,"weather":"Overcast
+        Clouds","icon_path":"http://openweathermap.org/img/wn/04d.png"},{"period":"2022-11-18T03:00:00.000Z","temp":21.07,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13n.png"},{"period":"2022-11-18T09:00:00.000Z","temp":17.1,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13n.png"},{"period":"2022-11-18T15:00:00.000Z","temp":16.25,"weather":"Light
+        Snow","icon_path":"http://openweathermap.org/img/wn/13d.png"},{"period":"2022-11-18T21:00:00.000Z","temp":25.86,"weather":"Scattered
+        Clouds","icon_path":"http://openweathermap.org/img/wn/03d.png"},{"period":"2022-11-19T03:00:00.000Z","temp":21.79,"weather":"Clear
+        Sky","icon_path":"http://openweathermap.org/img/wn/01n.png"},{"period":"2022-11-19T09:00:00.000Z","temp":21.52,"weather":"Clear
+        Sky","icon_path":"http://openweathermap.org/img/wn/01n.png"},{"period":"2022-11-19T15:00:00.000Z","temp":24.51,"weather":"Clear
+        Sky","icon_path":"http://openweathermap.org/img/wn/01d.png"}]},"relationships":{"plots":{"data":[{"id":"1","type":"plot"},{"id":"2","type":"plot"},{"id":"3","type":"plot"}]}}}}'
+  recorded_at: Thu, 17 Nov 2022 00:20:54 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/api/v1/gardens/1/plots/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"0ab4502a92b9b980c08e56f0f1f496f6"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 9c361ad9-2579-40da-9d46-84768cab04ae
+      X-Runtime:
+      - '0.009636'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"1","type":"plot","attributes":{"name":"Native Wildflowers","soil_ph_min":"6.8","soil_ph_max":"7.5","shade_tolerant?":true,"contains_toxic?":false},"relationships":{"plants":{"data":[{"id":"869","type":"plant"},{"id":"876","type":"plant"}]}}}}'
+  recorded_at: Thu, 17 Nov 2022 00:20:54 GMT
+- request:
+    method: get
+    uri: http://localhost:5000/api/v1/gardens/1/plots/1/plot_plants
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"c5df735a3039468032477db097da0aa1"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 7bdde02e-fd10-47cc-818f-d56613d4ab58
+      X-Runtime:
+      - '0.005051'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"2","type":"plot_plant","attributes":{"quantity":2,"date_planted":"2022/11/16","plant_name":"whitestem
+        gooseberry","plant_id":"869"}},{"id":"3","type":"plot_plant","attributes":{"quantity":null,"date_planted":null,"plant_name":"prickly
+        rose","plant_id":"876"}}]}'
+  recorded_at: Thu, 17 Nov 2022 00:20:54 GMT
+recorded_with: VCR 6.1.0

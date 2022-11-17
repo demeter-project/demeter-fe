@@ -13,7 +13,7 @@ include SamplePlotResponse
   end
 
   describe 'when I visit garden show page' do
-    it 'and I click new plot button I am taken to form to create new plot' do
+    it 'and I click new plot button I am taken to form to create new plot', :vcr do
       stub_request(:get, "#{@api_base}/api/v1/gardens/1")
       .to_return(body: garden_response.to_json)
 
@@ -44,13 +44,8 @@ include SamplePlotResponse
 
       plots = GardenFacade.get_garden_plots(garden.id)
 
-      expect(current_path).to eq(garden_path(garden.id))
+      expect(current_path).to eq(garden_plot_path(garden.id, plots.last.id))
 
-      plots.each do |plot|
-        within "#plot-#{plot.id}" do
-          expect(page).to have_content(plot.name)
-        end
-      end
     end
   end
 

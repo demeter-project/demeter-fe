@@ -1,46 +1,47 @@
 <%= render partial: "/breadcrumbs" %>
-<% if @garden.weather_forecast.nil? %>
-  <h1>Whoops! We're having trouble loading weather information in your area.</h1>
-<% else %>
-  <h1 class="text-center"><%= @garden.name %></h1>
-  <div class="row">
-    <div class="col-sm-3">
-      <div class="row">
-        <div class="card" style="width: 8rem;">
-          <img class="card-img-top" src=<%= @garden.weather_forecast[0].icon%> alt="Weather icon">
-            <div class="card-body">
-              <h6 class="card-title">Current Weather</h6>
-                <p class="card-text" style="font-size: 8px;"><%= @garden.weather_forecast[0].detailed_forecast %></p>
-            </div>
-        </div>
-        <div class="card" style="width: 8rem;">
-          <img class="card-img-top" src=<%= @garden.weather_forecast[1].icon%> alt="Weather icon">
-            <div class="card-body">
-              <h6 class="card-title"><%= @garden.weather_forecast[1].day %></h6>
-                <p class="card-text" style="font-size: 8px;"><%= @garden.weather_forecast[1].detailed_forecast %></p>
-            </div>
-        </div>
-      </div>
-      <br>
-      <div class="row">
-        <div class="col">
-          <h4 style="text-align: center;">Weekly Forecast</h4>
-          <div class="w-100 text-center">
-            <dl>
-              <ul class="list-group">
-                <li class="list-group-item"><dt><%= @garden.weather_forecast[2].day %></dt> High: <%=  @garden.weather_forecast[2].temperature %>F Low: <%=  @garden.weather_forecast[3].temperature %>F</li>
-                <li class="list-group-item"><dt><%= @garden.weather_forecast[4].day %></dt> High: <%=  @garden.weather_forecast[4].temperature %>F Low: <%=  @garden.weather_forecast[5].temperature %>F</li>
-                <li class="list-group-item"><dt><%= @garden.weather_forecast[6].day %></dt> High: <%=  @garden.weather_forecast[6].temperature %>F Low: <%=  @garden.weather_forecast[7].temperature %>F</li>
-                <li class="list-group-item"><dt><%= @garden.weather_forecast[8].day %></dt> High: <%=  @garden.weather_forecast[8].temperature %>F Low: <%=  @garden.weather_forecast[9].temperature %>F</li>
-                <li class="list-group-item"><dt><%= @garden.weather_forecast[10].day %></dt> High: <%=  @garden.weather_forecast[10].temperature %>F Low: <%=  @garden.weather_forecast[11].temperature %>F</li>
-                <li class="list-group-item"><dt><%= @garden.weather_forecast[12].day %></dt> High: <%=  @garden.weather_forecast[12].temperature %>F Low: <%=  @garden.weather_forecast[13].temperature %>F</li>
-              </ul>
-            </dl>
+<h1 class="text-center"><%= @garden.name %></h1>
+<div class="row">
+  <div class="col-sm-3">
+    <div class="row">
+      <div class="col">
+        <h4 style="text-align: center;">Weather Forecast</h4>
+        <% if @garden.weather_forecast %>
+          <div class="w-100 text-left">
+            <ul class="list-group">
+              <% @garden.weather_forecast.each do |weather| %>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-sm-3 text-center" style="padding: 5px;">
+                      <img src="<%= weather.icon_path %>"><br>
+                      <strong><%= weather.temp.to_i %> °F</strong>
+                    </div>
+                    <div class="col-sm-9 pl-4">
+                      <div class="row h-100">
+                        <div class="col align-self-center">
+                          <div class="row">
+                            <% if weather.period.localtime.strftime("%b %-d") == Time.now.localtime.strftime("%b %-d") %>
+                              <strong><%= weather.period.localtime.strftime("Today - %l:%M %P") %></strong>
+                            <% else %>
+                              <strong><%= weather.period.localtime.strftime("%b %-d - %l:%M %P") %></strong>
+                            <% end %>
+                          </div>
+                          <div class="row"><%= weather.weather %></div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </li>
+              <% end %>  
+            </ul>
           </div>
-        </div>
+        <% else %>
+          <div class="w-100 text-center">Whoops! Unable to get a weather forecast for your area.</div>
+        <% end %>
       </div>
     </div>
-<% end %>
+  </div>
+
 
   <div class="col-sm-9">
     <div class="container bg-white rounded text-center pt-3">
@@ -59,6 +60,8 @@
                     Maximum Soil pH: <%= plot.soil_ph_max %> <br>
                     Shade Tolerant: <%= plot.shade_tolerant? %> <br>
                     Contains toxic plant?: <%= plot.contains_toxic? %> <br>
+                  <% else %>
+                    Add some plants to this plot to see useful information here!
                   <% end %>
                 </p>
                 <div class="mt-auto"><%= button_to "Delete #{plot.name}", garden_plot_path(@garden.id, plot.id), method: :delete, params: {garden_id: @garden.id, plot_id: plot.id}, data: { confirm: "Are you sure you want to remove plot: #{plot.name}?" }, class: "btn btn-outline-danger btn-sm" %></div>
